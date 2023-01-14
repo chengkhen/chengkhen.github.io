@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第7章 查找7.1 查找的基本概念查找表是由同一类型的数据元素（或记录）构成的集合。由于“集合”中的数据元素之间存在着松散的关系，因此查找表是一种应用灵便的结构。 查找：根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素或（记录）  关键字：用来标识一个数据元素（或记录）的某个数据项的值  主关键字：可唯一地标识一个记录的关键字是主关键字；  次关键字：反之，用以识别若干记录的关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查找——王卓">
+<meta property="og:url" content="http://example.com/2022/10/13/%E6%9F%A5%E6%89%BE%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="第7章 查找7.1 查找的基本概念查找表是由同一类型的数据元素（或记录）构成的集合。由于“集合”中的数据元素之间存在着松散的关系，因此查找表是一种应用灵便的结构。 查找：根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素或（记录）  关键字：用来标识一个数据元素（或记录）的某个数据项的值  主关键字：可唯一地标识一个记录的关键字是主关键字；  次关键字：反之，用以识别若干记录的关键字">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131110029.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131111682.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131111925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131112212.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131113075.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131113389.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131114924.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131115509.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131116899.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131117344.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131118813.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131118548.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131119631.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131119199.png">
+<meta property="article:published_time" content="2022-10-13T02:57:45.000Z">
+<meta property="article:modified_time" content="2023-01-05T03:51:24.034Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131110029.png">
+  
+  
+  
+  <title>查找——王卓 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="查找——王卓"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-13 10:57" pubdate>
+          2022年10月13日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          53 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">查找——王卓</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第7章-查找"><a href="#第7章-查找" class="headerlink" title="第7章 查找"></a>第7章 查找</h1><h2 id="7-1-查找的基本概念"><a href="#7-1-查找的基本概念" class="headerlink" title="7.1 查找的基本概念"></a>7.1 查找的基本概念</h2><p><strong>查找表</strong>是由同一类型的数据元素（或记录）构成的集合。由于“集合”中的数据元素之间存在着<strong>松散的关系</strong>，因此查找表是一种应用灵便的结构。</p>
+<p><strong>查找</strong>：根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素或（记录）</p>
+<ul>
+<li><p><strong>关键字</strong>：用来标识一个数据元素（或记录）的某个数据项的值</p>
+<ul>
+<li><p><strong>主关键字</strong>：可唯一地标识一个记录的关键字是主关键字；</p>
+</li>
+<li><p><strong>次关键字</strong>：反之，用以识别若干记录的关键字是次关键字。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>查找的目的：</p>
+<ul>
+<li><p>查询某个“特定的”数据元素是否在查找表中；</p>
+</li>
+<li><p>检索某个“特定的“数据元素的各种属性；</p>
+</li>
+<li><p>在查找表中插入一个数据元素；</p>
+</li>
+<li><p>删除查找表中的某个数据元素。</p>
+</li>
+</ul>
+</li>
+<li><p>查找的分类</p>
+<ul>
+<li><p><strong>静态查找表</strong>：仅作“查询”（检索）操作的查找表</p>
+</li>
+<li><p><strong>动态查找表</strong>：作“插入”和“删除”操作的查找表</p>
+</li>
+</ul>
+</li>
+<li><p>如何评价查找算法</p>
+<ul>
+<li><p>查找算法的评价指标“：关键字的平均比较次数，也称为<strong>平均查找长度</strong>，（ASL, Average Search Length）。</p>
+</li>
+<li><p>平均查找长度定义</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131110029.png" srcset="/img/loading.gif" lazyload></p>
+<p>查找的方法取决于查找表的结构，即表中数据元素是依何种关系组织在一起的。</p>
+<p>由于对查找表来说，在集合中查询或检索一个“特定的”数据元素时，若无规律可循，只能对集合中的元素一一加以辨认直至找到为止。而这样的“查询”或“检索”是任何计算机应用系统中使用频度都很高的操作，因此设法提高查找表的查找效率，是本章讨论问题的出发点。</p>
+<p>为提高查找效率，一个办法就是在构造查找表时，在集合中的数据元素之间人为地加上某种确定的约束关系。</p>
+<h2 id="7-2-线性表的查找"><a href="#7-2-线性表的查找" class="headerlink" title="7.2 线性表的查找"></a>7.2 线性表的查找</h2><h3 id="7-2-1-顺序查找（线性查找）"><a href="#7-2-1-顺序查找（线性查找）" class="headerlink" title="7.2.1 顺序查找（线性查找）"></a>7.2.1 顺序查找（线性查找）</h3><p>应用范围：顺序表或线性链表表示的<strong>静态查找表</strong>；表内元素之间无序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Search_Seq</span><span class="hljs-params">(SSTable ST, KeyTable key)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 若成功返回其位置信息，否则返回0</span><br>    <span class="hljs-keyword">for</span>(i = ST.length; i &gt;= <span class="hljs-number">1</span>; i--)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(ST.R[i].key == key) <span class="hljs-keyword">return</span> i;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>改进：把待查关键字key存入表头（“哨兵”、”监视哨”），从后往前逐个比较，可免去查找过程中每一步都要检测是否查找完毕，加快速度。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Search_Seq</span><span class="hljs-params">(SSTable ST, KeyTable key)</span></span><br><span class="hljs-function"></span>&#123;<br>    ST.R[<span class="hljs-number">0</span>].key = key;<br>    <span class="hljs-keyword">for</span>(i = ST.length; ST.R[i].key != key; i--);<br>    <span class="hljs-keyword">return</span> i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当ST.length较大时，此改进能使进行一次查找所需的平均时间几乎减少一半。</p>
+<ul>
+<li><p>时间复杂度：O(n)，查找成功时的平均查找长度为：<code>ASL(n) = (1+2+...+n)/n = (n+1)/2</code>。</p>
+</li>
+<li><p>空间复杂度：一个辅助空间，O(1)。</p>
+</li>
+</ul>
+<p>讨论：</p>
+<ol>
+<li><p>记录的查找概率不相等时如何提高查找效率？</p>
+<p> 查找表存储记录原则按查找概率高低存储：</p>
+<ol>
+<li><p>查找概率越高，比较次数越少；</p>
+</li>
+<li><p>查找概率越低，比较次数较多。</p>
+</li>
+</ol>
+</li>
+<li><p>记录的查找概率无法测定时如何提高查找效率？</p>
+<p> 方法——按查找概率<strong>动态调整</strong>记录顺序：</p>
+<ol>
+<li><p>在每个记录中设一个访问频度域；</p>
+</li>
+<li><p>始终保持记录按非递增有序的次序排列；</p>
+</li>
+<li><p>每次查找后均将刚查到的记录直接移至表头。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>优点：算法简单，逻辑次序无要求，且不同存储结构均适用。</p>
+<p>缺点：ASL太长，时间效率太低</p>
+<h3 id="7-2-2-折半查找（二分或对分查找）"><a href="#7-2-2-折半查找（二分或对分查找）" class="headerlink" title="7.2.2 折半查找（二分或对分查找）"></a>7.2.2 折半查找（二分或对分查找）</h3><p><strong>折半查找</strong>：每次将待查记录所在区间缩小一半。</p>
+<ul>
+<li><p>折半查找算法：（非递归算法）</p>
+<ul>
+<li><p>设表长为n，low、high和mid分别指向待查元素所在区间的上界、下界和中点，key为给定的要查找的值；</p>
+</li>
+<li><p>初始时，令low&#x3D;1，high&#x3D;n，mid&#x3D;floar((low+high)&#x2F;2)</p>
+</li>
+<li><p>让k与mid指向的记录比较</p>
+<ul>
+<li>若key&#x3D;&#x3D;R[mid].key，查找成功；</li>
+<li>若key&lt;R[mid].key，high&#x3D;mid-1；</li>
+<li>若key&gt;R[mid].key，low&#x3D;mid+1；</li>
+</ul>
+</li>
+<li><p>重复上述操作，直至low&gt;high时，查找失败</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Search_Bin</span><span class="hljs-params">(SSTable ST, KeyTable key)</span></span><br><span class="hljs-function"></span>&#123;<br>    low = <span class="hljs-number">1</span>; high = ST.length;<br>    <span class="hljs-keyword">while</span>(low &lt;= high)<br>    &#123;<br>        mid = (low + high) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(ST.R[mid].key == key) <span class="hljs-keyword">return</span> mid;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key &lt; ST.R[mid].key)<br>            high = mid<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">else</span><br>            low = mid + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>递归版：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Search_Bin</span><span class="hljs-params">(SSTable ST, KeyTable key, <span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(low &gt; high) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    mid = (low + high) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span>(key == ST.elem[mid].key) <span class="hljs-keyword">return</span> mid;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key &lt; ST.elem[mid].key)<br>        <span class="hljs-built_in">Search_Bin</span>(ST,key, mid<span class="hljs-number">-1</span>, high);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">Search_Bin</span>(ST,key, low, mid+<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>假定每个元素的查找概率相等，查找成功时的平均查找长度（ASL），设表长n&#x3D;2^h-1，则h&#x3D;log2(n+1)，查找概率相等为：1&#x2F;n，<code>ASL≈log2(n+1)-1    (n&gt;50)</code>。</p>
+<p>优点：效率比顺序查找高</p>
+<p>缺点：只适用于<strong>有序表</strong>，且限于<strong>顺序存储结构</strong>（对线性链表无效）。</p>
+<h3 id="7-2-3-分块查找（索引顺序查找）"><a href="#7-2-3-分块查找（索引顺序查找）" class="headerlink" title="7.2.3 分块查找（索引顺序查找）"></a>7.2.3 分块查找（索引顺序查找）</h3><p>分块查找条件基础：</p>
+<ol>
+<li><p>将表分成几块，且表有序或者分块有序。若i &lt; j，则第j块中所有记录的关键字均大于第i块中的最大关键字。</p>
+</li>
+<li><p>建立”索引表“（每个结点含有最大关键字域和指向本块第一个结点的指针，且按关键字有序）。</p>
+</li>
+</ol>
+<p>查找过程：先确定待查记录所在块（顺序或折半查找），再在块内查找（顺序查找）。</p>
+<p>查找效率：ASL &#x3D; LB + LW；即对索引表查找的ASL加上对块内查找的ASL</p>
+<ul>
+<li>图2：分块查找效率<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131111682.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<p>优点：插入和删除较容易，无需进行大量移动</p>
+<p>缺点：要增加一个索引表的存储空间并对初始索引表进行排序运算</p>
+<p>适用情况：如果线性表既要<strong>快速查找</strong>又经常<strong>动态变化</strong>，则可采用分块查找。</p>
+<ul>
+<li>图3：查找方法比较<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131111925.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h2 id="7-3-树表的查找"><a href="#7-3-树表的查找" class="headerlink" title="7.3 树表的查找"></a>7.3 树表的查找</h2><h3 id="7-3-1-二叉排序树"><a href="#7-3-1-二叉排序树" class="headerlink" title="7.3.1 二叉排序树"></a>7.3.1 二叉排序树</h3><p><strong>二叉排序树</strong>（Binary Sort Tree）又称为二叉搜索树、二叉查找树。</p>
+<ol>
+<li><p>二叉排序树定义：</p>
+<p> 二叉排序树或是空树，或是满足如下性质的二叉树：</p>
+<ol>
+<li><p>若其左子树非空，则左子树上所有结点的值均小于根结点的值；</p>
+</li>
+<li><p>若其右子树非空，则右子树上所有结点的值均大于等于根结点的值；</p>
+</li>
+<li><p>其左右子树本身又各是一棵二叉排序树</p>
+</li>
+</ol>
+</li>
+<li><p>二叉排序树的性质：</p>
+<p> 中序遍历非空的二叉排序树所得到的数据元素序列是一个按关键字排列的<strong>递增有序</strong>序列。</p>
+</li>
+<li><p>二叉排序树的操作——查找</p>
+<ul>
+<li><p>若查找的关键字等于根节点，成功。</p>
+</li>
+<li><p>否则：</p>
+<ul>
+<li><p>若小于根节点，查其左子树</p>
+</li>
+<li><p>若大于根节点，查找右子树</p>
+</li>
+</ul>
+</li>
+<li><p>在左右子树上的操作类似</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs C++">    <span class="hljs-comment">// 二叉排序树的存储结构</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ElemType</span><br>&#123;<br>    KeyType key;    <span class="hljs-comment">// 关键字项</span><br>    InfoType otherInfo; <span class="hljs-comment">// 其他数据项</span><br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">BSTNode</span><br>&#123;<br>    ElemType data;      <span class="hljs-comment">// 数据域</span><br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">BSTNode</span> *lchild, *rchild;        <span class="hljs-comment">// 左右孩子指针</span><br>&#125;;<br><span class="hljs-keyword">typedef</span> BSTNode* BSTree;<br><br><span class="hljs-comment">// 递归查找</span><br><span class="hljs-function">BSTree <span class="hljs-title">SearchBST</span><span class="hljs-params">(BSTree T, KeyType key)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(!T || key == T-&gt;data.key) <span class="hljs-keyword">return</span> T;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key &lt; T-&gt;data.key)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">SearchBST</span>(T-&gt;lchild, key);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">SearchBST</span>(T-&gt;rchild, key);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>二叉排序树的查找分析</p>
+<p> 二叉排序树上查找某关键字等于给定值的结点过程，其实就是走了一条从根到该结点的路径。</p>
+<p> 比较的关键字次数 &#x3D; 此结点所在层次数；最多的比较次数 &#x3D; 树的深度</p>
+<p> 对于含有n个结点的二叉排序树的平均查找长度和树的形状有关。</p>
+<pre><code class="hljs"> - 最好情况：与折半查找中的判定树相同，O(log2n)；
+
+ - 最坏情况：退化为单支树（类似于线性列表），树深度为n，ASL = (n+1)/2，O(n)；
+</code></pre>
+<p> 为了提高形态不均衡的二叉排序树的查找效率，应当进行“平衡化”处理（即<strong>平衡二叉树</strong>），尽量使二叉树的形状均衡！</p>
+</li>
+<li><p>二叉排序树的操作——插入</p>
+<ul>
+<li><p>若二叉排序树为空，则插入结点作为根结点插入到空树中</p>
+</li>
+<li><p>否则，继续在其左、右子树上查找</p>
+<ul>
+<li><p>树中已有，不再插入</p>
+</li>
+<li><p>树中没有</p>
+<ul>
+<li>查找直至某个叶子结点的左子树或右子树为空为止，则插入结点应为该叶子结点的左孩子或右孩子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> <strong>插入的元素一定是叶子节点</strong>。</p>
+</li>
+<li><p>二叉排序树的操作——生成</p>
+<p> 从空树出发，经过一系列的查找、插入操作之后，可生成一颗二叉排序树。</p>
+<p> 一个无序序列可通过构造二叉排序树而变成一个有序序列。构造树的过程就是对无序序列进行排序的过程。</p>
+<p> 插入的结点均为叶子结点，故无需移动其他结点。相当于在有序序列上插入记录而无需移动其他记录。但是，<strong>关键字的输入顺序不同，建立的二叉排序树也不同</strong>。</p>
+</li>
+<li><p>二叉排序树的操作——删除</p>
+<p> 从二叉排序树中删除一个结点，不能把以该结点为根的子树者都删除，只能删掉该结点，并且<strong>还应保证删除后所得的二叉树仍然满足二叉排序树的性质不变</strong>。</p>
+<p> 由于中序遍历二叉排序树可以得到一个递增有序的序列。那么，在二叉排序树中删去一个结点相当于删去有序序列中的一个结点。</p>
+<pre><code class="hljs"> - 将因删除结点而断开的二叉链表重新链接起来
+
+ - 防止重新链接后树的高度增加
+</code></pre>
+<ol>
+<li><p>如果删除的结点是叶子结点：直接删除该结点。</p>
+</li>
+<li><p>被删除的结点只有左子树或者只有右子树，用其左子树或者右子树替换它（结点替换）。</p>
+</li>
+<li><p>本删除的结点既有左子树，也有右子树：可以用其中序的前驱结点替换，然后删除该前驱结点（前驱结点是左子树中最大的结点）；也可以用中序的后继结点，然后删除该后继结点（后继是右子树中最小的结点）。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="7-3-2-平衡二叉树"><a href="#7-3-2-平衡二叉树" class="headerlink" title="7.3.2 平衡二叉树"></a>7.3.2 平衡二叉树</h3><ol>
+<li><p>平衡二叉树的定义</p>
+<p> <strong>平衡二叉树</strong>（balanced binary tree），又称为AVL树（Adelson-Velskii and Landis）。</p>
+<p> 一棵平衡二叉树或者是空树，或者是具有以下性质的<strong>二叉排序树</strong>：</p>
+<ul>
+<li><p>左子树与右子树的高度之差的绝对值小于等于1；</p>
+</li>
+<li><p>左子树和右子树也是<strong>平衡二叉排序树</strong>。</p>
+</li>
+</ul>
+<p> 左子树与右子树的高度差又称为结点的平衡因子（BF），<code>平衡因子=结点左子树的高度-结点右子树的高度</code>。根据平衡二叉树的定义，平衡二又树上所有结点的平衡因子只能是-1、0，或1。</p>
+</li>
+</ol>
+<p>对于一棵有n个结点的AVL树，其高度保持在O(log2n)数量级，ASL也保持在O(log2n)量级。</p>
+<ol start="2">
+<li><p>失衡二叉排序树的分析与调整</p>
+<p>当我们在一个平衡二叉排序树上插入一个结点时，有可能导致<strong>失衡</strong>，即出现平衡因子绝对值大于1的结点。</p>
+<p>如果在一个AVL树中插入一个新结点后造成失衡，则必须<strong>重新调整树的结构</strong>，使之回复平衡。</p>
+</li>
+</ol>
+<p>平衡调整的四种类型：LL型、LR型、RL型和RR型</p>
+<ul>
+<li><p>图4：平衡调整的四种类型示意图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131112212.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>图5：平衡调整的四种类型调整后示意图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131113075.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<p>平衡调整的原则：1）降低高度；2）保持二叉排序树性质</p>
+<ol>
+<li>LL型调整</li>
+</ol>
+<ul>
+<li><p>图6：LL型调整前-后对比示意图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131113389.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>B结点带左子树一起上升</p>
+</li>
+<li><p>A结点成为B的右孩子</p>
+</li>
+<li><p>原来B结点的右子树作为A的左子树</p>
+</li>
+<li><p>图7：LL型调整示例<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131114924.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<ol start="2">
+<li>RR型调整</li>
+</ol>
+<ul>
+<li><p>图8：RR型调整前-后对比示意图<br>  <img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131115509.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>B结点带右节点一起上升</p>
+</li>
+<li><p>A结点成为B结点的左孩子</p>
+</li>
+<li><p>原来B结点的左子树作为A的右子树</p>
+</li>
+<li><p>图9：RR型调整示例<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131116899.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<ol start="3">
+<li>LR型调整</li>
+</ol>
+<ul>
+<li><p>图10：LR型调整前-后对比示意图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131117344.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>C结点穿过A、B结点上升</p>
+</li>
+<li><p>B结点成为C的左孩子，A结点成为C的右孩子</p>
+</li>
+<li><p>原来C结点的左子树作为B的右子树，原来C结点的右子树作为A的左子树</p>
+</li>
+<li><p>图11：LR型调整示例<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131118813.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<ol start="4">
+<li>RL型调整</li>
+</ol>
+<ul>
+<li><p>图12：RL型调整前示意图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131118548.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>图13：RL型调整示例<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131119631.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h2 id="7-4-哈希表的查找（散列表的查找）"><a href="#7-4-哈希表的查找（散列表的查找）" class="headerlink" title="7.4 哈希表的查找（散列表的查找）"></a>7.4 哈希表的查找（散列表的查找）</h2><h3 id="7-4-1-散列表的基本概念"><a href="#7-4-1-散列表的基本概念" class="headerlink" title="7.4.1 散列表的基本概念"></a>7.4.1 散列表的基本概念</h3><p>基本思想：<strong>记录的存储位置与关键字之间的存在对应关系</strong>，对应关系常成为hash函数。</p>
+<p><strong>优点：查找效率高；缺点：空间效率低！</strong></p>
+<p><strong>散列方法（杂凑法）</strong>：选取某个函数，依该函数按关键字<strong>计算元素的存储位置</strong>，并按此存放。查找时，<strong>由同一个函数对给定值k计算地址</strong>，将k与地址单元中元素关键码进行对比，确定查找是否成功。</p>
+<p><strong>散列函数（杂凑函数）</strong>：散列方法中适用的<strong>转换函数</strong>。</p>
+<p><strong>冲突</strong>：不同的关键码映射到同一个散列地址，则称为冲突。</p>
+<h3 id="7-4-2-散列函数的构造方法"><a href="#7-4-2-散列函数的构造方法" class="headerlink" title="7.4.2 散列函数的构造方法"></a>7.4.2 散列函数的构造方法</h3><p>在散列查找方法中，冲突是不可避免的，只能尽可能避免。使用散列表要解决的两个主要为题包括：</p>
+<ol>
+<li><p>构造好的散列函数</p>
+<ul>
+<li><p>所选函数尽可能简单，以便提高转换速度；</p>
+</li>
+<li><p>所选函数对关键码计算出的地址，应在散列地址集中致均匀分布，以减少空间浪费。</p>
+</li>
+</ul>
+</li>
+<li><p>制定一个好的解决冲突的方案</p>
+<ul>
+<li>查找时，如果从散列函数计算出的地址中查不到关键码，则应当依据解决冲突的规则，有规律地查询其它相关单元。</li>
+</ul>
+</li>
+</ol>
+<p>构造散列函数考虑的因素：执行速度、关键字的长度、散列表的大小、关键字的分布情况、查找频率。</p>
+<p>根据元素集合的特性构造，<strong>要求一</strong>：n个数据原仅占用n个地址，虽然散列查找是以空间换时间，但仍希望散列的<strong>地址空间尽量小</strong>。<strong>要求二</strong>：无论用什么方法存储，目的都是尽量<strong>均匀</strong>地存放元素，以避免冲突。</p>
+<p>常见构造方法包括有：直接定址法、数字分析法、平方取中法、折叠法、<strong>除留余数法</strong>、随机数法。</p>
+<p><strong>直接定址法</strong>：以关键码key的某个线性函数值为散列地址，不会产生冲突。但是要占用连续地址空间，空间效率低。</p>
+<p><strong>除留余数法</strong>：<code>Hash(key) = key mod p(其中p是一个整数)</code>，常见p值取小于表长的质数。</p>
+<h3 id="7-4-3-处理冲突的方法"><a href="#7-4-3-处理冲突的方法" class="headerlink" title="7.4.3 处理冲突的方法"></a>7.4.3 处理冲突的方法</h3><ol>
+<li><p>开放地址法（开地址法）</p>
+<p> 当有冲突时就去寻找<strong>下一个</strong>空的散列地址，只要散列表足够大，空的散列地址总能找到，并将数据元素存入。常见方法包括：<strong>线性探测法</strong>、<strong>二次探测法</strong>、<strong>伪随机探测法</strong>。<code>Hi = (Hash(key) + di) mod m, m是散列表长度, di是增量序列</code></p>
+<p> 线性探测法：<code>di为1, 2, ..., m-1线性序列</code>，一旦冲突，就找下一个地址，直到找到空地址存入。</p>
+<p> 二次探测法：<code>di为1^2, -1^2, 2^2, -2^2， ..., q^2二次序列</code>。</p>
+<p> 伪随机探测法：<code>di为伪随机数序列</code>。</p>
+</li>
+<li><p>链地址法（拉链法）</p>
+<p> 将相同散列地址的记录链成一个单链表，<strong>m个散列地址就设m个单链表</strong>，然后用一个数组将m个单链表的表头指针存储起来，形成一个动态的结构。</p>
+<p> 链地址法建立散列表步骤：</p>
+<ol>
+<li><p>取数据元素的关键字key，计算其散列函数值（地址）。若该地址对应的链表为空，则将该元素插入此链表；否则执行步骤2解决冲突。</p>
+</li>
+<li><p>根据选择的冲突处理方法，计算关键字key的下一个存储地址。若该地址对应的链表为不为空，则利用链表的前插法或后插法将该元素插入此链表。</p>
+</li>
+</ol>
+<p> 连地址法的优点：非同义词<strong>不会冲突</strong>，无聚集现象；链表上结点空间动态申请，更适合于表长不确定的情况；</p>
+</li>
+<li><p>再散列法（双散列函数法）</p>
+</li>
+<li><p>建立一个公共溢出区</p>
+</li>
+</ol>
+<h3 id="7-4-4-散列表的查找及性能分析"><a href="#7-4-4-散列表的查找及性能分析" class="headerlink" title="7.4.4 散列表的查找及性能分析"></a>7.4.4 散列表的查找及性能分析</h3><ul>
+<li>图14：散列表查找流程图<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131119199.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<p>散列表的查找效率，如果使用平均查找长度ASL来衡量，则ASL取决于：散列函数、处理冲突的方法、散列表的<strong>装填因子</strong>α（<code>α=表中填入的记录数/哈希表的长度</code>）。</p>
+<p>其中，α越大，表中记录的数据越多，说明表装填的越满，发生冲突的可能性越大，查找时比较次数就越多。</p>
+<p>ASL与装填因子α有关，既不是严格的O(1)，也不是O(n)。</p>
+<p><code>ASL≈1+α/2(拉链法);ASL≈1/2*(1+(1/(1-α)))(线性探测法);ASL≈-(1/α)*ln(1-α)(随机探测法)</code>。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%8E%8B%E5%8D%93/" class="category-chain-item">数据结构王卓</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>查找——王卓</div>
+      <div>http://example.com/2022/10/13/查找——王卓/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" title="计算机组成与设计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机组成与设计</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/13/%E5%9B%BE%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/" title="图——王卓">
+                        <span class="hidden-mobile">图——王卓</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

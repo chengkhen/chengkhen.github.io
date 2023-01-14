@@ -1,0 +1,1170 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第三章 栈和队列栈和队列是两种重要的线性结构。从数据结构角度看，栈和队列也是线性表，其特殊性在于栈和队列的基本操作是线性表操作的子集，它们是操作受限的线性表，因此，可称为限定性的数据结构。但从数据类型角度看，它们是和线性表不相同的两类重要的抽象数据类型。 3.1 栈和队列的定义和特点3.1.1 栈的定义和特点栈(stack)是限定仅在表尾进行插入或删除操作的线性表。因此，对栈来说，表尾端有其特殊含">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈和队列——王卓">
+<meta property="og:url" content="http://example.com/2022/10/13/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="第三章 栈和队列栈和队列是两种重要的线性结构。从数据结构角度看，栈和队列也是线性表，其特殊性在于栈和队列的基本操作是线性表操作的子集，它们是操作受限的线性表，因此，可称为限定性的数据结构。但从数据类型角度看，它们是和线性表不相同的两类重要的抽象数据类型。 3.1 栈和队列的定义和特点3.1.1 栈的定义和特点栈(stack)是限定仅在表尾进行插入或删除操作的线性表。因此，对栈来说，表尾端有其特殊含">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131135382.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131136898.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131137111.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211515685.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211531419.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211531360.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211610264.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211630096.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211633233.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211635394.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211642768.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211647621.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211700806.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211913147.png">
+<meta property="og:image" content="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/%E5%8F%8C%E6%A0%88%E7%BB%93%E6%9E%84%E7%9A%84%E8%A1%A8%E7%A4%BA.png">
+<meta property="article:published_time" content="2022-10-13T02:55:52.000Z">
+<meta property="article:modified_time" content="2022-11-21T12:11:37.878Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131135382.png">
+  
+  
+  
+  <title>栈和队列——王卓 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="栈和队列——王卓"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-13 10:55" pubdate>
+          2022年10月13日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          81 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">栈和队列——王卓</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第三章-栈和队列"><a href="#第三章-栈和队列" class="headerlink" title="第三章 栈和队列"></a>第三章 栈和队列</h1><p>栈和队列是两种重要的线性结构。从数据结构角度看，栈和队列也是线性表，其特殊性在于栈和队列的基本操作是线性表操作的子集，它们是操作受限的线性表，因此，可称为<strong>限定性的数据结构</strong>。但从数据类型角度看，它们是和线性表不相同的两类重要的抽象数据类型。</p>
+<h2 id="3-1-栈和队列的定义和特点"><a href="#3-1-栈和队列的定义和特点" class="headerlink" title="3.1 栈和队列的定义和特点"></a>3.1 栈和队列的定义和特点</h2><h3 id="3-1-1-栈的定义和特点"><a href="#3-1-1-栈的定义和特点" class="headerlink" title="3.1.1 栈的定义和特点"></a>3.1.1 栈的定义和特点</h3><p><strong>栈</strong>(<strong>stack</strong>)是限定仅在<strong>表尾进行插入或删除</strong>操作的线性表。因此，对栈来说，表尾端有其特殊含义，称为<strong>栈顶</strong>(<strong>top</strong>)，相应地，表头端称为<strong>栈底</strong>(<strong>bottom</strong>)。不含元素的空表称为<strong>空栈</strong>。</p>
+<p>栈的修改是按后进先出的原则进行的，因此，栈又称为<strong>后进先出</strong>(Last In First Out, LIFO)的线性表。</p>
+<blockquote>
+<p>栈与一般线性表的区别</p>
+</blockquote>
+<p>栈与一般线性表的区别：<strong>仅存在运算规则不同</strong>。</p>
+<p>|一般线性表|栈|<br>|:—|:—:|:—:|<br>|逻辑结构|一对一|一对一|<br>|存储结构|顺序表、链表|顺序表、链表|<br>|运算规则|随机存取|后进先出(LIFO)|</p>
+<h3 id="3-1-2-队列的定义和特点"><a href="#3-1-2-队列的定义和特点" class="headerlink" title="3.1.2 队列的定义和特点"></a>3.1.2 队列的定义和特点</h3><p><strong>队列</strong>(<strong>queue</strong>)是一种<strong>先进先出</strong>(<strong>First In First Out, FIFO</strong>)的线性表。它只允许在表的一端进行插入，而在另一端删除元素。</p>
+<p>在队列中，允许插入的一端称为<strong>队尾</strong>(<strong>rear</strong>)，允许删除的一端则称为<strong>队头</strong>(<strong>front</strong>)。</p>
+<h2 id="3-2-案例引入"><a href="#3-2-案例引入" class="headerlink" title="3.2 案例引入"></a>3.2 案例引入</h2><h3 id="案例3-1-进制转换"><a href="#案例3-1-进制转换" class="headerlink" title="案例3.1 进制转换"></a>案例3.1 进制转换</h3><ul>
+<li>进制转换</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131135382.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="案例3-2-括号匹配的检验"><a href="#案例3-2-括号匹配的检验" class="headerlink" title="案例3.2 括号匹配的检验"></a>案例3.2 括号匹配的检验</h3><ul>
+<li><p>假设表达式中允许包含两种括号：圆括号和方括号</p>
+</li>
+<li><p>其嵌套的顺序随意，即：</p>
+<ol>
+<li><p>([ ] ( ))或[ ( [ ] [ ] ) ]为正确格式；</p>
+</li>
+<li><p>[ ( ] )为错误格式；</p>
+</li>
+<li><p>( [ () )或(()])为错误格式。</p>
+</li>
+</ol>
+</li>
+<li><p>括号匹配<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131136898.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h3 id="案例3-3-表达式求值"><a href="#案例3-3-表达式求值" class="headerlink" title="案例3.3 表达式求值"></a>案例3.3 表达式求值</h3><ul>
+<li><p>表达式求值是程序设计语言编译中一个最基本的问题，它的实现需要运用栈。</p>
+</li>
+<li><p>这里介绍的算法是由运算符优先级确定运算顺序的对表达式求值算法——算符优先算法。</p>
+</li>
+<li><p>表达式的组成</p>
+<ul>
+<li><p>操作数(operand)：常数、变量。</p>
+</li>
+<li><p>运算符(operator)：算术运算符、关系运算符和逻辑运算符。</p>
+</li>
+<li><p>界限符(delimiter)：左右括弧和表达式结束符。</p>
+</li>
+</ul>
+</li>
+<li><p>任何一个算术表达式都由<strong>操作数</strong>(常数、变量)、算术<strong>运算符</strong>(+、-、* 、&#x2F;)和界限符(括号、表达式结束符’#’、虚设的表达式起始符’#’)组成。后两者统称为算符。</p>
+</li>
+<li><p>为了实现表达式求值。需要设置两个栈：</p>
+<p>  一个是算符栈OPTR，用于寄存运算符。</p>
+<p>  另一个称为操作数栈OPND，用于寄存运算数和运算结果。</p>
+</li>
+<li><p>求值的处理过程是自左至右扫描表达式的每一个字符</p>
+<ul>
+<li><p>当扫描到的是运算数，则将其压入栈OPND，</p>
+</li>
+<li><p>当扫描到的是运算符时</p>
+<ul>
+<li><p>若这个运算符比OPTR栈顶运算符的优先级高，则入栈OPTR，继续向后处理</p>
+</li>
+<li><p>若这个运算符比OPTR栈顶运算符优先级低，则从OPND栈中弹出两个运算数，从栈OPTR中弹出栈顶运算符进行运算，并将运算结果压入栈OPND。</p>
+</li>
+</ul>
+</li>
+<li><p>继续处理当前字符，直到遇到结束符为止。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="案例3-4-舞伴问题"><a href="#案例3-4-舞伴问题" class="headerlink" title="案例3.4 舞伴问题"></a>案例3.4 舞伴问题</h3><p>假设在舞会上，男士和女士各自排成一队。舞会开始时，依次从男队和女队的队买务出一人配成舞伴。如果两队初始人数不相同，则较长的那一队中未配对者等待下一轮舞曲。现要求写一算法模拟上述舞伴配对问题。</p>
+<p>显然，先入队的男士或女士先出队配成舞。因此该问题具有典型的先进先出特性，可以用队列作为算法的数据结构。</p>
+<ul>
+<li><p>首先构造两个队列</p>
+</li>
+<li><p>依次将从男元素出队配成舞伴</p>
+</li>
+<li><p>某队为空，则另外一队等待着则是下一舞曲第一个可获得舞伴的人。</p>
+</li>
+</ul>
+<h2 id="3-3-栈的表示和操作的实现"><a href="#3-3-栈的表示和操作的实现" class="headerlink" title="3.3 栈的表示和操作的实现"></a>3.3 栈的表示和操作的实现</h2><h3 id="3-3-1-栈的抽象数据类型的类型定义"><a href="#3-3-1-栈的抽象数据类型的类型定义" class="headerlink" title="3.3.1 栈的抽象数据类型的类型定义"></a>3.3.1 栈的抽象数据类型的类型定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++">ADT Stack&#123;<br>数据对象：<br>    D = &#123;ai | ai ∈ ElemSet, i = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,...,n, n≥<span class="hljs-number">0</span>&#125;<br>数据关系：<br>    R1 = &#123;&lt;ai<span class="hljs-number">-1</span>, ai&gt; | ai<span class="hljs-number">-1</span>, ai∈D, i = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,...,n&#125;<br>    约定an端为栈顶，a1端为栈底<br>基本操作：<br>    初始化、进栈、出栈、取栈顶元素等<br>&#125;ADT Stack<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>栈的基本操作<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131137111.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="3-3-2-顺序栈的表示和实现"><a href="#3-3-2-顺序栈的表示和实现" class="headerlink" title="3.3.2 顺序栈的表示和实现"></a>3.3.2 顺序栈的表示和实现</h3><p>存储方式：同一般线性表的顺序存储结构完全相同，<strong>利用一组地址连续的存储单元依次存放自栈底到栈顶的数据元素</strong>。栈底一般在低地址端。</p>
+<ul>
+<li><p>附设<strong>top指针</strong>，指示栈顶元素在顺序栈中的位置。</p>
+</li>
+<li><p>另设<strong>base指针</strong>，指示栈底元素在顺序栈中的位置。</p>
+</li>
+<li><p>用stacksize表示栈可使用的最大容量。</p>
+</li>
+</ul>
+<p>但是，为了方便操作，通常top指示真正的<strong>栈顶元素之上</strong>的下标地址。</p>
+<p>空栈：base &#x3D;&#x3D; top是栈空标志</p>
+<p>栈满：top - base &#x3D;&#x3D; stacksize</p>
+<ul>
+<li><p>栈满时的处理方法：</p>
+<ol>
+<li><p>报错，返回操作系统</p>
+</li>
+<li><p>分配更大的空间，作为栈的存储空间，将原栈的内容移入新栈</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>使用数组作为顺序栈存储方式的特点：简单、方便、但易产生溢出（数组大小固定）</p>
+<ul>
+<li><p>上溢(overflow)：栈已经满，又要压入元素</p>
+</li>
+<li><p>下溢(underflow)：栈已经空，还要弹出元素</p>
+</li>
+</ul>
+<p>注：上溢是一种错误，使问题的处理无法进行；而下溢一般认为是一种结束条件，即问题处理结束。</p>
+<blockquote>
+<p>顺序栈的表示</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXSIZE 100</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SqStack</span>&#123;<br>    SElemType *base;    <span class="hljs-comment">// 栈底指针</span><br>    SElemType *top;     <span class="hljs-comment">// 栈顶指针</span><br>    <span class="hljs-type">int</span> stacksize;      <span class="hljs-comment">// 栈可用最大容量</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>算法3.1 顺序栈的初始化</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// 构造一个空栈</span><br><span class="hljs-function">State <span class="hljs-title">InitStack</span><span class="hljs-params">(SqStack &amp;S)</span></span>&#123;<br>    S.base = <span class="hljs-keyword">new</span> SElemType[MAXSIZE];<br>    <span class="hljs-keyword">if</span>(!S.base) <span class="hljs-built_in">exit</span>(OVERFLOW); <span class="hljs-comment">// 存储分配失败</span><br>    S.top = S.base; <span class="hljs-comment">// 栈顶指针等于栈底指针</span><br>    S.stacksize = MAXSIZE;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充算法1 判断顺序栈是否为空</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// 若栈为空，返回TRUE；否则返回FALSE</span><br><span class="hljs-function">State <span class="hljs-title">StackEmpty</span><span class="hljs-params">(SqStack &amp;S)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S.top == S.base)<br>        <span class="hljs-keyword">return</span> TRUE;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> FALSE;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充算法2 求顺序栈的长度</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">StackLength</span><span class="hljs-params">(SqStack S)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> S.top - S.base;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充算法3 清空顺序栈</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">ClearStack</span><span class="hljs-params">(SqStack &amp;S)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S.base) S.top = S.base;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充算法4 销毁顺序栈</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">DestoryStack</span><span class="hljs-params">(SqStack &amp;S)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S.base)&#123;<br>        <span class="hljs-keyword">delete</span> S.base;<br>        S.stacksize = <span class="hljs-number">0</span>;<br>        S.base = S.top = <span class="hljs-literal">NULL</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>算法3.2 顺序栈的入栈</p>
+</blockquote>
+<ul>
+<li><p>步骤：</p>
+<ol>
+<li><p>判断是否栈满，若满则出错</p>
+</li>
+<li><p>元素e压入栈顶</p>
+</li>
+<li><p>栈顶指针加1</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>先压入元素，再移动栈顶指针，为什么？</strong><br>我的理解是，你得先通过top指针找到你要把元素压入哪个位置，然后再把top指针上移</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">Push</span><span class="hljs-params">(SqStack &amp;S, SElemType e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S.top - S.base == S.stacksize)   <span class="hljs-comment">// 栈满</span><br>        <span class="hljs-keyword">return</span> ERROR;<br>    *S.top = e;<br>    S.top++;<br>    <span class="hljs-comment">// 两步加起来等同于</span><br>    <span class="hljs-comment">// *S.top++ = e;</span><br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>算法3.3 顺序栈的出栈</p>
+</blockquote>
+<ul>
+<li><p>步骤：</p>
+<ol>
+<li><p>判断是否栈空，若空则出错</p>
+</li>
+<li><p>获取栈顶元素e</p>
+</li>
+<li><p>栈顶指针减1</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>先移动栈底指针，再取出元素，为什么？</strong><br>我的理解是，你得先移动栈顶指针，才能找到你要取出的元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">Pop</span><span class="hljs-params">(SqStack &amp;S, SElemType &amp;e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S.top  == S.base) <span class="hljs-keyword">return</span> ERROR;<span class="hljs-comment">//判断是否栈空，若空则出错（下溢）</span><br>    S.top--;<br>    e = *S.top;<br><span class="hljs-comment">// 等同于e = *--S.top;</span><br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-3-3-链栈的表示和实现"><a href="#3-3-3-链栈的表示和实现" class="headerlink" title="3.3.3 链栈的表示和实现"></a>3.3.3 链栈的表示和实现</h3><p>链栈是运算受限的单链表，只能在链表头部进行操作。定义链栈的结构类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">StackNode</span>&#123;<br>    SElemType data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">StackNode</span> *next;<br>&#125;StackNode， *LinkStack;<br>Link Stack S;<span class="hljs-comment">//创建栈S</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>注意：链栈中指针的方向</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211515685.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>链表的头指针就是栈顶</p>
+</li>
+<li><p>不需要头结点</p>
+</li>
+<li><p>基本不存在栈满的情况</p>
+</li>
+<li><p>空栈相当于，栈指针指向空</p>
+</li>
+<li><p>插入和删除仅在栈顶处执行</p>
+</li>
+</ul>
+<blockquote>
+<p>算法3.5 链栈的初始化</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">InitStack</span><span class="hljs-params">(LinkStack &amp;S)</span></span>&#123;<br>    <span class="hljs-comment">// 构造一个空栈，栈顶指针置为空</span><br>    S = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充算法1 判断链栈是否位空</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">StackEmpty</span><span class="hljs-params">(LinkList S)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> TRUE;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> FALSE;<br>&#125; <br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>算法3.6 链栈的入栈</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">Push</span><span class="hljs-params">(LinkStack &amp;S, SElemType e)</span></span>&#123;<br>    p = <span class="hljs-keyword">new</span> StackNode;  <span class="hljs-comment">// 生成新结点p</span><br>    p-&gt;data = e;    <span class="hljs-comment">// 将新结点数据域置为e</span><br>    p-&gt;next = S;    <span class="hljs-comment">// 将新结点插入栈顶</span><br>    S = p;          <span class="hljs-comment">// 修改栈顶指针</span><br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>算法3.7 链栈的出栈</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">Pop</span><span class="hljs-params">(LinkStack &amp;S, SElemType &amp;e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> ERROR;<br>    e = S-&gt;data;把数据用e存储<br>    p = S;  <span class="hljs-comment">//存储原来的栈顶指针</span><br>    S = S-&gt;next;<br>    <span class="hljs-keyword">delete</span> p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211531419.png" srcset="/img/loading.gif" lazyload><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211531360.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>算法3.8 取栈顶的元素</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">SElemType <span class="hljs-title">GetTop</span><span class="hljs-params">(LinkStack S)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(S != <span class="hljs-literal">NULL</span>)&#123;<br>        <span class="hljs-keyword">return</span> S-&gt;data;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-4-栈与递归"><a href="#3-4-栈与递归" class="headerlink" title="3.4 栈与递归"></a>3.4 栈与递归</h2><ul>
+<li><p>递归的定义</p>
+<ul>
+<li><p>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的；</p>
+</li>
+<li><p>若一个过程直接地或间接地调用自己，则称这个过程是递归的过程。</p>
+</li>
+</ul>
+</li>
+<li><p>常用到递归方法的三种情况：</p>
+<ul>
+<li><p>递归定义的数学函数</p>
+</li>
+<li><p>具有递归特性的数据结构</p>
+<ul>
+<li><p>二叉树</p>
+</li>
+<li><p>广义表</p>
+</li>
+</ul>
+</li>
+<li><p>可递归求解的问题</p>
+<ul>
+<li><p>迷宫问题</p>
+</li>
+<li><p>汉诺塔问题</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>递归问题——用分治法求解</p>
+<ul>
+<li><p>分治法：对于一个较为复杂的问题，能够分解成几个相对简单的且解法相同或类似的子问题来求解</p>
+</li>
+<li><p>用分治法必备的三个条件</p>
+<ol>
+<li><p>能将一个问题转变成一个新问题，而新问题与原问题的解法相同或类同，不同的仅是处理的对象，且这些处理对象是变化有规律的</p>
+</li>
+<li><p>可以通过上述转换而使得问题简化</p>
+</li>
+<li><p>必须有一个明确的递归出口，或称递归边界</p>
+</li>
+</ol>
+</li>
+<li><p>分治法求解递归问题算法的一般形式</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">p</span><span class="hljs-params">(参数表)</span></span>&#123;<br>    <span class="hljs-comment">// 基本项</span><br>    <span class="hljs-keyword">if</span>(递归结束条件) 可直接求解步骤; <span class="hljs-comment">// 递归边界</span><br>    <span class="hljs-comment">// 归纳项</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-built_in">p</span>(较小的参数);<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">例如：<br><span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-title">Fact</span><span class="hljs-params">(<span class="hljs-type">long</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;  <span class="hljs-comment">//基本项</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> n * <span class="hljs-built_in">Fact</span>(n<span class="hljs-number">-1</span>);  <span class="hljs-comment">//归纳项</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数调用过程</p>
+<ul>
+<li><p>调用前，系统完成</p>
+<ul>
+<li><p>将实参、返回地址等传递给被调函数</p>
+</li>
+<li><p>为被调函数的局部变量分配存储区</p>
+</li>
+<li><p>将控制转移到被调函数的入口</p>
+</li>
+</ul>
+</li>
+<li><p>调用后，系统完成：</p>
+<ul>
+<li><p>保存被调函数的计算结果</p>
+</li>
+<li><p>释放被调函数的数据区</p>
+</li>
+<li><p>依照被调函数保存的返回地址将控制转移到被调函数</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>当多个函数构成嵌套调用时</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211610264.png" srcset="/img/loading.gif" lazyload><br><strong>遵循后调用的先返回</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211630096.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211633233.png" srcset="/img/loading.gif" lazyload><br>工作记录包括实参，局部变量，返回地址<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211635394.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>递归的优缺点</p>
+<ul>
+<li><p>优点：结构清晰，程序易读</p>
+</li>
+<li><p>缺点：每次调用要生成工作记录，保存状态信息，入栈；返回时要出栈，恢复状态信息。时间开销大。</p>
+</li>
+</ul>
+</li>
+<li><p>实现递归转非递归</p>
+<ul>
+<li><p>方法1：尾递归、单向递归变为循环结构</p>
+</li>
+<li><p>方法2：自用栈模拟系统的运行时栈</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211642768.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-5-队列的表示和操作的实现"><a href="#3-5-队列的表示和操作的实现" class="headerlink" title="3.5 队列的表示和操作的实现"></a>3.5 队列的表示和操作的实现</h2><ul>
+<li><p>队列描述</p>
+<ul>
+<li><p><strong>队列</strong>(<strong>Queue</strong>)是仅在表尾进行插入操作，在表头进行删除操作的线性表。</p>
+</li>
+<li><p>表尾即an端，称为队尾；表头即a1端，称为队头；</p>
+</li>
+<li><p>它是一种先进先出(FIFO)的线性表</p>
+</li>
+</ul>
+</li>
+<li><p>队列的常见应用</p>
+<ul>
+<li><p>脱机打印输出：按申请的先后顺序依次输出</p>
+</li>
+<li><p>多用户系统中，多个用户排成队，分时地循坏使用CPU和主存</p>
+</li>
+<li><p>按用户的优先级排成多个队，每个优先级一个队列</p>
+</li>
+<li><p>实时控制系统中，信号俺接受的先后顺序依次处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-5-1-队列的抽象数据类型定义"><a href="#3-5-1-队列的抽象数据类型定义" class="headerlink" title="3.5.1 队列的抽象数据类型定义"></a>3.5.1 队列的抽象数据类型定义</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211647621.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-5-2-队列的顺序表示和实现"><a href="#3-5-2-队列的顺序表示和实现" class="headerlink" title="3.5.2 队列的顺序表示和实现"></a>3.5.2 队列的顺序表示和实现</h3><p>队列的物理存储可以用顺序存储结构，也可用链式存储结构。相应地队列的存储方式也分为两种，即<strong>顺序队列</strong>和<strong>链式队列</strong>。</p>
+<p>队列的顺序表示——用一维数组<code>base[MAXQSIZE]</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXQSIZE 100 <span class="hljs-comment">// 最大队列长度</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span>&#123;<br>    QElemType *base;    <span class="hljs-comment">// 初始化的动态分配存储空间</span><br>    <span class="hljs-type">int</span> front;  <span class="hljs-comment">// 头指针，即队头下标</span><br>    <span class="hljs-type">int</span> rear;   <span class="hljs-comment">// 尾指针</span><br>&#125;SqQueue;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211700806.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>顺序队列存在的问题</p>
+</blockquote>
+<p>顺序队列的真溢出问题：即front&#x3D;0，rear&#x3D;MAXQSIZE时，队列中存满，为真溢出；</p>
+<p>而当入队、出队操作之后，随着front和rear移动，出现front!&#x3D;0，rear&#x3D;MAXQSIZE时，为假溢出。</p>
+<blockquote>
+<p>顺序队列假上溢解决办法</p>
+</blockquote>
+<ul>
+<li><p>解决假上溢的方法 </p>
+<ol>
+<li><p>将队中元素依次向队头方向移动。缺点：浪费时间。每移动一次，队中元素都要移动。</p>
+</li>
+<li><p>将队空间设想成一个循环的表，即分配给队列的m个存储单元可以循环使用，当rear为maxqsize时，若向量的开始端空着，又可从头使用空着的空间。当front为maxqsize时，也是一样。</p>
+</li>
+</ol>
+</li>
+<li><p>引入循环队列——解决假上溢的问题</p>
+<p>  <code>base[0]</code>接在<code>base[MAXQSIZE-1]</code>之后，若rear+1 &#x3D;&#x3D; M，则rear&#x3D;0；</p>
+<p>  实现方法：利用模运算(mod, %)</p>
+<p>  入队：(尾指针后移一位)</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C++">Q.base[Q.rear] = x;<br>Q.rear = (Q.rear+<span class="hljs-number">1</span>) % MAXQSIZE;<br></code></pre></td></tr></table></figure>
+
+<p>  出队：(头指针后移一位)</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C++">x = Q.base[Q.front];<br>Q.front = (Q.front + <span class="hljs-number">1</span>) % MAXQSIZE;<br></code></pre></td></tr></table></figure>
+
+<p>  针对循环队列，判断队空、队满时，front都与rear相等，因此可解决的方案有：</p>
+<ol>
+<li><p>另外设一个标态以区别队空和队满</p>
+</li>
+<li><p>另设一个变量，记录循环队列中当前元素个数</p>
+</li>
+<li><p>少用一个元素空间</p>
+</li>
+</ol>
+</li>
+<li><p>循环队列解决队满时判断方法——少用一个元素空间</p>
+<p>  队空时：front &#x3D;&#x3D; rear</p>
+<p>  队满时：(rear+1)% MAXQSIZE &#x3D;&#x3D; front;</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202211211913147.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>循环队列的类型定义</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXQSIZE 100 <span class="hljs-comment">// 最大队列长度</span></span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span>&#123;<br>    QElemType *base;    <span class="hljs-comment">// 初始化的动态分配存储空间</span><br>    <span class="hljs-type">int</span> front;  <span class="hljs-comment">// 头指针，若队列不为空，指向队列头元素</span><br>    <span class="hljs-type">int</span> rear;   <span class="hljs-comment">// 尾指针，若队列不为空，指向队尾元素的下一个位置</span><br>&#125;SqQueue;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环队列的操作——队列的初始化(算法3.11)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">InitQueue</span><span class="hljs-params">(SqQueue &amp;Q)</span></span>&#123;<br>    Q.base = <span class="hljs-keyword">new</span> QElemType[MAXQSIZE]; <span class="hljs-comment">//分配数组空间</span><br>    <span class="hljs-comment">//等同于Q.base=(QElemType*)malloc(MAXQSIZE*sizeof(QElemType));</span><br>    <span class="hljs-keyword">if</span>(!Q.base) <span class="hljs-built_in">exit</span>(OVERFLOW); <span class="hljs-comment">// 存储分配失败</span><br>    Q.front = Q.rear = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环队列的操作——求队列的长度(算法3.12)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">QueueLength</span><span class="hljs-params">(SqQueue Q)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> (Q.rear - Q.front + MAXQSIZE) % MAXQSIZE;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>队列中的元素个数&#x3D;(Q.rear - Q.front + MAXQSIZE) % MAXQSIZE</strong></p>
+<blockquote>
+<p>循环队列的操作——循环队列入队(算法3.13)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">EnQueue</span><span class="hljs-params">(SqQueue &amp;Q, QElemType e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>((Q.rear + <span class="hljs-number">1</span>) % MAXQSIZE == Q.front) <span class="hljs-keyword">return</span> ERROR; <span class="hljs-comment">// 队满</span><br>    Q.base[Q.rear] = e; <span class="hljs-comment">// 新元素加入队尾</span><br>    Q.rear = (Q.rear + <span class="hljs-number">1</span>) % MAXQSIZE;   <span class="hljs-comment">// 队尾指针+1</span><br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环队列的操作——循环队列出队(算法3.14)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">DeQueue</span><span class="hljs-params">(SqQueue &amp;Q, QElemType &amp;e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(Q.rear == Q.front) <span class="hljs-keyword">return</span> ERROR; <span class="hljs-comment">// 队空</span><br>    e = Q.base[Q.front];    <span class="hljs-comment">// 保存队头元素</span><br>    Q.front = (Q.front + <span class="hljs-number">1</span>) % MAXQSIZE; <span class="hljs-comment">// 队头指针+1</span><br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环队列的操作——取循环队列队头元素(算法3.15)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">QElemType <span class="hljs-title">GetHead</span><span class="hljs-params">(SqQueue Q)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(Q.rear != Q.front)&#123; <span class="hljs-comment">// 不为空</span><br>        <span class="hljs-keyword">return</span> Q.base[Q.front]; <span class="hljs-comment">// 返回队头指针元素的值，队头指针不变</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-5-3-链队——队列的链式表示和实现"><a href="#3-5-3-链队——队列的链式表示和实现" class="headerlink" title="3.5.3 链队——队列的链式表示和实现"></a>3.5.3 链队——队列的链式表示和实现</h3><p>若用户无法估计所用队列的长度，则宜采用链队列。</p>
+<blockquote>
+<p>链式队列的类型定义</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXQSIZE 100 <span class="hljs-comment">// 最大队列长度</span></span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Qnode</span>&#123;<br>    QElemType data;<br>    Qnode *next;<br>&#125;;<br><span class="hljs-keyword">typedef</span> Qnode *QueuePtr;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">LinkQueue</span>&#123;<br>    QueuePtr front; <span class="hljs-comment">// 队头指针</span><br>    QueuePtr rear;  <span class="hljs-comment">// 队尾指针</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>链队列的操作——链队列的初始化(算法3.16)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">InitQueue</span><span class="hljs-params">(LinkQueue &amp;Q)</span></span>&#123;<br>    Q.front = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QueuePtr</span>();<br>    Q.rear = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QueuePtr</span>();<br>    Q.front-&gt;next = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>链队列的操作——销毁链队列(补充)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">DestoryQueue</span><span class="hljs-params">(LinkQueue &amp;Q)</span></span>&#123;<br>    <span class="hljs-keyword">while</span>(Q.front)&#123;<br>        p = Q.front-&gt;next;<br>        <span class="hljs-built_in">delete</span> (Q.front);<br>        Q.front = p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>链队列的操作——将元素e入队(算法3.17)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">EnQueue</span><span class="hljs-params">(LinkQueue &amp;Q, QElemType e)</span></span>&#123;<br>    p = <span class="hljs-keyword">new</span> QueuePtr;<br>    <span class="hljs-keyword">if</span>(!p) <span class="hljs-built_in">exit</span>(OVERFLOW);  <span class="hljs-comment">// 存储分配失败</span><br>    p-&gt;data = e;<br>    p-&gt;next = <span class="hljs-literal">NULL</span>;<br>    Q.rear-&gt;next = p;<br>    Q.rear = p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>链队列的操作——链队列的出队(算法3.18)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">DeQueue</span><span class="hljs-params">(LinkQueue &amp;Q, QElemType &amp;e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(Q.front == Q.rear) <span class="hljs-keyword">return</span> ERROR; <span class="hljs-comment">// 队空</span><br>    p = Q.front-&gt;next;<br>    e = p-&gt;data;<br>    Q.front-&gt;next = p-&gt;next;<br>    <span class="hljs-keyword">if</span>(Q.rear == p) Q.rear = Q.front;<span class="hljs-comment">//此情况为删除的就是尾结点，此时队列为空，所以要使队尾指针等于队头指针</span><br>    <span class="hljs-keyword">delete</span> p;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>链队列的操作——求链队列的队头元素(算法3.19)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function">Status <span class="hljs-title">GetHead</span><span class="hljs-params">(LinkQueue &amp;Q, QElemType &amp;e)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(Q.front == Q.rear) <span class="hljs-keyword">return</span> ERROR;<br>    e = Q.front-&gt;next-&gt;data;<br>    <span class="hljs-keyword">return</span> OK;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-6-习题"><a href="#3-6-习题" class="headerlink" title="3.6 习题"></a>3.6 习题</h2><blockquote>
+<p>选择题</p>
+</blockquote>
+<ol>
+<li><p>设栈S和队列Q的初始状态为空，元素e1、e2、e3、e4、e5和e6依次进入栈s，一个元素出栈后即进入Q，若6个元素出队的序列是e2、e4、e3、e6、e5和e1，则栈S的容量至少应该是()</p>
+<p> A. 2  <strong>B. 3</strong>  C. 4  D. 6</p>
+</li>
+<li><p>若一个栈以向量<code>V[1...n]</code>存储，初始栈顶指针top设为n+1，则元素x进栈的正确操作是()。</p>
+<p> A. <code>top++; V[top]=x;</code> B. <code>V[top]=x; top++;</code> <strong>C.</strong> <code>top--; V[top]= x;</code> D. <code>V[top]=x; top--;</code></p>
+<p> 答案：C；解释：初始栈顶指针top为n+1，说明元素从数组向量的高端地址进栈，又因为元素存储在向量空间<code>V[1...n]</code>中，所以进栈时top指针先下移变为n，之后将元素x存储在<code>V[n]</code>。</p>
+</li>
+</ol>
+<blockquote>
+<p>算法设计题</p>
+</blockquote>
+<ol>
+<li><p>将编号为0和1的两个栈存放于一个数组空间<code>V[m]</code>中，栈底分别处于数组的两端。当第0号栈的栈顶指针<code>top[0]</code>等于-1时该栈为空；当第1号栈的栈顶指针<code>top[1]</code>等于m时，该栈为空。两个栈均从两端向中间增长(见图)。试编写双栈初始化，判断栈空、栈满、进栈和出栈等算法的函数。双栈数据结构的定义如下：</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">DblStack</span>&#123;<br>    <span class="hljs-type">int</span> top[<span class="hljs-number">2</span>], bot[<span class="hljs-number">2</span>]; <span class="hljs-comment">// 栈顶和栈底指针</span><br>    SElemType* V;       <span class="hljs-comment">// 栈数组</span><br>    <span class="hljs-type">int</span> m;              <span class="hljs-comment">// 栈最大可容纳元素个数</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p> <img src="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/%E5%8F%8C%E6%A0%88%E7%BB%93%E6%9E%84%E7%9A%84%E8%A1%A8%E7%A4%BA.png" srcset="/img/loading.gif" lazyload alt="双栈结构的表示"></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe1.cpp">算法设计题1</a></p>
+</li>
+<li><p>回文是指正读反读均相同的字符序列，如“abba”和“abdba”均是回文，但“good”不是回文。试写一个算法判定给定的字符序列是否为回文。（提示：将一半字符入栈）</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe2.cpp">算法设计题2</a></p>
+</li>
+<li><p>设从键盘输入一整数的序列：a1, a2, a3,…, an，试编写算法实现：用栈结构存储输入的整数，当ai≠-1时，将ai进栈；当ai &#x3D; -1时，输出栈顶整数并出栈。算法应对异常情况(入栈满等)给出相应的信息。</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe3.cpp">算法设计题3</a></p>
+</li>
+<li><p>从键盘上输入一个后缀表达式，试编写算法计算表达式的值。规定：逆波兰表达式的长度不超过一行，以”$”作为输入结束，操作数之间用空格分隔，操作符只可能有+、-、<em>、／四种运算。例如： 23434 + 2</em>$。</p>
+</li>
+<li><p>假设以I和O分别表示入栈和出栈操作。栈的初态和终态均为空，入栈和出栈的操作序列可表示为仅由I和O组成的序列，称可以操作的序列为合法序列，否则称为非法序列。</p>
+<ul>
+<li>下面所示的序列中哪些是合法的？</li>
+</ul>
+<p> A. IOIIOIOO B. IOOIOIIO C. IIIOIOIO D. IIIOOIOO</p>
+<ul>
+<li>通过对上述的分析，写出一个算法，判定所给的操作序列是否合法。若合法，返回true，否则返回false(假定被判定的操作序列已存入一维数组中)。</li>
+</ul>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe5.cpp">算法设计题5</a></p>
+</li>
+<li><p>假设以带头结点的循环链表表示队列，并且只设一个指针指向队尾元素结点（注意：不设头指针），试编写相应的置空队列、判断队列是否为空、入队和出队等算法。</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe6.cpp">算法设计题6</a></p>
+</li>
+<li><p>假设以数组<code>Q[m]</code>存放循环队列中的元素，同时设置一个标志tag，以tag &#x3D; 0和tag &#x3D; 1来区别在队头指针(front)和队尾指针(rear)相等时，队列状态为“空”还是“满”。试编写与此结构相应的插入(enqueue)和删除(dequeue)算法。</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe7.cpp">算法设计题7</a></p>
+</li>
+<li><p>如果允许在循环队列的两端都可以进行插入和删除操作。要求：</p>
+<ul>
+<li><p>写出循环队列的类型定义；</p>
+</li>
+<li><p>写出“从队尾删除”和“从队头插入”的算法。</p>
+</li>
+</ul>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe8.cpp">算法设计题8</a></p>
+</li>
+<li><p>已知Ackermann函数定义如下：Ack(m, n) &#x3D;</p>
+<ul>
+<li><p>n + 1, 当m &#x3D; 0时</p>
+</li>
+<li><p>Ack(m-1, 1), 当m≠0, n&#x3D;0时</p>
+</li>
+<li><p>Ack(m-1, Ack(m, n-1)), 当m≠0, n≠0时</p>
+</li>
+</ul>
+<ol>
+<li><p>写出计算Ack(m, n)的递归算法，并根据此算法给出Ack(2, 1)的计算过程。</p>
+</li>
+<li><p>写出计算Ack(m,n)的非递归算法。</p>
+</li>
+</ol>
+<p> <a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe9.cpp">算法设计题9</a></p>
+</li>
+<li><p>已知f为单链表的表头指针，链表中存储的都是整型数据，试写出实现下列运算的递归算法：</p>
+<ol>
+<li><p>求链表中的最大整数；</p>
+</li>
+<li><p>求链表的结点个数；</p>
+</li>
+<li><p>求所有整数的平均值。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/Vuean/DataStructure-Algorithmics/blob/main/Chapter3%20StackAndQueue/Chapter3Exe/AlgoDesignExe10.cpp">算法设计题10</a></p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%8E%8B%E5%8D%93/" class="category-chain-item">数据结构王卓</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>栈和队列——王卓</div>
+      <div>http://example.com/2022/10/13/栈和队列——王卓/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/13/%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/" title="串、数组和广义表">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">串、数组和广义表</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/13/%E7%BA%BF%E6%80%A7%E8%A1%A8%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/" title="线性表——王卓">
+                        <span class="hidden-mobile">线性表——王卓</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
