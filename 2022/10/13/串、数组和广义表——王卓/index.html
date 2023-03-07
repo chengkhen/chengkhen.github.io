@@ -18,24 +18,28 @@
   
     <meta name="description" content="第4章 串、数组和广义表字符串一般简称为串。串是一种特殊的线性表，其特殊性体现在数据元素是一个字符，也就是说，串是一种内容受限的线性表。 本章后两部分讨论的多维数组和广义表可以看成是线性表的一种扩充，即线性表的数据元素自身又是一个数据结构。高级语言都支持数组，但在高级语言中，重点介绍数组的使用，而本章重点介绍数组的内部实现，并介绍对于一些特殊的二维数组如何实现压缩存储。最后介绍广义表的基本概念和存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="串、数组和广义表">
-<meta property="og:url" content="http://example.com/2022/10/13/%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/index.html">
+<meta property="og:title" content="串、数组和广义表——王卓">
+<meta property="og:url" content="http://example.com/2022/10/13/%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
 <meta property="og:description" content="第4章 串、数组和广义表字符串一般简称为串。串是一种特殊的线性表，其特殊性体现在数据元素是一个字符，也就是说，串是一种内容受限的线性表。 本章后两部分讨论的多维数组和广义表可以看成是线性表的一种扩充，即线性表的数据元素自身又是一个数据结构。高级语言都支持数组，但在高级语言中，重点介绍数组的使用，而本章重点介绍数组的内部实现，并介绍对于一些特殊的二维数组如何实现压缩存储。最后介绍广义表的基本概念和存">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301301652448.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301301700866.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131129962.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131135247.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131133589.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202302011349375.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202302011350760.png">
 <meta property="article:published_time" content="2022-10-13T02:56:30.000Z">
-<meta property="article:modified_time" content="2022-11-08T04:08:43.627Z">
+<meta property="article:modified_time" content="2023-02-14T14:13:08.263Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131129962.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301301652448.png">
   
   
   
-  <title>串、数组和广义表 - Blog of ChengKhen</title>
+  <title>串、数组和广义表——王卓 - Blog of ChengKhen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="串、数组和广义表"></span>
+            <span id="subtitle" data-typed-text="串、数组和广义表——王卓"></span>
           
         </div>
 
@@ -223,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7k 字
+          7.1k 字
         
       </span>
     
@@ -234,7 +238,7 @@
         
         
         
-          59 分钟
+          60 分钟
         
       </span>
     
@@ -272,7 +276,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">串、数组和广义表</h1>
+            <h1 style="display: none">串、数组和广义表——王卓</h1>
             
             
               <div class="markdown-body">
@@ -300,7 +304,9 @@
 <li><p>所有的空串都是相等的。</p>
 </li>
 </ul>
-<h2 id="4-2-案例的引入"><a href="#4-2-案例的引入" class="headerlink" title="4.2 案例的引入"></a>4.2 案例的引入</h2><h2 id="4-3-串的类型定义、存储结构及其运算"><a href="#4-3-串的类型定义、存储结构及其运算" class="headerlink" title="4.3 串的类型定义、存储结构及其运算"></a>4.3 串的类型定义、存储结构及其运算</h2><h3 id="4-3-1-串的抽象类型定义"><a href="#4-3-1-串的抽象类型定义" class="headerlink" title="4.3.1 串的抽象类型定义"></a>4.3.1 串的抽象类型定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C++">ADT string&#123;<br>    数据对象：<br>    数据关系：<br>    基本操作：<br>        <span class="hljs-number">1.</span> <span class="hljs-built_in">StrAssign</span>(&amp;T, chars);    <span class="hljs-comment">// 串赋值</span><br>        <span class="hljs-number">2.</span> <span class="hljs-built_in">StrCompare</span>(S, T);        <span class="hljs-comment">// 串比较</span><br>        <span class="hljs-number">3.</span> <span class="hljs-built_in">StrLenght</span>(S);            <span class="hljs-comment">// 求串长</span><br>        <span class="hljs-number">4.</span> <span class="hljs-built_in">Concat</span>(&amp;T, S1, S2);      <span class="hljs-comment">// 串连结</span><br>        <span class="hljs-number">5.</span> <span class="hljs-built_in">SubString</span>(&amp;Sub, S, pos, len);    <span class="hljs-comment">// 求子串</span><br>        <span class="hljs-number">6.</span> <span class="hljs-built_in">StrCopy</span>(&amp;T, S);          <span class="hljs-comment">// 串拷贝</span><br>        <span class="hljs-number">7.</span> <span class="hljs-built_in">StrEmpty</span>(S);             <span class="hljs-comment">// 串判空</span><br>        <span class="hljs-number">8.</span> <span class="hljs-built_in">ClearString</span>(&amp;S);         <span class="hljs-comment">// 清空串</span><br>        <span class="hljs-number">9.</span> <span class="hljs-built_in">Index</span>(S, T, pos);        <span class="hljs-comment">// 子串的位置</span><br>        <span class="hljs-number">10.</span> <span class="hljs-built_in">Replace</span>(&amp;S, T, V);      <span class="hljs-comment">// 串替换</span><br>        <span class="hljs-number">11.</span> <span class="hljs-built_in">StrInsert</span>(&amp;S, pos, T);  <span class="hljs-comment">// 子串插入</span><br>        <span class="hljs-number">12.</span> <span class="hljs-built_in">StrDelete</span>(&amp;S, pos, len);    <span class="hljs-comment">// 子串删除</span><br>        <span class="hljs-number">13.</span> <span class="hljs-built_in">DestoryString</span>(&amp;S);      <span class="hljs-comment">// 串销毁</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301301652448.png" srcset="/img/loading.gif" lazyload><br>最后一个位b在d中位置</p>
+<h2 id="4-2-案例的引入"><a href="#4-2-案例的引入" class="headerlink" title="4.2 案例的引入"></a>4.2 案例的引入</h2><h2 id="4-3-串的类型定义、存储结构及其运算"><a href="#4-3-串的类型定义、存储结构及其运算" class="headerlink" title="4.3 串的类型定义、存储结构及其运算"></a>4.3 串的类型定义、存储结构及其运算</h2><h3 id="4-3-1-串的抽象类型定义"><a href="#4-3-1-串的抽象类型定义" class="headerlink" title="4.3.1 串的抽象类型定义"></a>4.3.1 串的抽象类型定义</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301301700866.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C++">ADT string&#123;<br>    数据对象：<br>    数据关系：<br>    基本操作：<br>        <span class="hljs-number">1.</span> <span class="hljs-built_in">StrAssign</span>(&amp;T, chars);    <span class="hljs-comment">// 串赋值</span><br>        <span class="hljs-number">2.</span> <span class="hljs-built_in">StrCompare</span>(S, T);        <span class="hljs-comment">// 串比较</span><br>        <span class="hljs-number">3.</span> <span class="hljs-built_in">StrLenght</span>(S);            <span class="hljs-comment">// 求串长</span><br>        <span class="hljs-number">4.</span> <span class="hljs-built_in">Concat</span>(&amp;T, S1, S2);      <span class="hljs-comment">// 串连结</span><br>        <span class="hljs-number">5.</span> <span class="hljs-built_in">SubString</span>(&amp;Sub, S, pos, len);    <span class="hljs-comment">// 求子串</span><br>        <span class="hljs-number">6.</span> <span class="hljs-built_in">StrCopy</span>(&amp;T, S);          <span class="hljs-comment">// 串拷贝</span><br>        <span class="hljs-number">7.</span> <span class="hljs-built_in">StrEmpty</span>(S);             <span class="hljs-comment">// 串判空</span><br>        <span class="hljs-number">8.</span> <span class="hljs-built_in">ClearString</span>(&amp;S);         <span class="hljs-comment">// 清空串</span><br>        <span class="hljs-number">9.</span> <span class="hljs-built_in">Index</span>(S, T, pos);        <span class="hljs-comment">// 子串的位置</span><br>        <span class="hljs-number">10.</span> <span class="hljs-built_in">Replace</span>(&amp;S, T, V);      <span class="hljs-comment">// 串替换</span><br>        <span class="hljs-number">11.</span> <span class="hljs-built_in">StrInsert</span>(&amp;S, pos, T);  <span class="hljs-comment">// 子串插入</span><br>        <span class="hljs-number">12.</span> <span class="hljs-built_in">StrDelete</span>(&amp;S, pos, len);    <span class="hljs-comment">// 子串删除</span><br>        <span class="hljs-number">13.</span> <span class="hljs-built_in">DestoryString</span>(&amp;S);      <span class="hljs-comment">// 串销毁</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="4-3-2-串的存储结构"><a href="#4-3-2-串的存储结构" class="headerlink" title="4.3.2 串的存储结构"></a>4.3.2 串的存储结构</h3><p>串中元素逻辑关系与线性表的相同，串可以采用与线性表相同的存储结构：<strong>顺序存储和链式存储</strong>。</p>
 <ol>
@@ -349,7 +355,7 @@
 <blockquote>
 <p>算法4.1——BF算法描述</p>
 </blockquote>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Index_BF</span><span class="hljs-params">(SString S, SString T)</span></span>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(i &lt;= S.lenght &amp;&amp; j &lt;= T.length)&#123;<br>        <span class="hljs-keyword">if</span>(S.ch[i] == T.ch[j])&#123;<br>            ++i;<br>            ++j;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-comment">// 主串、子串指针回溯重新开始下一次匹配</span><br>            i = i - j + <span class="hljs-number">2</span>;<br>            j = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(j &gt;= T.lenght) <span class="hljs-keyword">return</span> i - T.lenght;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Index_BF</span><span class="hljs-params">(SString S, SString T)</span></span>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(i &lt;= S.lenght &amp;&amp; j &lt;= T.length)&#123;<br>        <span class="hljs-keyword">if</span>(S.ch[i] == T.ch[j])&#123;<br>            ++i;<br>            ++j;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-comment">// 主串、子串指针回溯重新开始下一次匹配</span><br>            i = i - j + <span class="hljs-number">2</span>;<span class="hljs-comment">//可以看成（i-j+1）+1，i-j+1是把i退回到原来的位置，再加一移到后一个位置</span><br>            j = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(j &gt;= T.lenght) <span class="hljs-keyword">return</span> i - T.lenght;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p> 当m远小于n时，算法复杂度为O(n*m)，平均复杂度为O(nm&#x2F;2)。</p>
 </li>
@@ -363,7 +369,7 @@
 <blockquote>
 <p>KMP算法</p>
 </blockquote>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Index_KMP</span><span class="hljs-params">(SString S, SString T, <span class="hljs-type">int</span> pos)</span></span>&#123;<br>    <span class="hljs-type">int</span> i = pos, j = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; S.length &amp;&amp; j &lt; T.length)&#123;<br>        <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span> || S.ch[i] == T.ch[j])&#123;<br>            i++;<br>            j++;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            j = next[j];    <span class="hljs-comment">// i不变，j后退</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(j &gt; T.length) <span class="hljs-keyword">return</span> i - T.length;   <span class="hljs-comment">// 匹配成功</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_next</span><span class="hljs-params">(SString T, <span class="hljs-type">int</span>&amp; next[])</span></span>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, next[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; T.lenght)&#123;<br>        <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span> || T.ch[i] == T.ch[j])&#123;<br>            ++i;<br>            next[i] = j;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            j = next[j];<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Index_KMP</span><span class="hljs-params">(SString S, SString T, <span class="hljs-type">int</span> pos)</span></span>&#123;<br>    <span class="hljs-type">int</span> i = pos, j = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; S.length &amp;&amp; j &lt; T.length)&#123;<br>        <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span> || S.ch[i] == T.ch[j])&#123;<br>            i++;<br>            j++;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            j = next[j];    <span class="hljs-comment">// i不变，j后退</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(j &gt; T.length) <span class="hljs-keyword">return</span> i - T.length;   <span class="hljs-comment">// 匹配成功</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_next</span><span class="hljs-params">(SString T, <span class="hljs-type">int</span>&amp; next[])</span></span>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, next[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; T.length)&#123;<br>        <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span> || T.ch[i] == T.ch[j])&#123;<br>            ++i;<br>            next[i] = j;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            j = next[j];<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>next计算</p>
@@ -476,13 +482,13 @@
 </li>
 <li><p><strong>广义表的长度</strong>:定义为最外层所包含元素的个数；</p>
 </li>
-<li><p><strong>广义表的深度</strong>:定义为该广义表展开后所含括号的重数；其中，原子的深度为0，空表的深度为1。</p>
+<li><p><strong>广义表的深度</strong>:定义为该广义表展开后所含括号的重数；其中，原子的深度为0，空表的深度为1。A&#x3D;(b,c)的深度为1，B&#x3D;(A,d)的深度为2，C&#x3D;（f，b，h）的深度为3</p>
 </li>
 <li><p>广义表可以为其他广义表共享；</p>
 </li>
-<li><p>广义表可以是一个递归的表，即广义表也可以是其本身的一个子表。</p>
+<li><p>广义表可以是一个递归的表，即广义表也可以是其本身的一个子表。<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202302011349375.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><p>广义表是一个多层次的结构，可以用图形象地表示。</p>
+<li><p>广义表是一个多层次的结构，可以用图形象地表示。<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202302011350760.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ol>
 <blockquote>
@@ -576,8 +582,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>串、数组和广义表</div>
-      <div>http://example.com/2022/10/13/串、数组和广义表/</div>
+      <div>串、数组和广义表——王卓</div>
+      <div>http://example.com/2022/10/13/串、数组和广义表——王卓/</div>
     </div>
     <div class="license-meta">
       

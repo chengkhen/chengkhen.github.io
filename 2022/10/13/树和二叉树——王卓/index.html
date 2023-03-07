@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131127045.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131127885.png">
 <meta property="article:published_time" content="2022-10-13T02:57:03.000Z">
-<meta property="article:modified_time" content="2022-10-13T03:32:38.375Z">
+<meta property="article:modified_time" content="2023-02-14T15:34:56.206Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,17 +316,17 @@
 </li>
 <li><p><strong>非终端结点</strong>：度不为0的结点称为非终端结点或分支结点。除根结点之外，非终端结点也称为内部结点。</p>
 </li>
-<li><p><strong>双亲和孩子</strong>：结点的子树的根称为该结点的孩子，相应地，该结点称为孩子的双亲。例如，B的双亲为A，B的孩子有E和F。</p>
+<li><p><strong>父亲和孩子</strong>：结点的子树的根称为该结点的孩子，相应地，该结点称为孩子的父亲。例如，B的双亲为A，B的孩子有E和F。</p>
 </li>
-<li><p><strong>兄弟</strong>：同一个双亲的孩子之间互称兄弟。例如，H、I和J互为兄弟。</p>
+<li><p><strong>兄弟</strong>：同一个父亲的孩子之间互称兄弟。例如，H、I和J互为兄弟。</p>
 </li>
 <li><p><strong>祖先</strong>：从根到该结点所经分支上的所有结点。例如，M的祖先为A、D和H。</p>
 </li>
 <li><p><strong>子孙</strong>：以某结点为根的子树中的任一结点都称为该结点的子孙。如B的子孙为E、K、L和F。</p>
 </li>
-<li><p><strong>层次</strong>：结点的层次从根开始定义起，根为第一层，根的孩子为第二层。树中任一结点的层次等于其双亲结点的层次加1。</p>
+<li><p><strong>层次</strong>：结点的层次从根开始定义起，根为第一层，根的孩子为第二层。树中任一结点的层次等于其父亲结点的层次加1。</p>
 </li>
-<li><p><strong>堂兄弟</strong>：双亲在同一层的结点互为堂兄弟。例如，结点G与E、F、H、I、J互为堂兄弟。</p>
+<li><p><strong>堂兄弟</strong>：父亲在同一层的结点互为堂兄弟。例如，结点G与E、F、H、I、J互为堂兄弟。</p>
 </li>
 <li><p><strong>树的深度</strong>：树中结点的最大层次称为<strong>树的深度或高度</strong>。图中所示的树的深度为4。</p>
 </li>
@@ -341,7 +341,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202210131122180.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="5-1-3-二叉树的定义"><a href="#5-1-3-二叉树的定义" class="headerlink" title="5.1.3 二叉树的定义"></a>5.1.3 二叉树的定义</h3><p>引入二叉树的原因：</p>
 <ul>
-<li><p>二又树的结构最简单，规律性最强；</p>
+<li><p>二叉树的结构最简单，规律性最强；</p>
 </li>
 <li><p>可以证明，所有树都能转为唯一对应的二叉树，不失一般性。</p>
 </li>
@@ -408,7 +408,7 @@
 </ul>
 </li>
 </ol>
-<p>性质4：具有n个结点的完全二叉树的深度为⌊log2n⌋ + 1。</p>
+<p>性质4：具有n个结点的完全二叉树的深度为⌊log2n⌋ + 1。<br>注：⌊x⌋ 称作x的底，表示不大于x的最大整数</p>
 <p>性质5：如果对一棵有n个结点的完全二叉树(其深度为⌊log2n⌋+ 1)的结点按层序编号(从第1层到第⌊log2n⌋+1层，每层从左到右)，则对任一结点i(1≤i≤n)，有：</p>
 <ol>
 <li><p>如果i&#x3D;1，则结点1是二叉树的根，无双亲；如果i&gt;1，则其双亲是结点⌊i&#x2F;2⌋。</p>
@@ -440,7 +440,7 @@
 </li>
 <li><p>遍历用途：它是树结构插入、删除、修改、查找和排序运算的前提，是二叉树一切运算的基础和核心。</p>
 </li>
-<li><p>遍历方法：规定在先左后右的情况下，主要遍历方法有三种：先序遍历、中序遍历、后续遍历。</p>
+<li><p>遍历方法：规定在先左后右的情况下，主要遍历方法有三种：先序遍历、中序遍历、后序遍历。</p>
 </li>
 </ul>
 <ol>
@@ -485,7 +485,7 @@
 <ul>
 <li><p>若二叉树中各结点的值均不同，则二叉树结点的先序序列、中序序列、后序列都是唯一的。</p>
 </li>
-<li><p>由二叉树的先序序列和中序序列，或由二叉树的后序序列和中序序列可以确定唯一一棵二叉树</p>
+<li><p>由二叉树的先序序列和中序序列，或由二叉树的后序序列和中序序列可以确定唯一一棵二叉树（一定要有中序序列）</p>
 </li>
 </ul>
 <p> 例题：已知二叉树的先序和中序序列，构造出相应的二叉树：<strong>可以先由先序序列确定根，由中序确定左右子树</strong>。</p>
@@ -788,7 +788,7 @@
 </li>
 <li><p><strong>权</strong>：将树中结点赋给一个有着某种含义的数值，则这个数值称为该结点的权。赋予某个实体的一个量，是对实体的某个或某些属性的数值化描述。在数据结构中，实体有结点（元素）和边（关系）两大类，所以对应有<strong>结点权和边权</strong>。结点权或边权具体代表什么意义，由具体情况决定。如果在一棵树中的结点上带有权值，则对应的就有带权树等概念。</p>
 </li>
-<li><p><strong>结点的带权路径长度</strong>：从该结点到树根之间的<strong>路径长度与结点上权的乘积</strong>。</p>
+<li><p><strong>结点的带权路径长度</strong>：从该结点到树 根之间的<strong>路径长度与结点上权的乘积</strong>。</p>
 </li>
 <li><p><strong>树的带权路径长度</strong>：树中所有<strong>叶子结点</strong>的带权路径长度之和，通常记作WPL。</p>
 </li>
@@ -1064,8 +1064,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/13/%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/" title="串、数组和广义表">
-                        <span class="hidden-mobile">串、数组和广义表</span>
+                      <a href="/2022/10/13/%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8%E2%80%94%E2%80%94%E7%8E%8B%E5%8D%93/" title="串、数组和广义表——王卓">
+                        <span class="hidden-mobile">串、数组和广义表——王卓</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,27 +16,24 @@
   <meta name="author" content="ChengKhen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关系模型也有着三要素：  关系数据结构 关系操作 完整性约束  关系数据结构 单一的数据结构——关系  数据的逻辑结构——二维表   相关概念 域 笛卡尔积 关系 关系模式 关系数据库   码（Key，键）    由一个或多个属性组成   候选码：在关系中能唯一标识元组的属性或属性集  主属性：候选码的各个属性  主码：用户选组元组标识的候选键（有时候选码不止一个，但当候选码只有一个时，候选码和主">
+    <meta name="description" content="数据库系统概述数据、数据库、数据库管理系统、数据库系统 数据（Data）   数据库中存储的基本对象 描述事物的符号记录称为数据   数据库（DataBase 简称DB）   数据库是长期储存在计算机内、有组织、可共享的大量数据的结合 数据库数据具有永久存储、有组织和可共享三个基本特点  有组织是说数据库里面的数据是有一定结构的 可共享是说数据库里的数据可以被不同的软件访问和使用   数据库管理系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关系数据模型">
-<meta property="og:url" content="http://example.com/2023/01/07/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="数据库绪论">
+<meta property="og:url" content="http://example.com/2023/01/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%AA%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
-<meta property="og:description" content="关系模型也有着三要素：  关系数据结构 关系操作 完整性约束  关系数据结构 单一的数据结构——关系  数据的逻辑结构——二维表   相关概念 域 笛卡尔积 关系 关系模式 关系数据库   码（Key，键）    由一个或多个属性组成   候选码：在关系中能唯一标识元组的属性或属性集  主属性：候选码的各个属性  主码：用户选组元组标识的候选键（有时候选码不止一个，但当候选码只有一个时，候选码和主">
+<meta property="og:description" content="数据库系统概述数据、数据库、数据库管理系统、数据库系统 数据（Data）   数据库中存储的基本对象 描述事物的符号记录称为数据   数据库（DataBase 简称DB）   数据库是长期储存在计算机内、有组织、可共享的大量数据的结合 数据库数据具有永久存储、有组织和可共享三个基本特点  有组织是说数据库里面的数据是有一定结构的 可共享是说数据库里的数据可以被不同的软件访问和使用   数据库管理系">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071513004.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071517757.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071522716.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071522234.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303061554773.png">
 <meta property="article:published_time" content="2023-01-07T07:10:48.000Z">
-<meta property="article:modified_time" content="2023-01-07T07:23:01.698Z">
+<meta property="article:modified_time" content="2023-03-06T08:40:08.369Z">
 <meta property="article:author" content="ChengKhen">
-<meta property="article:tag" content="数据库原理">
+<meta property="article:tag" content="数据库系统概论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071513004.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303061554773.png">
   
   
   
-  <title>关系数据模型 - Blog of ChengKhen</title>
+  <title>数据库绪论 - Blog of ChengKhen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关系数据模型"></span>
+            <span id="subtitle" data-typed-text="数据库绪论"></span>
           
         </div>
 
@@ -224,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          1.2k 字
         
       </span>
     
@@ -235,7 +232,7 @@
         
         
         
-          4 分钟
+          11 分钟
         
       </span>
     
@@ -273,76 +270,121 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关系数据模型</h1>
+            <h1 style="display: none">数据库绪论</h1>
             
             
               <div class="markdown-body">
                 
-                <p>关系模型也有着三要素：</p>
-<ul>
-<li>关系数据结构</li>
-<li>关系操作</li>
-<li>完整性约束</li>
-</ul>
-<h2 id="关系数据结构"><a href="#关系数据结构" class="headerlink" title="关系数据结构"></a>关系数据结构</h2><ul>
-<li><p>单一的数据结构——关系</p>
-</li>
-<li><p>数据的逻辑结构——二维表<br><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071513004.png" srcset="/img/loading.gif" lazyload></p>
-</li>
-</ul>
-<h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><ul>
-<li>域</li>
-<li>笛卡尔积</li>
-<li>关系</li>
-<li>关系模式</li>
-<li>关系数据库</li>
-</ul>
-<blockquote>
-<p>码（Key，键）    由一个或多个属性组成</p>
+                <h1 id="数据库系统概述"><a href="#数据库系统概述" class="headerlink" title="数据库系统概述"></a>数据库系统概述</h1><h2 id="数据、数据库、数据库管理系统、数据库系统"><a href="#数据、数据库、数据库管理系统、数据库系统" class="headerlink" title="数据、数据库、数据库管理系统、数据库系统"></a>数据、数据库、数据库管理系统、数据库系统</h2><blockquote>
+<p>数据（Data）</p>
 </blockquote>
 <ul>
-<li><p>候选码：在关系中能唯一标识元组的属性或属性集</p>
-</li>
-<li><p>主属性：候选码的各个属性</p>
-</li>
-<li><p>主码：用户选组元组标识的候选键（有时候选码不止一个，但当候选码只有一个时，候选码和主码指向同一个属性）</p>
-</li>
-<li><p>全码：关系的所有属性是这个关系的候选码</p>
-</li>
+<li>数据库中存储的基本对象</li>
+<li>描述事物的符号记录称为数据</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071517757.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
-<p>三类关系</p>
+<p>数据库（DataBase 简称DB）</p>
 </blockquote>
 <ul>
-<li><p>基本关系（基本表或基表）</p>
+<li>数据库是长期储存在计算机内、有组织、可共享的大量数据的结合</li>
+<li>数据库数据具有永久存储、有组织和可共享三个基本特点 </li>
+<li>有组织是说数据库里面的数据是有一定结构的</li>
+<li>可共享是说数据库里的数据可以被不同的软件访问和使用</li>
+</ul>
+<blockquote>
+<p>数据库管理系统（DataBase Mangement System  简称DBMS）</p>
+</blockquote>
+<p><strong>数据库管理系统的主要功能包括：</strong></p>
 <ul>
-<li>实际存在的表，是实际存储数据的逻辑表示</li>
+<li>数据定义功能</li>
 </ul>
-</li>
-<li><p>查询表</p>
+<p>DBMS提供数据定义语言（Data Definition Language 简称DDL），用户通过它可以方便地对数据库中的数据对象进行定义 </p>
 <ul>
-<li>查询结构对应的表</li>
+<li>数据组织、存储和管理</li>
 </ul>
-</li>
-<li><p>视图</p>
+<p>DBMS要分类组织、存储和管理各种数据，包括数据字典、用户数据、数据的存取路径等</p>
 <ul>
-<li>由基本表或其他视图导出的表，是虚表，不对应实际存储的数据</li>
+<li>数据操纵功能</li>
 </ul>
-</li>
-<li><p>基本关系的性质</p>
+<p>DBMS提供数据操纵语言（Data Manipulation Language 简称DML），用户可以使用DML操纵数据，实现对数据库的基本操作，查询、插入、删除、修改等</p>
 <ul>
-<li>列是同质的，即每一列中的分量是同一类型的数据，来自同一个域</li>
-<li>不同的列可以出自同一个域</li>
-<li>无所谓列的顺序</li>
-<li>无所谓行的顺序</li>
-<li>任意两个元组不能相同（这也就是码的作用，也意味着码必定存在）</li>
-<li>分量必须取原子值（就是说不能自己扩充，比如下面的联系电话，只能占一列）</li>
+<li>数据库的事务管理和运行管理</li>
 </ul>
-</li>
+<p>数据库在建立、运用和维护时由数据库管理系统统一管理、统一控制，以保证数据的安全性、完整性、多用户对数据的并发使用及发生故障后的系统恢复</p>
+<ul>
+<li>数据库的建立和维护功能</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071522716.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202301071522234.png" srcset="/img/loading.gif" lazyload></p>
+<p>数据库初始数据的输入、转换功能、数据库的转储、恢复功能、数据库的重组织功能、性能监视、分析功能等</p>
+<blockquote>
+<p>数据库系统（DataBase System 坚持DBS）</p>
+</blockquote>
+<ul>
+<li>数据库系统一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员构成</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303061554773.png" srcset="/img/loading.gif" lazyload alt="image-20230306155400705"></p>
+<h2 id="数据管理技术的产生和反展"><a href="#数据管理技术的产生和反展" class="headerlink" title="数据管理技术的产生和反展"></a>数据管理技术的产生和反展</h2><p>数据管理技术经历了人工管理、文件系统、数据库系统三个阶段</p>
+<blockquote>
+<p>人工管理阶段</p>
+</blockquote>
+<p><strong>人工管理数据有如下特点：</strong></p>
+<ul>
+<li>数据不保存</li>
+<li>应用程序管理数据</li>
+<li>数据不共享</li>
+<li>数据不具有独立性（数据和程序绑定在一起）</li>
+</ul>
+<p><strong>缺点：</strong>数据的逻辑结构或物理结构发生变化后，必须对应用程序做相应的修改，这就加重了程序员的负担</p>
+<blockquote>
+<p>文件系统阶段</p>
+</blockquote>
+<p><strong>用文件系统管理数据具有如下特点：</strong></p>
+<ul>
+<li>数据可以长期保存</li>
+<li>有文件系统管理数据</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>数据共享性差，冗余度大</li>
+<li>数据独立性差</li>
+</ul>
+<blockquote>
+<p>数据库系统阶段</p>
+</blockquote>
+<p><strong>用数据库系统管理数据具有如下特点：</strong></p>
+<ul>
+<li>数据结构化</li>
+<li>数据的共享性高、冗余度低、易扩充</li>
+<li>数据独立性高</li>
+<li>数据由DBMS统一管理和控制</li>
+</ul>
+<h1 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h1><ul>
+<li>数据模型也是一种模型，它是对显示世界数据特征的抽象。数据模型就是现实世界的模拟</li>
+</ul>
+<h2 id="两类数据模型"><a href="#两类数据模型" class="headerlink" title="两类数据模型"></a>两类数据模型</h2><p><strong>数据模型应满足三方面要求：</strong></p>
+<ul>
+<li>能比较真实地模拟现实世界</li>
+<li>容易为人所理解</li>
+<li>便于在计算机上实现</li>
+</ul>
+<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4><p>也称信息模型，它是按用户的观点来对数据和信息建模，主要用于数据库设计</p>
+<h4 id="逻辑模型和物理模型"><a href="#逻辑模型和物理模型" class="headerlink" title="逻辑模型和物理模型"></a>逻辑模型和物理模型</h4><blockquote>
+<p>逻辑模型</p>
+</blockquote>
+<p>主要包括层次模型、网状模型、关系模型、面向对象模型、对象关系模型。它是按计算机系统的观点对数据建模，主要用于DBMS的实现</p>
+<blockquote>
+<p>物理模型</p>
+</blockquote>
+<p>对数据最低层的抽象，它描述数据再系统内部的表示方式和存取方法，在磁盘或磁带上的存储方式和存取方法，是面向计算机系统的 </p>
+<h2 id="数据模型的组成要素"><a href="#数据模型的组成要素" class="headerlink" title="数据模型的组成要素"></a>数据模型的组成要素</h2><p><strong>数据模型通常由数据结构、数据操作和完整性约束三部分组成</strong></p>
+<blockquote>
+<p>数据结构</p>
+</blockquote>
+<blockquote>
+<p>数据操作</p>
+</blockquote>
+<blockquote>
+<p>完整性约束</p>
+</blockquote>
 
                 
               </div>
@@ -361,7 +403,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="category-chain-item">数据库原理</a>
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/" class="category-chain-item">数据库系统概论</a>
   
   
 
@@ -376,7 +418,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">#数据库原理</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">#数据库系统概论</a>
       
     </div>
   
@@ -388,8 +430,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>关系数据模型</div>
-      <div>http://example.com/2023/01/07/关系数据模型/</div>
+      <div>数据库绪论</div>
+      <div>http://example.com/2023/01/07/数据库绪论/</div>
     </div>
     <div class="license-meta">
       
