@@ -16,15 +16,29 @@
   <meta name="author" content="ChengKhen">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="机器数及特点为什么研究机器内的数据表示 目的：组织数据，方便计算机硬件直接使用 考虑因素： 支持的数据类型 能表示的数据范围 能表示的数据精度 存储和处理的代价 是否有利于软件的移植    机器内的数据表示 真值：符号用 + - 表示的数据表示方法 机器数：符号数值化的数据表示法，用0、1表示符号 三种常见的机器数：设定点数的形式为X0X1X2X3…Xn  其中X0为符号位，其余为数值位  新增知">
+<meta property="og:type" content="article">
 <meta property="og:title" content="数据表示">
 <meta property="og:url" content="http://example.com/2023/03/09/%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="机器数及特点为什么研究机器内的数据表示 目的：组织数据，方便计算机硬件直接使用 考虑因素： 支持的数据类型 能表示的数据范围 能表示的数据精度 存储和处理的代价 是否有利于软件的移植    机器内的数据表示 真值：符号用 + - 表示的数据表示方法 机器数：符号数值化的数据表示法，用0、1表示符号 三种常见的机器数：设定点数的形式为X0X1X2X3…Xn  其中X0为符号位，其余为数值位  新增知">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201916637.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201918652.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201923186.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201937716.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201939551.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201941781.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201945261.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201946725.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201949041.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201952574.png">
 <meta property="article:published_time" content="2023-03-09T08:41:15.000Z">
-<meta property="article:modified_time" content="2023-03-09T08:41:15.081Z">
+<meta property="article:modified_time" content="2023-03-20T12:00:18.176Z">
 <meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="计组">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201916637.png">
   
   
   
@@ -216,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          432 字
         
       </span>
     
@@ -227,7 +241,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -270,7 +284,49 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="机器数及特点"><a href="#机器数及特点" class="headerlink" title="机器数及特点"></a>机器数及特点</h1><h2 id="为什么研究机器内的数据表示"><a href="#为什么研究机器内的数据表示" class="headerlink" title="为什么研究机器内的数据表示"></a>为什么研究机器内的数据表示</h2><ul>
+<li>目的：组织数据，方便计算机硬件直接使用</li>
+<li>考虑因素：<ul>
+<li>支持的数据类型</li>
+<li>能表示的数据范围</li>
+<li>能表示的数据精度</li>
+<li>存储和处理的代价</li>
+<li>是否有利于软件的移植</li>
+</ul>
+</li>
+</ul>
+<h2 id="机器内的数据表示"><a href="#机器内的数据表示" class="headerlink" title="机器内的数据表示"></a>机器内的数据表示</h2><ul>
+<li>真值：符号用 + - 表示的数据表示方法</li>
+<li>机器数：符号数值化的数据表示法，用0、1表示符号</li>
+<li>三种常见的机器数：设定点数的形式为X0X1X2X3…Xn</li>
+</ul>
+<p>其中X0为符号位，其余为数值位</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201916637.png" srcset="/img/loading.gif" lazyload alt="image-20230320191604497"></p>
+<h3 id="新增知识移码（增码）"><a href="#新增知识移码（增码）" class="headerlink" title="新增知识移码（增码）"></a><strong>新增知识移码（增码）</strong></h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201918652.png" srcset="/img/loading.gif" lazyload alt="image-20230320191821569"></p>
+<h1 id="定点与浮点数据表示"><a href="#定点与浮点数据表示" class="headerlink" title="定点与浮点数据表示"></a>定点与浮点数据表示</h1><h2 id="定点数据表示"><a href="#定点数据表示" class="headerlink" title="定点数据表示"></a>定点数据表示</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201923186.png" srcset="/img/loading.gif" lazyload alt="image-20230320192337103"></p>
+<h2 id="浮点数据表示"><a href="#浮点数据表示" class="headerlink" title="浮点数据表示"></a>浮点数据表示</h2><ul>
+<li>把数的范围和精度分别表示的一种数据表示方法</li>
+<li>浮点数的使用场合：数的表示范围超过了定点数能表示的范围</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201937716.png" srcset="/img/loading.gif" lazyload alt="image-20230320193757634"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201939551.png" srcset="/img/loading.gif" lazyload alt="image-20230320193913463"></p>
+<ul>
+<li>一般表示格式的不足：不同系统可能根据自己的浮点数格式从中提前不同位数的阶码</li>
+</ul>
+<blockquote>
+<p>IEEE 754格式</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201941781.png" srcset="/img/loading.gif" lazyload alt="image-20230320194125697"></p>
+<ul>
+<li>指数采用偏移值，其中单精度偏移值为127，双精度为1023，将浮点数的阶码值变为非负整数，便于浮点数的比较和排序</li>
+<li>IEEE754尾数形式为1.XXXXXX，其中M部分保存的是XXXXXX（1被隐藏），从而可保留更多的有效位，提高数据表示的精确度</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201945261.png" srcset="/img/loading.gif" lazyload alt="image-20230320194541166"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201946725.png" srcset="/img/loading.gif" lazyload alt="image-20230320194601633"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201949041.png" srcset="/img/loading.gif" lazyload alt="image-20230320194933967"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202303201952574.png" srcset="/img/loading.gif" lazyload alt="image-20230320195221464"></p>
+<p>这里的H表示十六进制</p>
+
                 
               </div>
             
@@ -278,6 +334,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%BB%84/" class="category-chain-item">计组</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%BB%84/">#计组</a>
+      
+    </div>
   
 </div>
 
@@ -329,6 +413,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/03/14/Linux%E5%AD%A6%E4%B9%A0/" title="Linux学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
