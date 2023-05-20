@@ -18,17 +18,18 @@
   
     <meta name="description" content="问题分析首要问题  首先找到单片机上LED灯元件的位置，发现在74HC573上，74HC573是典型的锁存器芯片  D0D7为数据输入，Q0Q7为数据输出。Output Enable（OE）为输出使能端， Latch Enable（LE）为锁存使能端  OE为高电平时，无论LE与D端为何种电平状态，其输出都为高阻态，此时芯片处于不可控状态。所以在设计电路是我们直接将Output Enable接地，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C51之实现LED灯明亮">
+<meta property="og:title" content="C51之点亮LED灯">
 <meta property="og:url" content="http://example.com/2023/05/17/C51%E4%B9%8B%E5%AE%9E%E7%8E%B0LED%E7%81%AF%E6%98%8E%E4%BA%AE/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
 <meta property="og:description" content="问题分析首要问题  首先找到单片机上LED灯元件的位置，发现在74HC573上，74HC573是典型的锁存器芯片  D0D7为数据输入，Q0Q7为数据输出。Output Enable（OE）为输出使能端， Latch Enable（LE）为锁存使能端  OE为高电平时，无论LE与D端为何种电平状态，其输出都为高阻态，此时芯片处于不可控状态。所以在设计电路是我们直接将Output Enable接地，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171640961.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171746507.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305202122160.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305172147649.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305172152262.png">
 <meta property="article:published_time" content="2023-05-17T08:37:18.000Z">
-<meta property="article:modified_time" content="2023-05-17T14:19:54.561Z">
+<meta property="article:modified_time" content="2023-05-20T13:52:42.846Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="单片机">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +37,7 @@
   
   
   
-  <title>C51之实现LED灯明亮 - Blog of ChengKhen</title>
+  <title>C51之点亮LED灯 - Blog of ChengKhen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C51之实现LED灯明亮"></span>
+            <span id="subtitle" data-typed-text="C51之点亮LED灯"></span>
           
         </div>
 
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          596 字
+          2k 字
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          5 分钟
+          17 分钟
         
       </span>
     
@@ -273,7 +274,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C51之实现LED灯明亮</h1>
+            <h1 style="display: none">C51之点亮LED灯</h1>
             
             
               <div class="markdown-body">
@@ -295,16 +296,28 @@
 <li><p>然后使输出端为低电平，即为0，也就是要输入端为0，也就是P0寄存器的相应位要为0（需求二）</p>
 </li>
 </ul>
-<h2 id="首要问题的需求一"><a href="#首要问题的需求一" class="headerlink" title="首要问题的需求一"></a>首要问题的需求一</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171746507.png" srcset="/img/loading.gif" lazyload alt="image-20230517174652454"></p>
+<h2 id="解决需求"><a href="#解决需求" class="headerlink" title="解决需求"></a>解决需求</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171746507.png" srcset="/img/loading.gif" lazyload alt="image-20230517174652454"></p>
 <ul>
 <li>此图是Y4C的来源，怎么让Y4C为高电平呢？</li>
 <li>74HC02是四路二输入或非门即Y&#x3D;(A或B)的非,要使Y4C为高电平，首先跳线选23，使得WR接地，为低电平，因此，Y4也应为低电平</li>
 </ul>
+<p>对此处J13做一下说明</p>
+<ul>
+<li>该开发板有两种编程模式，由J13这个跳线控制，当2-3短接的时候，是I&#x2F;O编程；当2-1短接的时候，编程模式为MM编程(存储器映射)。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305202122160.png" srcset="/img/loading.gif" lazyload alt="image-20230520212216044"></p>
+<p>怎么样使Y4为低电平？</p>
 <p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305172147649.png" srcset="/img/loading.gif" lazyload alt="image-20230517214709590"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305172152262.png" srcset="/img/loading.gif" lazyload alt="image-20230517215224207"></p>
 <ul>
 <li>为了使Y4为低电平，要使38译码器输入为011，也就是把P2^5 , P2^6, P2^7设置为011</li>
 </ul>
+<h2 id="初步实现"><a href="#初步实现" class="headerlink" title="初步实现"></a>初步实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;STC15F2K60S2.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;bsp_led.h&quot;</span></span><br><br><span class="hljs-comment">//下面的sbit只有在操作某一个位时，才需前缀</span><br>sbit LED_0 = P0^<span class="hljs-number">0</span>;<br>sbit LED_1 = P0^<span class="hljs-number">1</span>;<br>sbit LED_2 = P0^<span class="hljs-number">2</span>;<br>sbit LED_3 = P0^<span class="hljs-number">3</span>;<br>sbit LED_4 = P0^<span class="hljs-number">4</span>;<br>sbit LED_5 = P0^<span class="hljs-number">5</span>;<br>sbit LED_6 = P0^<span class="hljs-number">6</span>;<br>sbit LED_7 = P0^<span class="hljs-number">7</span>;<br><br><span class="hljs-comment">//使P0=1111 1110，打开led_0</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">open_led_0</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>  unlock_74HC573();  <br>	P0 = <span class="hljs-number">0xfe</span>;<br>&#125;<br><br><br><span class="hljs-comment">//解锁74hc573锁存器</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">unlock_74HC573</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    P25 = <span class="hljs-number">0</span>;<br>	  P26 = <span class="hljs-number">0</span>;<br>	  P27 = <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>	<br>	<span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>	&#123;<br>		open_led_0();<br><br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;STC15F2K60S2.H&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;bsp_led.h&quot;</span></span><br><br><br><br><span class="hljs-comment">//使P0=1111 1110，打开led_0</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">open_led_0</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>  unlock_74HC573();  <br>	P0 = <span class="hljs-number">0xfe</span>;<br>&#125;<br><br><br><span class="hljs-comment">//解锁74HC573锁存器</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">unlock_74HC573</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    P25 = <span class="hljs-number">0</span>;<br>	P26 = <span class="hljs-number">0</span>;<br>	P27 = <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">//锁上74HC573锁存器</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">lock_74HC573</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <br>&#125;<br><br><span class="hljs-comment">//关闭所有led灯</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">close_led</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    unlock_74HC573();  <br>	  P0 = <span class="hljs-number">0xff</span>;<br>	  lock_74HC573();<br>&#125;<br><br><span class="hljs-comment">//延时函数</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">Delay1000ms</span><span class="hljs-params">()</span>		<br>&#123;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> i, j, k;<br><br>	_nop_();<br><span class="hljs-comment">/*_使用_nop_()函数（可理解为软件延时）时，必须在开头添加头文件#include&lt;intrins.h&gt;</span><br><span class="hljs-comment">_nop_()函数相当于一个空操作（可以理解为NOP空操作指令）*/</span><br>	i = <span class="hljs-number">8</span>;<br>	j = <span class="hljs-number">1</span>;<br>	k = <span class="hljs-number">243</span>;<br>	<span class="hljs-keyword">do</span><br>	&#123;<br>		<span class="hljs-keyword">do</span><br>		&#123;<br>			<span class="hljs-keyword">while</span> (--k);<br>		&#125; <span class="hljs-keyword">while</span> (--j);<br>	&#125; <span class="hljs-keyword">while</span> (--i);<br>&#125;    <br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>	<br>	<span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>	&#123;<br>		open_led_0();<br>		delay1000ms();<br>		close_led();<br><br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -357,7 +370,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C51之实现LED灯明亮</div>
+      <div>C51之点亮LED灯</div>
       <div>http://example.com/2023/05/17/C51之实现LED灯明亮/</div>
     </div>
     <div class="license-meta">
