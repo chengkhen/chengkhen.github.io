@@ -27,7 +27,6 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305042343438.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305161831724.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061042365.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061050328.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061059967.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061107190.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061115974.png">
@@ -42,7 +41,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305111444479.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305111459898.png">
 <meta property="article:published_time" content="2023-05-04T15:09:27.000Z">
-<meta property="article:modified_time" content="2023-05-16T13:00:51.848Z">
+<meta property="article:modified_time" content="2023-05-23T13:08:35.162Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="王道计组">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.7k 字
+          9.2k 字
         
       </span>
     
@@ -249,7 +248,7 @@
         
         
         
-          73 分钟
+          77 分钟
         
       </span>
     
@@ -357,7 +356,7 @@
 <li>存储体就是由一系列的存储元件来构成的, 可以存放二进制0或1</li>
 <li>两个重要的寄存器, 一个叫MAR, 一个叫MDR, 它们分别是存储地址寄存器和存储数据寄存器</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305061050328.png" srcset="/img/loading.gif" lazyload alt="image-20230506105025286"></p>
+<p>xxxxxxxxxx &#x2F;* 邻接矩阵存储 - 多源最短路算法 <em>&#x2F; ​bool Floyd( MGraph Graph, WeightType D[][MaxVertexNum], Vertex path[][MaxVertexNum] ) {         Vertex i, j, k;     &#x2F;</em> 初始化 <em>&#x2F;     for ( i&#x3D;0; i<Graph->Nv; i++ )         for( j&#x3D;0; j<Graph->Nv; j++ ) {                         D[i][j] &#x3D; Graph-&gt;G[i][j];             path[i][j] &#x3D; -1;                      }         for( k&#x3D;0; k<Graph->Nv; k++ )         for( i&#x3D;0; i<Graph->Nv; i++ )             for( j&#x3D;0; j<Graph->Nv; j++ )                 if( D[i][k] + D[k][j] &lt; D[i][j] ) {                     D[i][j] &#x3D; D[i][k] + D[k][j];                     if ( i&#x3D;&#x3D;j &amp;&amp; D[i][j]&lt;0 ) &#x2F;</em> 若发现负值圈 <em>&#x2F;                         return false; &#x2F;</em> 不能正确解决，返回错误标记 <em>&#x2F;                     path[i][j] &#x3D; k;                 }         return true;     &#x2F;</em> 算法执行完毕，返回正确标记 *&#x2F; }c</p>
 <ul>
 <li>一整个存储体会被分成一个一个的存储单元, 每一个存储单元会存放一串二进制代码</li>
 <li>那每一个单元里边存储的这一串二进制代码, 我们就把它称为一个存储字</li>
