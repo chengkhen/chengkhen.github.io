@@ -31,8 +31,19 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305212301779.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305212338356.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305212341848.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220924232.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220927029.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220928407.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220935289.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220938059.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220956559.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221006226.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221015156.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221024889.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221025030.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221027353.png">
 <meta property="article:published_time" content="2023-05-21T02:07:37.000Z">
-<meta property="article:modified_time" content="2023-05-21T15:56:49.215Z">
+<meta property="article:modified_time" content="2023-05-22T03:17:43.817Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          3.3k 字
         
       </span>
     
@@ -239,7 +250,7 @@
         
         
         
-          14 分钟
+          28 分钟
         
       </span>
     
@@ -367,6 +378,90 @@
 </ul>
 <p>图2-12的上半部分给出了1：M联系的属性。下半部分基于同样的需求，但将学生的注册日期作为实体STUDENT的属性StudentCollSdate，而不是作为联系Attends的属性DateStarted，由于一个学生只能加入一个学院，因此该学生加入该学院的日期可以作为STUDENT实体本身的一个属性，如本例所述，1：M联系的一个属性可转化为在该联系中最大基数为1的实体属性（本例中的STUDENT）。更一般地讲，联系属性可以转化为在该联系中最大基数为1的实体属性。</p>
 <p><strong>因此，1：M或1：1联系的属性都不是必要的，相反，对一些M：N联系来说，属性是必要的</strong></p>
+<h2 id="复合属性"><a href="#复合属性" class="headerlink" title="复合属性"></a>复合属性</h2><ul>
+<li>复合属性是若干属性的组合</li>
+<li>图2-14中，属性CUSTFULLNAME由两个部分组成：属性CustFName和属性CusrLName</li>
+<li>复合属性用于表示由若干单个属性组成的属性集合拥有新含义的情况</li>
+<li><strong>注意：</strong>CustFullName不是实体CUSTOMER的额外属性，它仅仅表示将名字和姓氏结合起来以后所得到的完整的顾客姓名</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220924232.png" srcset="/img/loading.gif" lazyload alt="image-20230522092453170"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220927029.png" srcset="/img/loading.gif" lazyload alt="image-20230522092746962"></p>
+<h2 id="复合的唯一属性"><a href="#复合的唯一属性" class="headerlink" title="复合的唯一属性"></a>复合的唯一属性</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220928407.png" srcset="/img/loading.gif" lazyload alt="image-20230522092809363"></p>
+<p>图2-17中，教学楼（Building）、房间号（RoomNumebr）、座位数（Numeber of seats）、是实体CLASSROOM的三个属性，但它们都不唯一</p>
+<p>CLASSROOM实体的需求表示如下：</p>
+<ul>
+<li>同一栋教学楼中可以有多个教室</li>
+<li>可以有多个教室拥有相同的房间号（如A教学楼的111房间与B教学楼的111房间）</li>
+<li>可以有多个监视拥有相同的座位数</li>
+</ul>
+<p>由于三个属性都不唯一，而教学楼和房间号两个属性的结合却是唯一，因此，这两个属性组成的复合属性可以作为唯一属性</p>
+<h2 id="多个唯一属性（候选码）"><a href="#多个唯一属性（候选码）" class="headerlink" title="多个唯一属性（候选码）"></a>多个唯一属性（候选码）</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220935289.png" srcset="/img/loading.gif" lazyload alt="image-20230522093515243"></p>
+<ul>
+<li>图2-18给出的实体同时拥有多个唯一属性，这里的每个唯一属性就叫做一个候选码</li>
+<li>候选的意义在于：这些属性都可以作为构建整个数据库时主要区别属性（或称主码）的备选</li>
+</ul>
+<h2 id="多值属性"><a href="#多值属性" class="headerlink" title="多值属性"></a>多值属性</h2><ul>
+<li><p>多值属性用于实体实例的统一属性可以有多个不同取值的情况</p>
+</li>
+<li><p>图2-20给出一个有多只属性的实体例子</p>
+</li>
+<li><p>表示多值属性的椭圆外画有双线</p>
+</li>
+<li><p>图2-20的情景：对于每个职员，需要记录若干个联系电话，某职员可能有两个联系电话，而有些职员可能有多于两个的联系电话</p>
+</li>
+<li><p>但如果对每个职员都记录两个联系电话，则不需要使用多值属性，只要分别使用两个单值属性就可以了</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220938059.png" srcset="/img/loading.gif" lazyload alt="image-20230522093859015"></p>
+<h2 id="派生属性"><a href="#派生属性" class="headerlink" title="派生属性"></a>派生属性</h2><ul>
+<li>派生属性是非永久存于数据库的属性，派生属性的值可以从别的属性值或其他数据（如当前日期）派生出来</li>
+<li>图2-22给出一个含派生属性的例子</li>
+<li>派生属性用虚线的椭圆标识，属性Opening-Date作为一个常规属性会存于最终的数据库中，YearsInBuiness作为一个派生属性不会存于数据库中，而是从商店的OpeningDate及当前日期中派生出来</li>
+<li>如果Yearbusiness是一个常规属性，其值将存于数据库中且需要人工更新，否则数据库将出现错误信息，而将YearsInBusiness作为派生属性后，就可以确保数据库以后将属性作为一个公式，用于得到正确的当前YearsInBusiness的属性值</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305220956559.png" srcset="/img/loading.gif" lazyload alt="image-20230522095637513"></p>
+<h2 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h2><ul>
+<li>对每个实例，实体的大部分属性都有相应的取值，但有的属性也可能没有取值，这些属性就是可选属性</li>
+</ul>
+<p>图2-24给出一个可选属性的例子，表示了如下需求：</p>
+<ul>
+<li>对每个职员记录其唯一的编号（employee ID）及其薪水（salary）和年终奖（annual bonus），但并非所有职员都有年终奖</li>
+</ul>
+<p>在属性名后加一个带括号的大写字母O来表示可选属性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221006226.png" srcset="/img/loading.gif" lazyload alt="image-20230522100607185"></p>
+<h2 id="联系中最小基数和最大基数确切值"><a href="#联系中最小基数和最大基数确切值" class="headerlink" title="联系中最小基数和最大基数确切值"></a>联系中最小基数和最大基数确切值</h2><p>在某些情况下，联系中的最小基数和最大基数确切值时事先知道的。本学习材料中，用圆括号括起来的一对数表示最小基数和最大基数，括号内的第一个数表示最小基数，第二个数表示最大基数</p>
+<p>图2-26所示，对于联系EnrollsIN，需求如下：</p>
+<ul>
+<li>每名学生必须选择最少2门最多6门课程，且一门课程要有最少5名最多40名学生</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221015156.png" srcset="/img/loading.gif" lazyload alt="image-20230522101504108"></p>
+<p>本书中，当需要用圆括号括起来的数对表示最小和最大基数时，即使它们中的一个是不确定的值，我们仍需要将两个值（最小值和最大值）都表示出来，如图2-27所示，对于联系EnrollsIN，需求如下：</p>
+<ul>
+<li>每名学生最多选择6门课程，也可以不选任何课程。一门课程必须要有至少5名学生，选课人数没有上限</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221024889.png" srcset="/img/loading.gif" lazyload alt="image-20230522102422828"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221025030.png" srcset="/img/loading.gif" lazyload alt="image-20230522102520979"></p>
+<h2 id="一元联系和联系的角色"><a href="#一元联系和联系的角色" class="headerlink" title="一元联系和联系的角色"></a>一元联系和联系的角色</h2><ul>
+<li><p>联系的度：表示有多少个实体参与到该联系中</p>
+</li>
+<li><p>度为1的联系也称为一元联系或者递归联系</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305221027353.png" srcset="/img/loading.gif" lazyload alt="image-20230522102755311"></p>
+<p>图2-28展示三个一元联系例子</p>
+<p>例A需求：</p>
+<ul>
+<li>一个客户可以推荐多个客户，也可以不推荐任何客户，每个客户可以由另一个客户推荐或者没有被任何客户推荐</li>
+</ul>
+<p>例B需求：</p>
+<ul>
+<li>一个雇员可以指导许多雇员，也可以不指导任何雇员。一个雇员可以被多个雇员指导，也可也不被任何雇员指导</li>
+</ul>
+<p>例C需求：</p>
+<ul>
+<li>在一个赠送礼物活动数据库中，每个人只能向另一个人赠送礼物，每一个人也只能收到另一个人的礼物</li>
+</ul>
+<p>在ER图中，联系角色可以表达额外的语义信息。</p>
 
                 
               </div>
@@ -433,6 +528,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="计算机网络自顶向下第三章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机网络自顶向下第三章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
