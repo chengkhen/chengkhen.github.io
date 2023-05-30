@@ -32,8 +32,15 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305292213721.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305292221565.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305292230608.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301032129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301033944.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301034981.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301044856.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301047615.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301051320.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301055549.png">
 <meta property="article:published_time" content="2023-05-29T13:32:11.000Z">
-<meta property="article:modified_time" content="2023-05-29T14:34:29.249Z">
+<meta property="article:modified_time" content="2023-05-30T02:56:00.943Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
@@ -229,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          3.8k 字
         
       </span>
     
@@ -240,7 +247,7 @@
         
         
         
-          23 分钟
+          33 分钟
         
       </span>
     
@@ -387,6 +394,63 @@
 <li>报文交换和分组交换都不需要建立连接, 即预先分配通信资源, 在传送计算机的突发数据时, 可以提高通信线路的利用率</li>
 <li>将报文构造成若干个更小的分组, 进行分组交换, 比将整个报文进行报文交换的时延要小, 并且还可以避免太长的报文长时间占用链路, 还有利于差错控制, 同时具有更好的灵活性</li>
 </ul>
+<h1 id="计算机网络的定义和分类"><a href="#计算机网络的定义和分类" class="headerlink" title="计算机网络的定义和分类"></a>计算机网络的定义和分类</h1><h2 id="现阶段计算机网络一个较好的定义"><a href="#现阶段计算机网络一个较好的定义" class="headerlink" title="现阶段计算机网络一个较好的定义"></a>现阶段计算机网络一个较好的定义</h2><ul>
+<li>计算机网络主要是由一些通用的可编程的硬件互联而成的, 而这些硬件并非专门用来实现某一特定目的（例如，传送数据或视频信号） 这些可编程的硬件能够用来传送多种不同类型的数据, 并能支持广泛的和日益增长的应用<ul>
+<li>注意<strong>可编程的硬件</strong>，表明这种硬件一定包含有中央处理单元CPU，所以计算机网络所连接的硬件，并不限于一般的计算机，还包括智能手机、具有网络功能的传感器，以及智能家电等</li>
+<li>计算机网络并非只是用来传送数据，而是能够基于数据传送，进而实现各种各样的应用</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h2><blockquote>
+<p>按交换方式分类</p>
+</blockquote>
+<p><strong>电路交换、分组交换、报文交换</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301032129.png" srcset="/img/loading.gif" lazyload alt="image-20230530103242058"></p>
+<blockquote>
+<p>按使用者分类</p>
+</blockquote>
+<ul>
+<li>公用网：通常是由电信公司出资建造的大型网络, 公众只要按照电信公司的规定缴纳费用, 就可以使用这种网络</li>
+<li>专用网：由某个部门为满足本单位特殊业务的需要而建造的网络, 例如军队铁路, 电力银行等部门的专用网, 这种网络不向本单位以外的人提供服务</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301033944.png" srcset="/img/loading.gif" lazyload alt="image-20230530103324878"></p>
+<blockquote>
+<p>按传输介质分类</p>
+</blockquote>
+<ul>
+<li>有线网络：包括双绞线网络、光纤网络</li>
+<li>无线网络：WiFi</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301034981.png" srcset="/img/loading.gif" lazyload alt="image-20230530103440932"></p>
+<blockquote>
+<p>按覆盖范围分类</p>
+</blockquote>
+<ul>
+<li>广域网（WAN）：几十到几千千米，可以覆盖一个国家地区, 甚至横跨几个洲，是因特网的核心部分，为因特网核心路由器提供远距离高速连接</li>
+<li>城域网（MAN）：5到50千米，可以跨越几个街区, 甚至整个城市, 城域网通常作为城市骨干网, 互联大量机构企业以及校园局域网</li>
+<li>局域网（LAN）：1千米左右，例如一个学生宿舍, 一栋楼或一个校园。局域网通常由微型计算机或工作站, 通过速率为十兆比特每秒以上的高速电路相连, 在过去一个企业或学校往往只拥有一个局域网, 而现在局域网已被广泛的应用, 一个企业或学校可能就会有多个互联的局域网, 这样的网络常称为校园网或企业网</li>
+<li>个域网（PAN）：10米，把属于个人使用的笔记本电脑, 键盘, 鼠标, 耳机以及打印机等电子设备, 用wifi或蓝牙等无线技术连接起来的网络, 因此也常称为无线个域网（WPAN）</li>
+</ul>
+<blockquote>
+<p>按拓扑结构分类</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301044856.png" srcset="/img/loading.gif" lazyload alt="image-20230530104419797"></p>
+<ul>
+<li>总线型：使用单根传输线把计算机连接起来, 其优点是建网容易、增减节点方便、节省线路, 缺点是重负载时通信效率不高, 总线任意一处出现故障则全网瘫痪</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301047615.png" srcset="/img/loading.gif" lazyload alt="image-20230530104751576"></p>
+<ul>
+<li>星型网络：每个计算机都以单独的线路与中央设备相连, 中央设备早期是计算机, 后来是集线器, 现在一般是交换机或路由器。这种网络拓扑的优点是便于网络的集中控制和管理, 缺点是成本高, 中央设备对故障敏感</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301051320.png" srcset="/img/loading.gif" lazyload alt="image-20230530105151276"></p>
+<ul>
+<li>环型网络：所有计算机的网络接口都连接成一个环, 最典型的例子是令牌环局域网, 环可以是单环, 也可以是双环, 环中信号是单向传输的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305301055549.png" srcset="/img/loading.gif" lazyload alt="image-20230530105510511"></p>
+<ul>
+<li>网状型：每个节点至少有两条路径与其他节点相连, 多用在广域网中, 其优点是可靠性高, 缺点是控制复杂, 线路成本高</li>
+</ul>
+<p><strong>说明：</strong>以上四种基本的网络拓扑还可以互联为更复杂的网络</p>
 
                 
               </div>
