@@ -1,0 +1,1986 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="题型 选择题 2分*5 都是概念 填空题 1分*10 简答题 6分*3 运算题 6分 * 2 + 5分 * 1 共17分 分析题 3分*4 四小题一大题 设计题 4道 共18分 应用题 15分*1 （数据库设计、ER图）  考试范围 第一章：没有大题  主要内容：概念（把习题过一遍）1.2.5、1.2.6不考 2个选择，1个填空   第二章：2.4重要 2.5不考  运算题 一道5分 设计题 6分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库期末">
+<meta property="og:url" content="http://example.com/2023/06/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="题型 选择题 2分*5 都是概念 填空题 1分*10 简答题 6分*3 运算题 6分 * 2 + 5分 * 1 共17分 分析题 3分*4 四小题一大题 设计题 4道 共18分 应用题 15分*1 （数据库设计、ER图）  考试范围 第一章：没有大题  主要内容：概念（把习题过一遍）1.2.5、1.2.6不考 2个选择，1个填空   第二章：2.4重要 2.5不考  运算题 一道5分 设计题 6分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306111519129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306111520222.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306112123906.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306112244619.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306120925410.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121022804.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121019776.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121019999.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121020674.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121020350.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121021794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121024438.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121025931.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121035608.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121048063.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121050199.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121216647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121217829.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121218206.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121218414.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121220484.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121223057.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121223772.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121225873.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121226787.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121258942.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121302280.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121303081.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121307972.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121315191.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121315314.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121316831.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121321264.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121321060.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121336591.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121336680.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121340358.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121344795.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121345642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121345971.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346331.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346883.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346820.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346889.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346891.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121347476.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121533658.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121602850.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121632015.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121632232.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121633265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121633697.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121634372.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644132.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644570.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121647378.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121648027.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121649006.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121655072.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121656015.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121902387.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121903896.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121905168.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121915454.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121932860.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121937506.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121938933.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121938783.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122006692.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122022376.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122052145.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122053745.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122054291.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122054033.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122055322.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122055013.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122056212.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213046.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213406.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213357.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213141.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214084.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214950.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214529.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122215014.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130917373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130918690.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919400.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130920963.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130921273.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130922512.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130922891.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130923642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130923345.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130925373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130925411.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130926723.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130926759.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130928868.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130928095.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929332.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929566.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929451.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929652.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130930256.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130932481.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130932187.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130933908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130938134.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130938886.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939326.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939981.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939217.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940963.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940866.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940518.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940768.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130941144.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130941083.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130943767.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130944017.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130945177.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130945388.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130946350.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130947901.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130949545.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130949880.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130950023.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130953792.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130954478.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130955023.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130955269.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130956842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130957178.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130958669.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130958696.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131139013.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131139160.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131140804.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131140239.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131142951.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131142899.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131143439.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131143373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131220686.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131220954.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131222858.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131223906.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131223298.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224360.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224181.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224755.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131225776.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131225536.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131226984.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131226412.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227582.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227746.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227894.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131228951.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131228631.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131229393.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131229842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131231727.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131232194.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233375.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233250.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233529.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131234548.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131234857.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131235448.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131235887.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236602.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236338.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236335.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236636.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131356533.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131356313.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131357059.png">
+<meta property="og:image" content="c:/Users/86152/AppData/Roaming/Typora/typora-user-images/image-20230613135728513.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358618.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358514.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358663.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359898.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359672.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359569.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359295.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359143.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359604.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131400265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131400187.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131401411.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131401749.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402808.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402521.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402614.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402473.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131403112.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131403283.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404025.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404624.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404877.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405780.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405301.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405199.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405959.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131406486.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131406642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131407490.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131408468.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409619.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409550.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409556.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410886.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410806.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410369.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410430.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131411384.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131412526.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131412222.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131424735.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131426147.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131426193.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131427116.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428500.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428456.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428659.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131429676.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131429757.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131433219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434147.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434434.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434305.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435107.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435555.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435694.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435961.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436382.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436635.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131438733.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131438834.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439327.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439170.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439370.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439041.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131440299.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131443435.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131444170.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131447172.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131447858.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448274.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448000.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448328.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131449975.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131458859.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131459157.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131459211.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131502909.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131503312.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140924937.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140926030.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140927166.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140928170.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140933044.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140934937.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140936630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140939860.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140941173.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140953091.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140958090.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141005898.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141010068.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141010258.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141015215.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141016344.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141018248.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141021982.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141026115.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141028193.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141027414.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141029008.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141030805.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141032141.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141032940.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141056778.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141058589.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141452474.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141500598.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141501257.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141504023.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514518.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514115.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514587.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514433.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141515831.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141539503.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141540491.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141541734.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141551859.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141552017.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141602180.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141605714.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141605850.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141607365.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141607112.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141616264.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141616178.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141618908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141620769.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141621835.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141622619.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141625193.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141627873.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141628235.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141741259.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141934695.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141938081.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141940842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141940339.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141943410.png">
+<meta property="article:published_time" content="2023-06-11T01:39:04.000Z">
+<meta property="article:modified_time" content="2023-06-20T00:06:11.455Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306111519129.png">
+  
+  
+  
+  <title>数据库期末 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据库期末"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-11 09:39" pubdate>
+          2023年6月11日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          135 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据库期末</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h1><ul>
+<li>选择题 2分*5 都是概念</li>
+<li>填空题 1分*10</li>
+<li>简答题 6分*3</li>
+<li>运算题 6分 * 2 + 5分 * 1 共17分</li>
+<li>分析题 3分*4 四小题一大题</li>
+<li>设计题 4道 共18分</li>
+<li>应用题 15分*1 （数据库设计、ER图）</li>
+</ul>
+<h1 id="考试范围"><a href="#考试范围" class="headerlink" title="考试范围"></a>考试范围</h1><ul>
+<li><p>第一章：没有大题</p>
+<ul>
+<li>主要内容：概念（把习题过一遍）1.2.5、1.2.6不考</li>
+<li>2个选择，1个填空</li>
+</ul>
+</li>
+<li><p>第二章：2.4重要 2.5不考</p>
+<ul>
+<li>运算题 一道5分</li>
+<li>设计题 6分 写两个关系表达式</li>
+</ul>
+</li>
+<li><p>第三章：重点</p>
+<ul>
+<li>填空1题、简答2题、设计题都是第三章的</li>
+<li>重点连接查询、嵌套查询</li>
+<li>聚合这些难的不考</li>
+</ul>
+</li>
+<li><p>第四章</p>
+<ul>
+<li>填空2题</li>
+<li>4.1不考，4.2 安全性的控制、用户身份的鉴别 图4.2 安全模型</li>
+<li>4.3存取控制机制、自主存取控制和强制存取控制、授权</li>
+<li>4.4节之后都不考</li>
+<li>授权在范围之内，不多，融在其他地方</li>
+</ul>
+</li>
+<li><p>第五章：无概念，没有单独出题，在其他题里面，触发器没有</p>
+<ul>
+<li>5.5、5.6、5.7没有涉及</li>
+</ul>
+</li>
+<li><p>第六章：难点、重点</p>
+<ul>
+<li>运算1题（6分） 分析（12分 只有第六章） 应用（有几分判断范式等）</li>
+<li>到第三范式就ok了，6.3.7、6.2.8不考</li>
+<li>6.3重要，不考定义，例子要看（求闭包这些），不考证明</li>
+<li>范式、规范化理论、公理系统、求闭包、等价充分必要条件</li>
+<li>求最小函数依赖集不考</li>
+</ul>
+</li>
+<li><p>第七章：主要体系在应用题</p>
+<ul>
+<li>选择题1个</li>
+<li>ER图</li>
+<li>带星号都不看，7.5、7.6不看</li>
+</ul>
+</li>
+<li><p>第九章：基本概念</p>
+<ul>
+<li>填空 2分</li>
+<li>习题要看</li>
+</ul>
+</li>
+<li><p>第十章</p>
+<ul>
+<li>选择 1题、填空1题、简答1题（数据恢复）</li>
+<li>10.6节之后不考</li>
+</ul>
+</li>
+<li><p>第十一章</p>
+<ul>
+<li>选择1题、填空1题、运算6分</li>
+<li>并行的调度</li>
+<li>两段锁协议</li>
+<li>11.7,11.8不看</li>
+</ul>
+</li>
+</ul>
+<h1 id="考点梳理"><a href="#考点梳理" class="headerlink" title="考点梳理"></a>考点梳理</h1><h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h2><h3 id="概念建立"><a href="#概念建立" class="headerlink" title="概念建立"></a>概念建立</h3><p><strong>通过下面的问题理解知识点，不需要背诵，但是要理解</strong></p>
+<p><strong>考2个选择，1个填空</strong></p>
+<blockquote>
+<p>论述数据、数据库、数据库管理系统、数据系统的概念</p>
+</blockquote>
+<ul>
+<li>数据（DATA）,描述事物的符号记录为数据，数据有多种表现形式，数据的含义称为数据的语义，<strong>数据与其语义是不可分的</strong></li>
+<li>数据库（DB）是<strong>长期储存在计算机内</strong>，<strong>有组织的</strong>、<strong>可共享的</strong>大量数据的集合。数据库中的数据<strong>按一定的数据模型</strong>组织、描述和储存，具有<strong>较小的冗余度</strong>、<strong>较高的数据独立性</strong>和<strong>易扩展性</strong>，并可为各种用户<strong>共享</strong>。概括地讲，数据库数据具有<strong>永久存储</strong>、<strong>有组织</strong>和<strong>可共享</strong>三个基本特点</li>
+<li>数据库管理系统（DBMS）是位于<strong>用户和操作系统之间</strong>的一层数据管理软件。数据库管理系统和操作系统一样<strong>是计算机的基础软件</strong>，也是一个大型复杂的软件系统，主要功能包括：<ul>
+<li><strong>数据定义</strong>：提供数据定义语言（DDL），用户通过它可以方便地对数据库中的数据对象组成与结构进行定义</li>
+<li><strong>数据组织、存储和管理</strong></li>
+<li><strong>数据操纵</strong>功能：提供数据操纵语言（DML)，用户可以使用它操纵数据，如查询、插入、删除和修改等</li>
+<li><strong>数据库的事务管理和运行管理</strong></li>
+<li><strong>数据库的建立和维护功能</strong></li>
+<li>以及一些其他功能</li>
+</ul>
+</li>
+<li>数据库系统（DBS）,由数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DBA）组成的存储、管理和维护数据的系统<ul>
+<li>在一般不引起混淆的情况下，人们常常把数据库系统简称为数据库</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306111519129.png" srcset="/img/loading.gif" lazyload alt="image-20230611151955060"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306111520222.png" srcset="/img/loading.gif" lazyload alt="image-20230611152051163"></p>
+<blockquote>
+<p>使用数据库系统有什么好处？</p>
+</blockquote>
+<ul>
+<li>使用数据库系统的好处很多，既便于数据的集中管理，控制数据冗余，提高数据的利用率和一致性，又有利于应用程序的开发和维护。</li>
+<li>使用数据库可以大大提高应用开发的效率</li>
+<li>当数据的逻辑结构需要改变时，开发人员不必修改应用程序，或者只需要修改很少的应用程序</li>
+<li>使用数据库可以减轻DBA（数据库管理员）维护系统的负担</li>
+</ul>
+<blockquote>
+<p>论述文件系统与数据库系统的区别与联系</p>
+</blockquote>
+<p><strong>区别：</strong></p>
+<ul>
+<li><strong>文件系统</strong>的数据是面向某一应用的，文件的<strong>共享性差</strong>、<strong>冗余度大</strong>、<strong>独立性差</strong>，文件的记录虽然是有结构的，但是<strong>整体无结构</strong>。所谓“数据面向某个应用”是指数据结构是针对某个应用设计的，只被这个应用程序或应用系统使用，<strong>数据是某个应用的“私有资源”</strong></li>
+<li><strong>数据库系统</strong>中的数据不在仅仅面向某一个应用，而是面向整个组织或企业。数据的<strong>共享性高</strong>、<strong>冗余度小</strong>，具有<strong>高度的物理独立性</strong>和<strong>一定的逻辑独立性</strong>，数据库中的数据用数据模型组织和描述，由数据库管理系统提供数据安全性、完整性、并发控制和恢复能力</li>
+</ul>
+<p><strong>联系：</strong></p>
+<ul>
+<li>文件系统与数据库系统都是计算机系统中管理数据的软件</li>
+<li>文件系统是操作系统的重要组成部分，而DBMS是独立于操作系统的软件。我们不能独立购买一个文件系统，但一般需独立购买DBMS软件产品。DBMS是在操作系统的基础上实现的，数据库中数据的组织和存储是通过操作系统中文件系统来实现的。因此，DBMS的实现与操作系统中的文件系统是紧密相关的。<strong>数据库实现的基础是文件，对数据库的任何操作最终要转化为对文件的操作</strong></li>
+</ul>
+<blockquote>
+<p>举出适合用文件系统而不是数据库系统的例子；再举出适合用数据库系统的应用例子</p>
+</blockquote>
+<ul>
+<li>目前，许多手机上的小型应用都把数据存放在手机操作系统的文件中，如照片、短信和微信等数据。一般来说，<strong>功能比较简单、比较固定</strong>的应用系统<strong>适合用文件系统</strong></li>
+<li>目前，几乎所有<strong>企业或部门</strong>的<strong>信息系统</strong>都以数据库系统为基础，都使用数据库系统。例如，一个工厂的信息系统会包括多个子系统，如库存管理系统、物资采购系统、作业调度系统、设备管理系统和人事管理系统等。数据库系统已成为信息系统已经成为信息系统的基础和核心</li>
+</ul>
+<blockquote>
+<p>论述数据库系统的特点</p>
+</blockquote>
+<ul>
+<li>数据结构化。数据库系统实现<strong>整体数据</strong>的结构化，这是数据库系统与文件系统的<strong>本质区别</strong><ul>
+<li>注意这里“整体”两个字。数据库系统中，数据面向全组织，可以支持许多应用；不仅数据内部是结构化的，而且数据之间是具有联系的，整体是结构化的。</li>
+</ul>
+</li>
+<li>数据共享性高，冗余度低，易扩充。</li>
+<li>数据的独立性高。数据独立性是指<strong>数据和程序相互不依赖</strong>。即数据的逻辑结构或物理结构改变了，程序不会跟着改变。</li>
+<li>数据由DBMS统一管理和控制。数据库的共享是<strong>并发的共享</strong>，即多个用户可以同时存取数据，库中的数据甚至可以同时存取数据库中同一个数据。为此，DBMS必须提供统一控制功能，包括：<ul>
+<li>数据的安全性保护：保护数据以防止不合法的使用造成的数据泄密破坏；</li>
+<li>数据的完整性检查：将数据控制在有效的范围内或保证数据之间满足一定的关系，一定的约束条件</li>
+<li>并发控制：对多用户的并发操作加以控制和协调，保证并发操作的正确性</li>
+<li>数据库恢复：当计算机系统发生硬件故障、软件故障，或者由于操作员的失误以及故意的破坏影响数据库中数据的正确性，甚至造成数据库部分或全部数据的丢失时，能将数据库从错误状态恢复到某一已知的正确状态，亦成为完整状态或一致状态</li>
+</ul>
+</li>
+</ul>
+<p>数据库系统的出现，使信息系统从<strong>以加工数据的程序为中心</strong>转向<strong>围绕共享数据库为中心</strong>的新阶段</p>
+<blockquote>
+<p>DBMS的主要功能有哪些</p>
+</blockquote>
+<ul>
+<li>数据定义功能</li>
+<li>数据组织、存储和管理功能</li>
+<li>数据操纵功能</li>
+<li>数据库的事务管理和运行管理</li>
+<li>数据库的建立和维护功能</li>
+<li>其他功能，如不同数据库之间的互访和互操作功能等</li>
+</ul>
+<blockquote>
+<p>什么是概念模型？论述概念模型的作用</p>
+</blockquote>
+<p>概念模型是现实世界到机器世界的一个中间层次。概念模型用于信息世界的建模，是数据库设计人员进行数据库设计的有力工具，也是数据库设计人员和用户之间进行交流的语言</p>
+<blockquote>
+<p>定义并解释概念模型中术语：实体、实体型、实体集、实体间的联系</p>
+</blockquote>
+<ul>
+<li>实体：客观存在并可以相互区分的事务，例如一个职工、一个学生、一个部门、学生的一次选课、教师与院系的工作关系等都是实体</li>
+<li>实体型：同实体名及其属性名集合来抽象和刻画同类实体称为实体型，例如：学生（学号，姓名，性别，出生年月，所在院系，入学时间）就是一个实体型</li>
+<li>实体集：同型实体的集合称为实体集，例如全体学生就是一个实体集</li>
+<li>实体之间的联系：包括实体（型）内部的联系和实体（型）之间的联系。实体内部的联系通常是指组成实体的各属性之间的联系；实体之间的联系通常是指不同实体集之间的联系。实体之间的联系有一对一、一对多和多对多等多种类型</li>
+</ul>
+<blockquote>
+<p>论述数据模型的概念、数据模型的作用和数据模型的三个要素</p>
+</blockquote>
+<ul>
+<li>数据模型是数据库系统中最重要的概念之一。数据模型是数据库中用来<strong>对现实世界进行抽象</strong>的工具，是数据库中用于提供<strong>信息表示</strong>和<strong>操作手段</strong>的形式构架</li>
+<li>数据模型是数据库系统的基础。任何一个DBMS都<strong>以一个数据模型为基础</strong>，或者说支持某一个数据模型。</li>
+<li>数据模型通常由数据结构、数据操作和完整性约束三部分组成<ul>
+<li>数据结构：描述数据库的组成对象和对象之间的联系，是对系统的<strong>静态特性</strong>的描述</li>
+<li>数据操作：是指对数据库中各种对象的实例进行的操作的集合，包括操作及有关的操作规则，是对系统<strong>动态特性</strong>的描述</li>
+<li>数据的约束条件：是完整性规则的集合，完整性规则是给定的数据模型中数据及其联系所具有的制约和依存规则，用以限定复合数据模型的数据库状态以及状态的变化，以保证数据的正确、有效和相容</li>
+</ul>
+</li>
+</ul>
+<p>注：数据库中模型有不同的层次。根据模型应用的不同目的，可以将模型分成两类或者说两个层次：一个是<strong>概念模型</strong>，是<strong>按用户的观点</strong>来对数据和信息建模，用于<strong>信息世界</strong>的建模，强调语义表达能力，概念简单清晰；二是<strong>数据模型</strong>，是<strong>按计算机系统的观点</strong>对数据建模，<strong>用于机器世界</strong>，人们可以用它定义和操纵数据库中的数据</p>
+<blockquote>
+<p>论述关系模型的概念、定义并解释一下术语：关系、属性、域、元组、码、分量、关系模式</p>
+</blockquote>
+<p>关系模式由关系数据结构、关系操作集合和关系完整性约束三部分组成。在用户观点下，<strong>关系模型</strong>中数据的<strong>逻辑结构</strong>是一张<strong>二维表</strong>，它由行和列组成</p>
+<ul>
+<li><p>关系：一个关系对应通常说的一张表</p>
+</li>
+<li><p>属性：表中的一列即为一个属性</p>
+</li>
+<li><p>域：属性的取值范围</p>
+</li>
+<li><p>元组：表中的一行即为一个元组</p>
+</li>
+<li><p>码：表中的某个属性组，它可以唯一确定一个元组</p>
+</li>
+<li><p>分量：元组中的一个属性值</p>
+</li>
+<li><p>关系模式：对关系的描述，一般表示为</p>
+<p>关系名（属性1，属性2，…，属性n）</p>
+</li>
+</ul>
+<blockquote>
+<p>论述关系数据库的特点</p>
+</blockquote>
+<p>关系数据库是建立在关系数据模型上的，具有下列优点：</p>
+<ul>
+<li>关系模型与非关系模型不同，它具有严格的数学基础</li>
+<li>关系模型的概念单一。所以其数据结构简单、清晰，用户易懂易用</li>
+<li>关系模型的存取路径对用户透明（即用户看不见，不知道），从而具有更高的数据独立性、更好的安全保密性，也简化了程序员的工作和数据库开发建立的工作</li>
+</ul>
+<p>当然，关系数据模型也有缺点：</p>
+<ul>
+<li>其中最主要的是，由于存取路径对用户透明，查询效率往往不如非关系数据模型。因此为了提高性能，必须对用户的查询请求进行优化，这就增加了开发关系数据库管理系统软件的难度</li>
+</ul>
+<blockquote>
+<p>论述数据库系统三级模式结构，并说明这种结构的优点是什么</p>
+</blockquote>
+<ul>
+<li>数据库系统的三级模式结构由外模式、模式和内模式组成</li>
+<li>外模式，亦称子模式或用户模式，是数据库用户能够看见和使用的<strong>局部数据的逻辑结构和特征</strong>的描述，是数据库用户数据视图</li>
+<li>模式，亦称逻辑模式，是数据库中全体数据的逻辑结构和特性的描述，是所有用户的公共数据视图。模式描述的是<strong>数据的全局逻辑结构</strong>。<strong>外模式通常是模式的子集</strong></li>
+<li>内模式，亦称存储模式，是数据在<strong>数据库系统内部的表示</strong>，即对数据的<strong>物理结构</strong>和<strong>存储方式</strong>的描述</li>
+<li>为了能够在内部实现这三个抽象层次的联系和转换，数据库系统在这三级模式之间提供了两级映像：外模式&#x2F;模式映像和模式&#x2F;内模式映像。正是这两级映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306112123906.png" srcset="/img/loading.gif" lazyload alt="image-20230611212320833"></p>
+<blockquote>
+<p>定义并解释术语：数据定义语言和数据操纵语言</p>
+</blockquote>
+<ul>
+<li>数据定义语言：用来定义数据库模式、外模式和内模式的语言</li>
+<li>数据操纵语言：用来对数据库中的数据进行查询、插入、删除和修改的语句</li>
+</ul>
+<blockquote>
+<p>什么叫数据与程序的物理独立性？什么叫数据与程序的逻辑独立性？为什么数据库系统具有数据与程序的独立性</p>
+</blockquote>
+<ul>
+<li>数据与程序的物理独立性：当数据库的<strong>存储结构改变</strong>了，由数据库管理员<strong>对模式&#x2F;内模式映像作相应改变</strong>，可以<strong>使模式保持不变</strong>，从而<strong>应用程序也不必改变</strong>，这就是数据与程序的物理独立性，简称数据的<strong>物理独立性</strong></li>
+<li>数据与程序的逻辑独立性：当数据的逻辑结构即模式改变时，由数据库管理员对各个外模式&#x2F;模式的映像作相应改变，可以使外模式保持不变，从而应用程序不必修改，这就是数据与程序的逻辑独立性，简称数据的逻辑独立性</li>
+<li>DBMS在三级模式之间提供的两级映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性</li>
+</ul>
+<blockquote>
+<p>论述数据库管理员、系统分析员、数据库设计人员、应用程序员的职责</p>
+</blockquote>
+<ul>
+<li>数据库管理员全面负责<strong>管理和控制</strong>数据库系统。具体职责包括：<ul>
+<li>决定数据库的信息内容和结构</li>
+<li>决定数据库的存储结构和存取策略</li>
+<li>定义数据的安全性要求和完整性约束</li>
+<li>监控数据库的使用和运行</li>
+<li>数据库的改进和重组重构</li>
+</ul>
+</li>
+<li>系统分析员负责应用系统的需求分析和规范说明，他要和用户及DBA相结合，确定系统的硬件软件配置，并参与数据库系统的概要设计</li>
+<li>数据库设计人员负责数据库中数据的确定和数据库各级模式的设计。数据库设计人员必须参加用户需求调查和系统分析，然后进行数据库设计</li>
+<li>应用程序员负责设计和编写应用系统的程序模块，并进行调试和安装</li>
+</ul>
+<h3 id="补充习题"><a href="#补充习题" class="headerlink" title="补充习题"></a>补充习题</h3><ul>
+<li>数据库系统的<strong>核心和基础</strong>是：<strong>数据模型</strong></li>
+<li>实现将现实世界抽象为信息世界的是：<strong>概念模型</strong></li>
+<li>数据管理技术经历了若干阶段，其中<strong>人工管理阶段和文件系统阶段相比</strong>，文件系统的一个显著优势是：数据可以长期保存</li>
+<li>能够保证数据库系统中的数据具有较高的<strong>逻辑独立性</strong>的是：<strong>外模式&#x2F;模式映像</strong></li>
+<li>IBM公司的IMS数据库管理系统采用的数据模型是：层次模型</li>
+<li>DBMS是一类系统软件，它是建立在下列哪种系统之上的：<strong>操作系统</strong></li>
+<li>从<strong>逻辑模型到物理模型的转换</strong>一般是由<strong>DBMS</strong>完成的</li>
+<li>长期存储在计算机内，有组织、可共享的大量数据的集合是：数据库（DataBase）</li>
+<li>在数据管理技术发展过程中，需要应用程序管理数据的是：人工管理阶段</li>
+</ul>
+<p>判断：</p>
+<ul>
+<li>在文件系统管理阶段，由文件系统提供数据存取方法，所以数据已达到很强的独立性 —— 错</li>
+<li>通常情况下，外模式是模式的子集 ——对</li>
+<li>数据库管理系统是指在计算机系统中引入数据库后的系统，一般由DB、DBS、应用系统和DBA组成 —— 错（不是数据管理系统，而是数据库系统）</li>
+<li>在数据模型的组成要素中，数据结果是刻画一个数据模型性质最重要的方面，人们通常按照数据结构的类型来命名数据模型 ——对</li>
+<li>数据库系统的三级模式是对数据进行抽象的3个级别，把数据的具体组织留给DBMS管理 —— 对</li>
+</ul>
+<p>填空题</p>
+<ul>
+<li>数据库系统的<strong>逻辑模型</strong>按照计算机的观点对数据建模，主要包括<strong>层次模型</strong>、<strong>网状模型</strong>、<strong>关系模型</strong>、面向对象模型、对象关系模型和半结构化数据模型等</li>
+<li>最经常使用的概念模型是：<strong>E-R模型</strong></li>
+<li>数据独立性是数据库领域的重要概念，包括数据的<strong>物理</strong>独立性和数据的<strong>逻辑</strong>独立性</li>
+<li>数据库系统的三级模式结构是指数据库系统是由<strong>外模式</strong>、<strong>模式</strong>和<strong>内模式</strong>三级构成</li>
+<li>两个实体型之间的联系可以分为三种：<strong>一对一联系</strong>、<strong>一对多联系和多对多联系</strong></li>
+<li>数据库管理系统提供的数据控制方面的功能包括数据的<strong>安全性</strong>保护、数据的<strong>完整性</strong>检查、<strong>并发控制</strong>和数据库恢复</li>
+<li>数据库的三级模式结构中，描述局部数据的逻辑结构和特征的是<strong>外模式</strong></li>
+<li>数据模型的组成要素中描述系统的静态特性和动态特性的分别是<strong>数据结构</strong>和<strong>数据操作</strong></li>
+</ul>
+<h2 id="第二章-关系数据库"><a href="#第二章-关系数据库" class="headerlink" title="第二章 关系数据库"></a>第二章 关系数据库</h2><p><strong>2.4重要</strong></p>
+<p><strong>运算题 一道5分的，一道设计题 6分 有涉及到关系代数</strong></p>
+<h3 id="2-1-关系数据结构及形式化定义"><a href="#2-1-关系数据结构及形式化定义" class="headerlink" title="2.1 关系数据结构及形式化定义"></a>2.1 关系数据结构及形式化定义</h3><ul>
+<li><p>候选码：若关系的某一属性组的值能唯一地标识一个元组，而其子集不能，则称该属性组为候选码</p>
+</li>
+<li><p>主码：若一个关系有多个候选码，则选定其中一个为主码</p>
+</li>
+<li><p>候选码的每个属性称为<strong>主属性</strong>，不包含在任何候选码中的属性称为<strong>非主属性</strong>或<strong>非码属性</strong></p>
+</li>
+<li><p>在最简单的情况下，候选码只包含一个属性，在最极端的情况下，关系模式的所有属性是这个关系模式的候选码，称为<strong>全码</strong></p>
+</li>
+<li><p>关系模型要求关系必须是规范的，即要求关系必须满足一定的规范条件。这些规范条件中最基本的一条就是，关系的每一个分量必须是一个不可分的数据项（即不允许表中有表）。规范化的关系简称为范式</p>
+</li>
+<li><p>关系的描述称为关系模式，它可以形式化地表示为：R(U,D,DOM,F)</p>
+<ul>
+<li>其中R为关系名</li>
+<li>U为组成该关系的属性名的集合</li>
+<li>D为U中属性所来自的域</li>
+<li>DOM为属性向域的映像集合</li>
+<li>F为属性间数据的依赖关系集合</li>
+</ul>
+</li>
+<li><p>关系模式通常可以简记为R(U)或R(A1,A2,…,An)，R为关系名，A1,A2,…,An为属性名</p>
+</li>
+</ul>
+<h3 id="2-2-基本的关系操作"><a href="#2-2-基本的关系操作" class="headerlink" title="2.2 基本的关系操作"></a>2.2 基本的关系操作</h3><p>常用关系操作包括：查询、插入、删除、修改两大部分</p>
+<p>查询又可分为：选择、投影、连接、除、并、差、交、笛卡尔积等</p>
+<p>其中：<strong>选择、投影、并、差、笛卡尔积是5种基本操作</strong></p>
+<p>关系数据语言可以分为三类：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306112244619.png" srcset="/img/loading.gif" lazyload alt="image-20230611224408548"></p>
+<h3 id="2-3-关系的完整性"><a href="#2-3-关系的完整性" class="headerlink" title="2.3 关系的完整性"></a>2.3 关系的完整性</h3><p><strong>关系模型中有三类完整性约束：实体完整性、参照完整性和用户定义的完整性。</strong>其中实体完整性和参照完整性是关系模型必须满足的完整性约束条件，被称作是关系的<strong>两个不变性</strong>，应该由关系系统自动支持。用户定义的完整性是应用领域需要遵循的约束条件，体现了具体领域中的语义约束</p>
+<h4 id="实体完整性"><a href="#实体完整性" class="headerlink" title="实体完整性"></a>实体完整性</h4><ul>
+<li>实体完整性规则：若属性（指一个或一组属性）A是基本关系R的主属性，则A不能取空值<ul>
+<li>（1）实体完整性规则是针对基本关系而言的，一个基本表通过对应现实世界的一个实体集。例如学生关系对应学生的集合</li>
+<li>（2）现实世界中的实体是可区分的，它们具有某种唯一性标识。例如每个学生都是独立的个体，是不一样的</li>
+<li>（3）相应地，关系模型中以主码作为唯一性标识</li>
+<li>（4）主码中的属性即主属性不能取空值。如果主属性取空值，就说明存在某个不可标识的实体，即存在不可区分的实体，这与第（2）点相矛盾，因此这个规则称为实体完整性</li>
+</ul>
+</li>
+</ul>
+<h4 id="参照完整性"><a href="#参照完整性" class="headerlink" title="参照完整性"></a>参照完整性</h4><ul>
+<li>设F是基本关系R的一个或一组属性，但不是关系R的码，$K_S$的基本关系S的主码，如果F与$K_S$相对应，则称F是R的外码，并称基本关系R为参照关系，基本关系S为被参照关系或目标关系<ul>
+<li>显然，目标关系S的主码$K_S$和参照关系R的外码F必须定义在同一个（或同一个组）的域上</li>
+<li>需要指出，外码并不一定与相应的主码同名，不过，在实际应用中为了便于识别，当外码与相应的主码属于不同关系时，往往给它们取相同的名字</li>
+<li>参照完整性规则就是定义外码与主码之间的引用规则</li>
+</ul>
+</li>
+<li>参照完整性规则：若属性（或属性组）F是基本关系R的外码，它与基本关系S的主码$K_S$相对应（基本关系R和S不一定是不同的关系），则对于R中的每个元组在F上的值必须：<ul>
+<li>或者取空值（F的每个属性值均为空值）</li>
+<li>或者等于S中某个元组的主码值</li>
+</ul>
+</li>
+</ul>
+<h4 id="用户定义的完整性"><a href="#用户定义的完整性" class="headerlink" title="用户定义的完整性"></a>用户定义的完整性</h4><ul>
+<li>不同的关系数据库根据其应用环境不同，往往还需要一些特殊的约束条件。用户定义的完整性就是针对某一具体关系数据库的约束条件，它反映某一具体应用所涉及的数据必须满足的语义要求</li>
+</ul>
+<h3 id="2-4-关系代数"><a href="#2-4-关系代数" class="headerlink" title="2.4 关系代数"></a>2.4 关系代数</h3><ul>
+<li>关系代数按运算符的不同可分为传统的集合运算和专门的关系运算两类<ul>
+<li>传统的集合原酸将关系看成元组的集合，其运算是从关系的“水平”方向，即行的角度来进行</li>
+<li>而专门的关系运算不仅涉及行，而且涉及列</li>
+<li>比较运算符和逻辑运算符是用来辅助专门的关系运算符</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306120925410.png" srcset="/img/loading.gif" lazyload alt="image-20230612092548326"></p>
+<h4 id="传统集合运算"><a href="#传统集合运算" class="headerlink" title="传统集合运算"></a>传统集合运算</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121022804.png" srcset="/img/loading.gif" lazyload alt="image-20230612102212717"></p>
+<h5 id="并"><a href="#并" class="headerlink" title="并"></a>并</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121019776.png" srcset="/img/loading.gif" lazyload alt="image-20230612101912712"></p>
+<h5 id="差"><a href="#差" class="headerlink" title="差"></a>差</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121019999.png" srcset="/img/loading.gif" lazyload alt="image-20230612101953928"></p>
+<h5 id="交"><a href="#交" class="headerlink" title="交"></a>交</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121020674.png" srcset="/img/loading.gif" lazyload alt="image-20230612102010600"></p>
+<h5 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121020350.png" srcset="/img/loading.gif" lazyload alt="image-20230612102051250"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121021794.png" srcset="/img/loading.gif" lazyload alt="image-20230612102113720"></p>
+<h4 id="专门的关系运算"><a href="#专门的关系运算" class="headerlink" title="专门的关系运算"></a>专门的关系运算</h4><p>为了叙述上的方便，先引入几个记号：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121024438.png" srcset="/img/loading.gif" lazyload alt="image-20230612102459321"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121025931.png" srcset="/img/loading.gif" lazyload alt="image-20230612102515848"></p>
+<p><strong>也就是说几个属性组构成一个关系（即一张二维表），当一个属性组的值给定（假设为x），那么x在R中的象集就是当给定值的属性组的值等于x所对应的其余个属性组的取值构成的集合，就叫做象集</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121035608.png" srcset="/img/loading.gif" lazyload alt="image-20230612103559549"></p>
+<h5 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h5><ul>
+<li>选择又称为限制。它是在关系R中选择满足给定条件的诸元组</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121048063.png" srcset="/img/loading.gif" lazyload alt="image-20230612104817019"></p>
+<p>其中F为选择条件，它是一个逻辑表达式，取逻辑值“真”或“假”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121050199.png" srcset="/img/loading.gif" lazyload alt="image-20230612105047151"></p>
+<p>其中$\theta$表示比较运算符，它可以是大于，大于等于小于，小于等于或&lt;&gt;，X1,Y1等是属性名，或为常量或为简单函数：属性名也可以用它的序号来代替</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121216647.png" srcset="/img/loading.gif" lazyload alt="image-20230612121605566"></p>
+<p><strong>选择运算实际上是从关系R中选取使逻辑表达式为真的元组，这是从行的角度进行的运算</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121217829.png" srcset="/img/loading.gif" lazyload alt="image-20230612121746766"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121218206.png" srcset="/img/loading.gif" lazyload alt="image-20230612121800157"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121218414.png" srcset="/img/loading.gif" lazyload alt="image-20230612121813356"></p>
+<h5 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h5><ul>
+<li>关系R上的投影是从R中选择出若干属性列组成新的关系</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121220484.png" srcset="/img/loading.gif" lazyload alt="image-20230612122057446"></p>
+<ul>
+<li>其中A为R重的属性列</li>
+<li>投影操作是从列的角度进行的运算</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121223057.png" srcset="/img/loading.gif" lazyload alt="image-20230612122328001"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121223772.png" srcset="/img/loading.gif" lazyload alt="image-20230612122357722"></p>
+<ul>
+<li>投影之后不仅取消了原关系中的某些列，而且还可能取消某些元组，因为取消了某些属性列后，就可能出现重复行，应取消这些完全相同的行</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121225873.png" srcset="/img/loading.gif" lazyload alt="image-20230612122532810"></p>
+<p>Student关系原来有4个元组，而投影结果取消了重复的CS元组，因此只有三个元组</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121226787.png" srcset="/img/loading.gif" lazyload alt="image-20230612122639744"></p>
+<h5 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h5><ul>
+<li>连接也称$\theta$连接，它是从两个关系的笛卡尔积中选取属性间满足一定条件的元组</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121258942.png" srcset="/img/loading.gif" lazyload alt="image-20230612125838898"></p>
+<ul>
+<li>其中，A和B分别为R和S上列数相等且可比的属性组，$\theta$是比较运算符。</li>
+<li>$\theta$为“&#x3D;”的连接运算称为等值连接，它是从关系R与S的广义笛卡尔积中选取A、B属性值相等的那些元组<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121302280.png" srcset="/img/loading.gif" lazyload alt="image-20230612130204227"></li>
+</ul>
+</li>
+<li>自然连接是一种特殊的等值连接，它要求两个关系中进行比较的分量必须是同名的属性组，并且在结果中把重复的属性列去掉。即若R和S中具有相同的属性组B，U为R和S的全体属性集合<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121303081.png" srcset="/img/loading.gif" lazyload alt="image-20230612130354041"></li>
+</ul>
+</li>
+<li>一般的连接操作是从行的角度进行运算，但自然连接还需要取消重复列，所以是同时从行和列的角度进行运算</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121307972.png" srcset="/img/loading.gif" lazyload alt="image-20230612130738842"></p>
+<ul>
+<li>两个关系R和S在做自然连接时，选择两个关系在公共属性上值相等的元组构成新的关系。此时，关系R中某些元组有可能在S中不存在公共属性上值相等的元组，从而造成R中这些元组在操作时被舍弃，同样，S中某些元组也可能被舍弃，这些被舍弃的元组称为<strong>悬浮元组</strong>，例如，在上图中（e）的自然连接中，R中的第四个元组，S中的第五个元组都是被舍弃掉的悬浮元组</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121315191.png" srcset="/img/loading.gif" lazyload alt="image-20230612131531118"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121315314.png" srcset="/img/loading.gif" lazyload alt="image-20230612131545241"></p>
+<h5 id="除运算"><a href="#除运算" class="headerlink" title="除运算"></a>除运算</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121316831.png" srcset="/img/loading.gif" lazyload alt="image-20230612131657748"></p>
+<p>结合例子理解：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121321264.png" srcset="/img/loading.gif" lazyload alt="image-20230612132134211"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121321060.png" srcset="/img/loading.gif" lazyload alt="image-20230612132144964"></p>
+<ul>
+<li>（1）进行除法运算，首先必须得有出自相同域的属性组（属性名可以不同，但属性的值，必须出自同一个域）</li>
+<li>（2）对作为被除数的关系（假设为R），找到不是出自相同域的属性组，求找到的属性组的各个属性值的象集</li>
+<li>（3）对作为除数的关系（假设为S），找到出自相同域的属性组，求出自相同域的属性组在S上的投影</li>
+<li>（4）找到（2）中求得的象集中包含了（3）中求到的投影的属性值</li>
+<li>（5）得到（4）中找到的属性值的集合，就是除运算的结果</li>
+</ul>
+<h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121336591.png" srcset="/img/loading.gif" lazyload alt="image-20230612133600507"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121336680.png" srcset="/img/loading.gif" lazyload alt="image-20230612133615618"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121340358.png" srcset="/img/loading.gif" lazyload alt="image-20230612134044313"></p>
+<p>关系代数中，这些运算经有限次符合后形成的表达式称为<strong>关系代数表达式</strong></p>
+<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121344795.png" srcset="/img/loading.gif" lazyload alt="image-20230612134454707"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121345642.png" srcset="/img/loading.gif" lazyload alt="image-20230612134509576"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121345971.png" srcset="/img/loading.gif" lazyload alt="image-20230612134529901"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346331.png" srcset="/img/loading.gif" lazyload alt="image-20230612134604277"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346883.png" srcset="/img/loading.gif" lazyload alt="image-20230612134612834"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346820.png" srcset="/img/loading.gif" lazyload alt="image-20230612134620760"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346889.png" srcset="/img/loading.gif" lazyload alt="image-20230612134629835"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121346891.png" srcset="/img/loading.gif" lazyload alt="image-20230612134640852"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121347476.png" srcset="/img/loading.gif" lazyload alt="image-20230612134704418"></p>
+<ul>
+<li>关系操作中，操作的对象和结果都是：集合</li>
+</ul>
+<h2 id="第三章-关系数据库标准语言SQL"><a href="#第三章-关系数据库标准语言SQL" class="headerlink" title="第三章 关系数据库标准语言SQL"></a>第三章 关系数据库标准语言SQL</h2><ul>
+<li>填空1题、简答2题、设计题都是第三章的</li>
+<li>重点连接查询、嵌套查询</li>
+<li>聚合这些难的不考</li>
+</ul>
+<h3 id="3-1-SQL概述"><a href="#3-1-SQL概述" class="headerlink" title="3.1 SQL概述"></a>3.1 SQL概述</h3><h4 id="SQL的特点"><a href="#SQL的特点" class="headerlink" title="SQL的特点"></a>SQL的特点</h4><ul>
+<li>综合统一<ul>
+<li>SQL集数据定义语言、数据操纵语言、数据控制语言的功能于一体，语言风格统一，可以独立完成数据库生命周期中的全部活动，包括以下一系列操作要求：<ul>
+<li>定义和修改、删除关系模式，定义和删除视图，插入数据，建立数据库</li>
+<li>对数据库中的数据进行查询和更新</li>
+<li>数据库的重构和维护</li>
+<li>数据库安全性、完整性控制，以及事务控制</li>
+<li>嵌入式SQL和动态SQK定义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高度非过程化<ul>
+<li>非关系数据模型的数据操纵语言是“面向过程”的语言，用“过程化”语言完成某项请求必须指定存取路径</li>
+<li>而用SQL进行数据操作时，只要提出“做什么”，而无须指明“怎么做”，因此无须了解存取路径。存取路径的选择以及SQL的操作过程由系统自动完成</li>
+<li>大大减轻了用户的负担，而且有利于提高数据独立性</li>
+</ul>
+</li>
+<li>面向集合的操作方式<ul>
+<li>非关系数据模型采用的是面向记录的操作方式，操作对象是一条记录。例如：查询所有平均成绩在80分以上的学生姓名，用户必须一条一条地把满足条件的学生记录找出来。而SQL采用集合操作方式，不仅操作对象、查找对象可以是元组的集合，而且一次插入、删除、更新操作的对象也可以是元组的集合</li>
+</ul>
+</li>
+<li>以同一种语法结构提供多种使用方式<ul>
+<li>SQL既是独立的语言，又是嵌入式语言。</li>
+<li>作为独立的语言，它能够独立地用于联机交互的使用方式，用户可以在终端键盘上直接键入SQL命令对数据库进行操作</li>
+<li>作为嵌入式语言，SQL语句能够嵌入到高级语言（例如C、C++、Java）程序中，提供程序员设计时使用</li>
+<li>而在两种不同的使用方式下，SQL的语法结构基本上是一致的，这种统一的语法结构，提供了极大的灵活性与方便性</li>
+</ul>
+</li>
+<li>语言简洁、易学易用<ul>
+<li>SQL功能极强，但由于设计巧妙，语言十分简洁，完成核心功能只用9个动词，SQL接近英语口语，因此易于学习和使用</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121533658.png" srcset="/img/loading.gif" lazyload alt="image-20230612153340580"></li>
+</ul>
+</li>
+</ul>
+<h4 id="SQL的基本概念"><a href="#SQL的基本概念" class="headerlink" title="SQL的基本概念"></a>SQL的基本概念</h4><ul>
+<li><p>支持SQL的关系数据库管理系统同样支持关系数据库三级模式结构。其中外模式包括若干视图和部分基本表，数据库模式包括若干基本表，内模式包括若干存储文件</p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121602850.png" srcset="/img/loading.gif" lazyload alt="image-20230612160225739"></li>
+</ul>
+</li>
+<li><p>基本表是本身独立存在的表，在关系数据库管理系统中一个关系就对应一个基本表，一个或多个基本表对应一个存储文件，一个表可以带若干索引，索引也存放在存储文件中</p>
+</li>
+<li><p>存储文件的逻辑结构组成了关系数据库的内模式，存储文件的物理结构对最终用户是隐蔽的</p>
+</li>
+<li><p>视图是从一个或几个基本表导出的表，它本身不独立存储在数据库中，即数据库中只存放视图的定义而不存放视图对应的数据。这些数据仍存放在导出视图的基本表中，因此视图是一个虚表。视图在概念上与基本表等同，用户可以在视图上再定义视图</p>
+</li>
+</ul>
+<h3 id="3-2-学生-课程数据库"><a href="#3-2-学生-课程数据库" class="headerlink" title="3.2 学生-课程数据库"></a>3.2 学生-课程数据库</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121632015.png" srcset="/img/loading.gif" lazyload alt="image-20230612163227940"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121632232.png" srcset="/img/loading.gif" lazyload alt="image-20230612163250154"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121633265.png" srcset="/img/loading.gif" lazyload alt="image-20230612163303173"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121633697.png" srcset="/img/loading.gif" lazyload alt="image-20230612163320620"></p>
+<h3 id="3-3-数据定义"><a href="#3-3-数据定义" class="headerlink" title="3.3 数据定义"></a>3.3 数据定义</h3><ul>
+<li>数据定义语句</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121634372.png" srcset="/img/loading.gif" lazyload alt="image-20230612163406284"></p>
+<ul>
+<li>SQL标准不提供修改模式定义和修改视图定义的操作，用户如果想修改这些图像，只能先将它们删除然后再重建</li>
+<li>SQL标准也没有提供索引相关的语句，但为了提高查询效率，商用关系数据库管理系统通常都提供了索引机制和相关的语句</li>
+<li>一个关系数据库管理系统的实例（instance）中可以建立多个模式，一个模式下通常包括多少个表、视图和索引等数据对象</li>
+</ul>
+<h4 id="模式的定义与删除"><a href="#模式的定义与删除" class="headerlink" title="模式的定义与删除"></a>模式的定义与删除</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644132.png" srcset="/img/loading.gif" lazyload alt="image-20230612164417035"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644570.png" srcset="/img/loading.gif" lazyload alt="image-20230612164429515"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121644729.png" srcset="/img/loading.gif" lazyload alt="image-20230612164447670"></p>
+<ul>
+<li>定义模式实际上定义了一个命名空间，在这个空间中可以进一步定义该模式包含的数据库对象，例如基本表、视图、索引等</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121647378.png" srcset="/img/loading.gif" lazyload alt="image-20230612164724290"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121648027.png" srcset="/img/loading.gif" lazyload alt="image-20230612164844925"></p>
+<ul>
+<li>在SQL中，删除模式语句如下：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121649006.png" srcset="/img/loading.gif" lazyload alt="image-20230612164958962"></p>
+<ul>
+<li>其中CASCADE和RESTRICT两者必选其一。选择了CASCADE（级联），表示在删除模式的同时把该模式中所有的数据库对象全部删除；选择了RESTRICT（限制），表示如果该模式中已经定义了下属的数据库对象，则拒绝该删除语句的执行。只有当该模式中没有任何下属的对象时，才能执行DROP SCHEMA语句</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121655072.png" srcset="/img/loading.gif" lazyload alt="image-20230612165512016"></p>
+<h4 id="基本表的定义、删除与修改"><a href="#基本表的定义、删除与修改" class="headerlink" title="基本表的定义、删除与修改"></a>基本表的定义、删除与修改</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121656015.png" srcset="/img/loading.gif" lazyload alt="image-20230612165656942"></p>
+<p>建表的同时通常还可以定义与该表有关的完整性约束条件，这些完整性约束条件被存入系统的数据字典中，当用户操作表中数据时由关系数据库管理系统自动检查该操作是否违背这些完整性约束条件。如果完整性约束条件设计该表的多个属性列，则必须定义在表级上，否则既可以定义在列级也可以定义在表级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121902387.png" srcset="/img/loading.gif" lazyload alt="image-20230612190220272"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121903896.png" srcset="/img/loading.gif" lazyload alt="image-20230612190305799"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121905168.png" srcset="/img/loading.gif" lazyload alt="image-20230612190521086"></p>
+<p>每一个基本表都属于某一个模式，一个模式包含多个基本表，当定义基本表时一般可以有三种方法定义它所属的模式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121915454.png" srcset="/img/loading.gif" lazyload alt="image-20230612191540384"></p>
+<ul>
+<li><p>当用户创建基本表（其他数据库对象也一样）时若没有指定模式，系统根据搜索路径来确定该对象所属的模式</p>
+</li>
+<li><p>搜索路径包含一组模式列表，关系数据库管理系统会使用模式列表中第一个存在的模式作为数据对象的模式名。若搜索路径中的模式名都不存在，系统将给出错误</p>
+</li>
+<li><p>使用下面的语句可以显示当前的搜索路径：SHOW search_path</p>
+</li>
+<li><p>搜索路径当前的默认值是$user，PUBLIC。其含义是首先搜索与用户名相同的模式名，如果该模式名不存在，则使用PUBLIC模式</p>
+</li>
+<li><p>数据库管理员也可以设置搜索路径，例如：SET search_path TO ”S-T“,PUBLIC</p>
+</li>
+<li><p>然后定义基本表：CREATE TABLE Student（…）;</p>
+</li>
+<li><p>实际结果是建立了S-T.Student基本表。因为关系数据库发现搜索路径中第一个模式名S-T存在，就把该模式作为基本表Student所属的模式</p>
+</li>
+</ul>
+<h4 id="修改基本表"><a href="#修改基本表" class="headerlink" title="修改基本表"></a>修改基本表</h4><ul>
+<li>SQL语言用ALTER TABLE语句修改基本表，其一般格式为</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121932860.png" srcset="/img/loading.gif" lazyload alt="image-20230612193231800"></p>
+<ul>
+<li>其中&lt;表名&gt;是要修改的基本表，ADD子句用于增加新列、新的列级完整性约束条件和新的表级完整性约束条件。</li>
+<li>DROP COLUMN子句用于删除表中的列，如果指定了CASCADE语句，则自动删除引用了该列的其他对象，比如视图；如果指定了RESTRICT短语，则如果该列被其他对象引用，RBMS将拒绝删除该列。</li>
+<li>DROP CONSTRAINT子句用于删除指定的完整性约束条件</li>
+<li>ALTER COLUMN子句用于修改原有的列定义，包括修改列名和数据类型</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121937506.png" srcset="/img/loading.gif" lazyload alt="image-20230612193753443"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121938933.png" srcset="/img/loading.gif" lazyload alt="image-20230612193802885"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306121938783.png" srcset="/img/loading.gif" lazyload alt="image-20230612193813740"></p>
+<h4 id="删除基本表"><a href="#删除基本表" class="headerlink" title="删除基本表"></a>删除基本表</h4><p>当某个基本表不再需要时，可以使用DROP TABLE语句删除它，其一般格式为：</p>
+<p>DROP TABLE &lt;表名&gt; [RESTRICT|CASCADE]；</p>
+<p>若选择RESTRICT，则该表的删除是有限制条件的。欲删除的基本表不能被其他表的约束所引用（如CHECK，FOREIGN KEY等约束），不能有视图，不能有触发器，不能有存储过程或函数等。如果存在这些依赖该表的对象，则此表不能被删除</p>
+<p>若选择CASCADE，则该表的删除没有限制条件。在删除基本表的同时，相关的依赖对象，例如视图，都将被一起删除。</p>
+<p>默认情况是RESTRICT</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122006692.png" srcset="/img/loading.gif" lazyload alt="image-20230612200610646"></p>
+<p>基本表定义一旦被删除，不仅表中的数据和此表的定义将被删除，而且此表上建立的索引、触发器等对象一般也都将被删除。有的关系数据库管理系统还会同时删除在此表上建立的视图。如果欲删除的基本表被其他基本表所引用，则这些表也可能被删除。例如SC表通过外码Sno引用Student，则执行例3.11后Student表被删除，SC也被级联删除。因此执行删除基本表的操作一定要格外小心</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122022376.png" srcset="/img/loading.gif" lazyload alt="image-20230612202207260"></p>
+<p>注意：不同的数据库产品在遵循SQL标准的基础实现细节和处理策略会与标准有差别</p>
+<h4 id="索引的建立与删除"><a href="#索引的建立与删除" class="headerlink" title="索引的建立与删除"></a>索引的建立与删除</h4><p>当表的数据量比较大时，查询操作会比较耗时。建立索引是加快查询速度的有效手段。数据库索引类似于图书后面的索引，能快速定位到需要查询的内容。用户可以根据应用环境的需要在基本表建立一个或多个索引，以提供多种存取路径，加快查找速度</p>
+<p>数据库索引有多种类型，常见索引包括顺序文件上的索引、B+树索引、散列（hash）索引、位图索引等。</p>
+<ul>
+<li>顺序文件上的索引是针对按指定属性值升序或降序存储的关系，在该属性上建立一个顺序索引文件，索引文件由属性值和相应的元组指针组成</li>
+<li>B+树索引是将索引属性组织称B+树形式，B+树的叶结点为属性值和相应的元组指针。B+树索引具有动态平衡的优点。</li>
+<li>散列索引是建立若干个桶，将索引属性按照其散列函数值映射到相应桶中，桶中存放索引属性值和相应的元组指针。散列索引具有查找速度快的特点。</li>
+<li>位图索引是用位向量记录索引属性中可能出现的值，每个位向量对应一个可能值</li>
+</ul>
+<p>索引虽然能够加速数据库查询，但需要占用一定的存储空间，当基本表更新时，索引要进行相应的维护，这些都会增加数据库的负担，因此要根据实际应用的需要有选择地创建索引</p>
+<p>关系数据库管理系统在执行查询时会自动选择合适的索引作为存取路径，用户不必也不能显式地选择索引。索引是关系数据库管理系统的内部实现技术，属于内模式的范畴</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122052145.png" srcset="/img/loading.gif" lazyload alt="image-20230612205256043"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122053745.png" srcset="/img/loading.gif" lazyload alt="image-20230612205320673"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122054291.png" srcset="/img/loading.gif" lazyload alt="image-20230612205437241"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122054033.png" srcset="/img/loading.gif" lazyload alt="image-20230612205447980"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122055322.png" srcset="/img/loading.gif" lazyload alt="image-20230612205505241"></p>
+<h4 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122055013.png" srcset="/img/loading.gif" lazyload alt="image-20230612205545945"></p>
+<h3 id="3-4-数据查询"><a href="#3-4-数据查询" class="headerlink" title="3.4 数据查询"></a>3.4 数据查询</h3><p>一般格式为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122056212.png" srcset="/img/loading.gif" lazyload alt="image-20230612205632156"></p>
+<ul>
+<li><p>整个SELECT语句的含义是，根据WHERE子句的条件表达式从FROM子句指定的基本表、视图或派生表中找到满足条件的元组，再按SELECT子句中的目标列表达式选出元组中的属性值形成结果表</p>
+</li>
+<li><p>如果有GROUP BY子句，则将结果按&lt;列名1&gt;的值进行分组，该属性列值相等的元组为一个组。通常会在每组中作用聚集函数，如果GROUP BY子句带HAVING短语，则只有满足指定条件的组才予以输出</p>
+</li>
+<li><p>如果有ORDER BY 子句，则结果表还要按照&lt;列名2&gt;的值的升序或降序排序</p>
+</li>
+<li><p>SELECT语句既可以完成简单的单表查询，也可以完成复杂的连接查询和嵌套查询</p>
+</li>
+</ul>
+<h4 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213046.png" srcset="/img/loading.gif" lazyload alt="image-20230612221303957"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213406.png" srcset="/img/loading.gif" lazyload alt="image-20230612221317320"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213357.png" srcset="/img/loading.gif" lazyload alt="image-20230612221333273"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122213141.png" srcset="/img/loading.gif" lazyload alt="image-20230612221359063"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214084.png" srcset="/img/loading.gif" lazyload alt="image-20230612221413015"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214950.png" srcset="/img/loading.gif" lazyload alt="image-20230612221421889"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122214529.png" srcset="/img/loading.gif" lazyload alt="image-20230612221447414"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306122215014.png" srcset="/img/loading.gif" lazyload alt="image-20230612221513916"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130917373.png" srcset="/img/loading.gif" lazyload alt="image-20230613091725282"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130918690.png" srcset="/img/loading.gif" lazyload alt="image-20230613091852613"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919647.png" srcset="/img/loading.gif" lazyload alt="image-20230613091916568"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919129.png" srcset="/img/loading.gif" lazyload alt="image-20230613091928058"></p>
+<h5 id="查询满足条件的元组"><a href="#查询满足条件的元组" class="headerlink" title="查询满足条件的元组"></a>查询满足条件的元组</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130919400.png" srcset="/img/loading.gif" lazyload alt="image-20230613091952347"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130920963.png" srcset="/img/loading.gif" lazyload alt="image-20230613092011840"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130921273.png" srcset="/img/loading.gif" lazyload alt="image-20230613092111217"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130922512.png" srcset="/img/loading.gif" lazyload alt="image-20230613092216439"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130922891.png" srcset="/img/loading.gif" lazyload alt="image-20230613092221830"></p>
+<p>这里使用DISTINCT短语，当一个学生有多门课程不及格，他的学号也只列一次</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130923642.png" srcset="/img/loading.gif" lazyload alt="image-20230613092343571"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130923345.png" srcset="/img/loading.gif" lazyload alt="image-20230613092354283"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130925373.png" srcset="/img/loading.gif" lazyload alt="image-20230613092505300"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130925411.png" srcset="/img/loading.gif" lazyload alt="image-20230613092537361"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130926723.png" srcset="/img/loading.gif" lazyload alt="image-20230613092617637"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130926759.png" srcset="/img/loading.gif" lazyload alt="image-20230613092652684"></p>
+<h5 id="字符匹配"><a href="#字符匹配" class="headerlink" title="字符匹配"></a>字符匹配</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130928868.png" srcset="/img/loading.gif" lazyload alt="image-20230613092806752"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130928095.png" srcset="/img/loading.gif" lazyload alt="image-20230613092835995"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929332.png" srcset="/img/loading.gif" lazyload alt="image-20230613092907268"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929566.png" srcset="/img/loading.gif" lazyload alt="image-20230613092926491"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929451.png" srcset="/img/loading.gif" lazyload alt="image-20230613092936392"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130929652.png" srcset="/img/loading.gif" lazyload alt="image-20230613092959570"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130930256.png" srcset="/img/loading.gif" lazyload alt="image-20230613093040160"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130932481.png" srcset="/img/loading.gif" lazyload alt="image-20230613093209409"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130932187.png" srcset="/img/loading.gif" lazyload alt="image-20230613093227113"></p>
+<p><strong>这里的“IS”不能用等号（&#x3D;）代替</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130933908.png" srcset="/img/loading.gif" lazyload alt="image-20230613093322857"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130938134.png" srcset="/img/loading.gif" lazyload alt="image-20230613093831068"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130938886.png" srcset="/img/loading.gif" lazyload alt="image-20230613093845799"></p>
+<h5 id="ORDER-BY子句"><a href="#ORDER-BY子句" class="headerlink" title="ORDER BY子句"></a>ORDER BY子句</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939326.png" srcset="/img/loading.gif" lazyload alt="image-20230613093915241"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939981.png" srcset="/img/loading.gif" lazyload alt="image-20230613093929911"></p>
+<h5 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130939217.png" srcset="/img/loading.gif" lazyload alt="image-20230613093954101"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940963.png" srcset="/img/loading.gif" lazyload alt="image-20230613094007915"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940866.png" srcset="/img/loading.gif" lazyload alt="image-20230613094023793"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940518.png" srcset="/img/loading.gif" lazyload alt="image-20230613094041460"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130940768.png" srcset="/img/loading.gif" lazyload alt="image-20230613094054691"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130941144.png" srcset="/img/loading.gif" lazyload alt="image-20230613094112032"></p>
+<h5 id="GROUP-BY子句"><a href="#GROUP-BY子句" class="headerlink" title="GROUP BY子句"></a>GROUP BY子句</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130941083.png" srcset="/img/loading.gif" lazyload alt="image-20230613094144998"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130943767.png" srcset="/img/loading.gif" lazyload alt="image-20230613094304674"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130944017.png" srcset="/img/loading.gif" lazyload alt="image-20230613094457961"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130945177.png" srcset="/img/loading.gif" lazyload alt="image-20230613094510076"></p>
+<p><strong>重点关注下面这题</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130945388.png" srcset="/img/loading.gif" lazyload alt="image-20230613094530277"></p>
+<h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130946350.png" srcset="/img/loading.gif" lazyload alt="image-20230613094629266"></p>
+<h5 id="等值与非等值连接"><a href="#等值与非等值连接" class="headerlink" title="等值与非等值连接"></a>等值与非等值连接</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130947901.png" srcset="/img/loading.gif" lazyload alt="image-20230613094734191"></p>
+<p>查询每个学生及其选修课程的情况</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130949545.png" srcset="/img/loading.gif" lazyload alt="image-20230613094901406"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130949880.png" srcset="/img/loading.gif" lazyload alt="image-20230613094934737"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130950023.png" srcset="/img/loading.gif" lazyload alt="image-20230613095042916"></p>
+<p>如果在SC表Sno上建立了索引的话，就不用每次全表扫描SC表了，而是根据Sno值通过索引找到相应的SC元组。用索引查询SC中满足条件的元组一般会比全表扫描快。若在等值连接中把目标列中重复的属性列去掉则为自然连接</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130953792.png" srcset="/img/loading.gif" lazyload alt="image-20230613095339691"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130954478.png" srcset="/img/loading.gif" lazyload alt="image-20230613095413379"></p>
+<h5 id="自身连接"><a href="#自身连接" class="headerlink" title="自身连接"></a>自身连接</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130955023.png" srcset="/img/loading.gif" lazyload alt="image-20230613095517959"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130955269.png" srcset="/img/loading.gif" lazyload alt="image-20230613095558137"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130956842.png" srcset="/img/loading.gif" lazyload alt="image-20230613095641773"></p>
+<h5 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130957178.png" srcset="/img/loading.gif" lazyload alt="image-20230613095746073"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130958669.png" srcset="/img/loading.gif" lazyload alt="image-20230613095808573"></p>
+<h5 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306130958696.png" srcset="/img/loading.gif" lazyload alt="image-20230613095847549"></p>
+<h4 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131139013.png" srcset="/img/loading.gif" lazyload alt="image-20230613113939863"></p>
+<h5 id="带有IN谓词的子查询"><a href="#带有IN谓词的子查询" class="headerlink" title="带有IN谓词的子查询"></a>带有IN谓词的子查询</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131139160.png" srcset="/img/loading.gif" lazyload alt="image-20230613113951090"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131140804.png" srcset="/img/loading.gif" lazyload alt="image-20230613114005723"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131140239.png" srcset="/img/loading.gif" lazyload alt="image-20230613114020156"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131142951.png" srcset="/img/loading.gif" lazyload alt="image-20230613114229877"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131142899.png" srcset="/img/loading.gif" lazyload alt="image-20230613114210786"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131143439.png" srcset="/img/loading.gif" lazyload alt="image-20230613114300345"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131143373.png" srcset="/img/loading.gif" lazyload alt="image-20230613114309311"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131220686.png" srcset="/img/loading.gif" lazyload alt="image-20230613122014549"></p>
+<h5 id="带有比较运算符的子查询"><a href="#带有比较运算符的子查询" class="headerlink" title="带有比较运算符的子查询"></a>带有比较运算符的子查询</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131220954.png" srcset="/img/loading.gif" lazyload alt="image-20230613122059820"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131222858.png" srcset="/img/loading.gif" lazyload alt="image-20230613122241730"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131223906.png" srcset="/img/loading.gif" lazyload alt="image-20230613122316775"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131223298.png" srcset="/img/loading.gif" lazyload alt="image-20230613122329214"></p>
+<h5 id="带有ANY-SOME-或ALL谓词的子查询"><a href="#带有ANY-SOME-或ALL谓词的子查询" class="headerlink" title="带有ANY(SOME)或ALL谓词的子查询"></a>带有ANY(SOME)或ALL谓词的子查询</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224360.png" srcset="/img/loading.gif" lazyload alt="image-20230613122401250"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224181.png" srcset="/img/loading.gif" lazyload alt="image-20230613122425064"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131224755.png" srcset="/img/loading.gif" lazyload alt="image-20230613122442637"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131225776.png" srcset="/img/loading.gif" lazyload alt="image-20230613122518667"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131225536.png" srcset="/img/loading.gif" lazyload alt="image-20230613122556452"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131226984.png" srcset="/img/loading.gif" lazyload alt="image-20230613122612902"></p>
+<h5 id="带有EXIST谓词的子查询"><a href="#带有EXIST谓词的子查询" class="headerlink" title="带有EXIST谓词的子查询"></a>带有EXIST谓词的子查询</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131226412.png" srcset="/img/loading.gif" lazyload alt="image-20230613122640339"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227582.png" srcset="/img/loading.gif" lazyload alt="image-20230613122713457"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227746.png" srcset="/img/loading.gif" lazyload alt="image-20230613122741632"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131227894.png" srcset="/img/loading.gif" lazyload alt="image-20230613122753841"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131228951.png" srcset="/img/loading.gif" lazyload alt="image-20230613122822882"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131228631.png" srcset="/img/loading.gif" lazyload alt="image-20230613122849515"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131229393.png" srcset="/img/loading.gif" lazyload alt="image-20230613122934264"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131229842.png" srcset="/img/loading.gif" lazyload alt="image-20230613122941788"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131231727.png" srcset="/img/loading.gif" lazyload alt="image-20230613123151629"></p>
+<h4 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131232194.png" srcset="/img/loading.gif" lazyload alt="image-20230613123215108"></p>
+<p>[例3.64]查询计算机科学系的学生及年龄不大于19岁的学生</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233375.png" srcset="/img/loading.gif" lazyload alt="image-20230613123301263"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233250.png" srcset="/img/loading.gif" lazyload alt="image-20230613123325168"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233529.png" srcset="/img/loading.gif" lazyload alt="image-20230613123343418"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131233817.png" srcset="/img/loading.gif" lazyload alt="image-20230613123352756"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131234548.png" srcset="/img/loading.gif" lazyload alt="image-20230613123404469"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131234857.png" srcset="/img/loading.gif" lazyload alt="image-20230613123421759"></p>
+<h4 id="基于派生表的查询"><a href="#基于派生表的查询" class="headerlink" title="基于派生表的查询"></a>基于派生表的查询</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131235448.png" srcset="/img/loading.gif" lazyload alt="image-20230613123513358"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131235887.png" srcset="/img/loading.gif" lazyload alt="image-20230613123530765"></p>
+<h4 id="SELECT语句的一般格式"><a href="#SELECT语句的一般格式" class="headerlink" title="SELECT语句的一般格式"></a>SELECT语句的一般格式</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236602.png" srcset="/img/loading.gif" lazyload alt="image-20230613123628528"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236338.png" srcset="/img/loading.gif" lazyload alt="image-20230613123637253"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236335.png" srcset="/img/loading.gif" lazyload alt="image-20230613123645276"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131236636.png" srcset="/img/loading.gif" lazyload alt="image-20230613123658546"></p>
+<h3 id="3-5-数据跟新"><a href="#3-5-数据跟新" class="headerlink" title="3.5 数据跟新"></a>3.5 数据跟新</h3><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><p>SQL的数据插入语句INSERT通常由两种形式，一种是插入一个元组，另一种是插入子查询结果。后者可以一次插入多个元组</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131356533.png" srcset="/img/loading.gif" lazyload alt="image-20230613135618448"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131356313.png" srcset="/img/loading.gif" lazyload alt="image-20230613135632219"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131357059.png" srcset="/img/loading.gif" lazyload alt="image-20230613135750958"></p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20230613135728513.png" srcset="/img/loading.gif" lazyload alt="image-20230613135717690"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358618.png" srcset="/img/loading.gif" lazyload alt="image-20230613135804531"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358514.png" srcset="/img/loading.gif" lazyload alt="image-20230613135816425"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131358663.png" srcset="/img/loading.gif" lazyload alt="image-20230613135836551"></p>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359898.png" srcset="/img/loading.gif" lazyload alt="image-20230613135903814"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359672.png" srcset="/img/loading.gif" lazyload alt="image-20230613135911611"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359569.png" srcset="/img/loading.gif" lazyload alt="image-20230613135921504"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359295.png" srcset="/img/loading.gif" lazyload alt="image-20230613135932212"></p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359143.png" srcset="/img/loading.gif" lazyload alt="image-20230613135953052"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131359604.png" srcset="/img/loading.gif" lazyload alt="image-20230613135959552"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131400265.png" srcset="/img/loading.gif" lazyload alt="image-20230613140006203"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131400187.png" srcset="/img/loading.gif" lazyload alt="image-20230613140025105"></p>
+<h3 id="3-6-空值的处理"><a href="#3-6-空值的处理" class="headerlink" title="3.6 空值的处理"></a>3.6 空值的处理</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131401411.png" srcset="/img/loading.gif" lazyload alt="image-20230613140117330"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131401749.png" srcset="/img/loading.gif" lazyload alt="image-20230613140148670"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402808.png" srcset="/img/loading.gif" lazyload alt="image-20230613140207718"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402521.png" srcset="/img/loading.gif" lazyload alt="image-20230613140227439"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402614.png" srcset="/img/loading.gif" lazyload alt="image-20230613140242549"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131402473.png" srcset="/img/loading.gif" lazyload alt="image-20230613140253411"></p>
+<h3 id="3-7-视图"><a href="#3-7-视图" class="headerlink" title="3.7 视图"></a>3.7 视图</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131403112.png" srcset="/img/loading.gif" lazyload alt="image-20230613140321011"></p>
+<h4 id="建立视图"><a href="#建立视图" class="headerlink" title="建立视图"></a>建立视图</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131403283.png" srcset="/img/loading.gif" lazyload alt="image-20230613140351130"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404025.png" srcset="/img/loading.gif" lazyload alt="image-20230613140408937"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404624.png" srcset="/img/loading.gif" lazyload alt="image-20230613140433476"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131404877.png" srcset="/img/loading.gif" lazyload alt="image-20230613140453753"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405780.png" srcset="/img/loading.gif" lazyload alt="image-20230613140515686"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405301.png" srcset="/img/loading.gif" lazyload alt="image-20230613140524235"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405199.png" srcset="/img/loading.gif" lazyload alt="image-20230613140541113"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131405959.png" srcset="/img/loading.gif" lazyload alt="image-20230613140554859"></p>
+<h4 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131406486.png" srcset="/img/loading.gif" lazyload alt="image-20230613140626406"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131406642.png" srcset="/img/loading.gif" lazyload alt="image-20230613140633568"></p>
+<h4 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131407490.png" srcset="/img/loading.gif" lazyload alt="image-20230613140759367"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131408468.png" srcset="/img/loading.gif" lazyload alt="image-20230613140835383"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409619.png" srcset="/img/loading.gif" lazyload alt="image-20230613140900533"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409550.png" srcset="/img/loading.gif" lazyload alt="image-20230613140911472"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131409556.png" srcset="/img/loading.gif" lazyload alt="image-20230613140934452"></p>
+<h4 id="更新视图"><a href="#更新视图" class="headerlink" title="更新视图"></a>更新视图</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410886.png" srcset="/img/loading.gif" lazyload alt="image-20230613141000774"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410806.png" srcset="/img/loading.gif" lazyload alt="image-20230613141019720"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410369.png" srcset="/img/loading.gif" lazyload alt="image-20230613141036269"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131410430.png" srcset="/img/loading.gif" lazyload alt="image-20230613141055342"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131411384.png" srcset="/img/loading.gif" lazyload alt="image-20230613141133279"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131412526.png" srcset="/img/loading.gif" lazyload alt="image-20230613141204418"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131412222.png" srcset="/img/loading.gif" lazyload alt="image-20230613141254146"></p>
+<h4 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h4><ul>
+<li>简化用户的操作<ul>
+<li>视图机制使用户可以将注意力集中在所关心的数据上，如果这些数据不是直接来自基本表，则可以定义视图使数据库看起来结构简单、清晰，并且可以简化用户的数据查询操作</li>
+<li>用户做对一个虚表的简单查询，而这个虚表怎么来的，用户无须了解</li>
+</ul>
+</li>
+<li>使用户能以多种角度看待同一数据</li>
+<li>对重构数据库提供一定程度的逻辑独立性</li>
+<li>对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+<h3 id="习题-1"><a href="#习题-1" class="headerlink" title="习题"></a>习题</h3><p>看对应书</p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><ul>
+<li>填空2题</li>
+<li>4.1不考，4.2 安全性的控制、用户身份的鉴别 图4.2 安全模型</li>
+<li>4.3存取控制机制、自主存取控制和强制存取控制、授权</li>
+<li>4.4节之后都不考</li>
+<li>授权在范围之内，不多，融在其他地方</li>
+</ul>
+<h3 id="4-2-数据库安全性控制"><a href="#4-2-数据库安全性控制" class="headerlink" title="4.2 数据库安全性控制"></a>4.2 数据库安全性控制</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131424735.png" srcset="/img/loading.gif" lazyload alt="image-20230613142442640"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131426147.png" srcset="/img/loading.gif" lazyload alt="image-20230613142620023"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131426193.png" srcset="/img/loading.gif" lazyload alt="image-20230613142648082"></p>
+<h4 id="用户身份鉴别"><a href="#用户身份鉴别" class="headerlink" title="用户身份鉴别"></a>用户身份鉴别</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131427116.png" srcset="/img/loading.gif" lazyload alt="image-20230613142717013"></p>
+<p>用户身份鉴别的方法有很多种，而且在一个系统中往往是多种方法结合，以获得更强的安全性。常用的用户身份鉴别方法有以下几种：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428500.png" srcset="/img/loading.gif" lazyload alt="image-20230613142827342"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428456.png" srcset="/img/loading.gif" lazyload alt="image-20230613142836372"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131428659.png" srcset="/img/loading.gif" lazyload alt="image-20230613142849583"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131429676.png" srcset="/img/loading.gif" lazyload alt="image-20230613142900583"></p>
+<h4 id="存取控制"><a href="#存取控制" class="headerlink" title="存取控制"></a>存取控制</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131429757.png" srcset="/img/loading.gif" lazyload alt="image-20230613142951641"></p>
+<h4 id="自主存取控制方法"><a href="#自主存取控制方法" class="headerlink" title="自主存取控制方法"></a>自主存取控制方法</h4><p>SQL标准主要通过GRANT和REVOKE语句实现</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131433219.png" srcset="/img/loading.gif" lazyload alt="image-20230613143344116"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434147.png" srcset="/img/loading.gif" lazyload alt="image-20230613143401999"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434434.png" srcset="/img/loading.gif" lazyload alt="image-20230613143414329"></p>
+<h4 id="授权与收回"><a href="#授权与收回" class="headerlink" title="授权与收回"></a>授权与收回</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131434305.png" srcset="/img/loading.gif" lazyload alt="image-20230613143459164"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435107.png" srcset="/img/loading.gif" lazyload alt="image-20230613143511026"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435555.png" srcset="/img/loading.gif" lazyload alt="image-20230613143517499"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435694.png" srcset="/img/loading.gif" lazyload alt="image-20230613143523628"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131435961.png" srcset="/img/loading.gif" lazyload alt="image-20230613143529899"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436382.png" srcset="/img/loading.gif" lazyload alt="image-20230613143603294"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436635.png" srcset="/img/loading.gif" lazyload alt="image-20230613143619543"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436236.png" srcset="/img/loading.gif" lazyload alt="image-20230613143635168"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131436642.png" srcset="/img/loading.gif" lazyload alt="image-20230613143643588"></p>
+<p>由上面的例子可以看出，GRANT语句可以一次向一个用户授权，也可以一次向多个用户授权，还可以一次传播多个同类对象的权限，甚至一次可以完成对基本表和属性列这些不同对象的授权</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131438733.png" srcset="/img/loading.gif" lazyload alt="image-20230613143832621"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131438834.png" srcset="/img/loading.gif" lazyload alt="image-20230613143852759"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439327.png" srcset="/img/loading.gif" lazyload alt="image-20230613143901266"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439170.png" srcset="/img/loading.gif" lazyload alt="image-20230613143908117"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439370.png" srcset="/img/loading.gif" lazyload alt="image-20230613143929285"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131439041.png" srcset="/img/loading.gif" lazyload alt="image-20230613143952975"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131440299.png" srcset="/img/loading.gif" lazyload alt="image-20230613144005205"></p>
+<p>用户可以自主地决定将数据的存取权限授予何人、决定是否也将授权的权限授予别人。因此称这样的存取控制是自主存取控制</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131443435.png" srcset="/img/loading.gif" lazyload alt="image-20230613144352310"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131444170.png" srcset="/img/loading.gif" lazyload alt="image-20230613144411049"></p>
+<h4 id="数据库角色"><a href="#数据库角色" class="headerlink" title="数据库角色"></a>数据库角色</h4><p>数据库角色是被命名的一组与数据库操作相关的权限，角色是权限的集合。因此，可以为一组具有相同权限的用户创建一个角色，使用角色来管理数据库权限可以简化授权的过程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131447172.png" srcset="/img/loading.gif" lazyload alt="image-20230613144741104"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131447858.png" srcset="/img/loading.gif" lazyload alt="image-20230613144746792"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448274.png" srcset="/img/loading.gif" lazyload alt="image-20230613144812159"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448219.png" srcset="/img/loading.gif" lazyload alt="image-20230613144821140"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448000.png" srcset="/img/loading.gif" lazyload alt="image-20230613144847914"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131448328.png" srcset="/img/loading.gif" lazyload alt="image-20230613144859265"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131449975.png" srcset="/img/loading.gif" lazyload alt="image-20230613144908920"></p>
+<h4 id="强制存取控制"><a href="#强制存取控制" class="headerlink" title="强制存取控制"></a>强制存取控制</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131458859.png" srcset="/img/loading.gif" lazyload alt="image-20230613145858675"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131459157.png" srcset="/img/loading.gif" lazyload alt="image-20230613145913021"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131459211.png" srcset="/img/loading.gif" lazyload alt="image-20230613145931064"></p>
+<h3 id="4-3-视图机制"><a href="#4-3-视图机制" class="headerlink" title="4.3 视图机制"></a>4.3 视图机制</h3><p>还可以为不同的用户定义不同的视图，把数据对象限制在一定的范围内，也就是说，通过视图机制把要保密的数据对无权存取的用户隐藏起来，从而自动对数据提供一定程度的安全保护</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131502909.png" srcset="/img/loading.gif" lazyload alt="image-20230613150243813"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306131503312.png" srcset="/img/loading.gif" lazyload alt="image-20230613150342216"></p>
+<h3 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h3><p>无概念，没有单独出题，在其他题里面，触发器没有</p>
+<ul>
+<li>5.5、5.6、5.7没有涉及</li>
+</ul>
+<p>看书5.1-5.4即可</p>
+<h2 id="第六章（重点、难点）"><a href="#第六章（重点、难点）" class="headerlink" title="第六章（重点、难点）"></a>第六章（重点、难点）</h2><ul>
+<li>运算1题（6分） 分析（12分 只有第六章） 应用（有几分判断范式等）</li>
+<li>到第三范式就ok了，6.3.7、6.2.8不考</li>
+<li>6.3重要，不考定义，例子要看（求闭包这些），不考证明</li>
+<li>范式、规范化理论、公理系统、求闭包、等价充分必要条件</li>
+<li>求最小函数依赖集不考</li>
+</ul>
+<h3 id="6-1-问题提出"><a href="#6-1-问题提出" class="headerlink" title="6.1 问题提出"></a>6.1 问题提出</h3><ul>
+<li>第一范式（1NF）：每一个分量必须是不可分的数据项。满足了这个条件的关系模式就属于第一范式</li>
+<li>数据依赖：数据依赖是一个关系内部属性与属性之间的一种约束关系。这种约束关系是通过属性间值的相等与否体现出来的数据间相关联系。它是现实世界属性间相互联系的抽象，是数据内在的性质，是语义的体现</li>
+</ul>
+<h3 id="6-2-规范化"><a href="#6-2-规范化" class="headerlink" title="6.2 规范化"></a>6.2 规范化</h3><h4 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140924937.png" srcset="/img/loading.gif" lazyload alt="image-20230614092434836"></p>
+<p>注意：函数依赖不是指关系模式R的某个或某些关系满足的约束条件，而是指R的一切关系均要满足的约束条件</p>
+<ul>
+<li>平凡函数依赖和非平凡函数依赖</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140926030.png" srcset="/img/loading.gif" lazyload alt="image-20230614092657973"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140927166.png" srcset="/img/loading.gif" lazyload alt="image-20230614092709076"></p>
+<ul>
+<li>完全函数依赖和部分函数依赖</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140928170.png" srcset="/img/loading.gif" lazyload alt="image-20230614092825085"></p>
+<ul>
+<li>传递函数依赖</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140933044.png" srcset="/img/loading.gif" lazyload alt="image-20230614093313981"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140934937.png" srcset="/img/loading.gif" lazyload alt="image-20230614093450875"></p>
+<h4 id="码"><a href="#码" class="headerlink" title="码"></a>码</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140936630.png" srcset="/img/loading.gif" lazyload alt="image-20230614093657489"></p>
+<p>超码也就是，将一个候选码再加上一个或几个关系里面其他的属性构成的组合</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140939860.png" srcset="/img/loading.gif" lazyload alt="image-20230614093913760"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140941173.png" srcset="/img/loading.gif" lazyload alt="image-20230614094122090"></p>
+<h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><ul>
+<li>一个低一级范式的关系模式通过模式分解可以转换为若干个高一级的关系模式的集合，这种过程就叫规范化</li>
+</ul>
+<h4 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140953091.png" srcset="/img/loading.gif" lazyload alt="image-20230614095325026"></p>
+<p>看书对应部分理解定义</p>
+<h4 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306140958090.png" srcset="/img/loading.gif" lazyload alt="image-20230614095803023"></p>
+<p>即，若R是第三范式，则每一个非主属性既不传递依赖于码，也不部分依赖于码。也就是说，如果R属于3NF，则必有R属于2NF</p>
+<h4 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a>BCNF</h4><p>通常认为，BCNF是修正的第三范式，有时也称为扩充的第三范式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141005898.png" srcset="/img/loading.gif" lazyload alt="image-20230614100521819"></p>
+<p>由BCNF的定义可得结论，一个满足BCNF的关系模式有：</p>
+<ul>
+<li>所有非主属性对每一个码都是完全函数依赖</li>
+<li>所有主属性对每一个不包含它的码也是完全函数依赖</li>
+<li>没有任何属性完全依赖于非码的任何一组属性</li>
+</ul>
+<p>由于R属于BCNF，按定义排除了任何属性对码的传递依赖和部分依赖，所以R属于第三范式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141010068.png" srcset="/img/loading.gif" lazyload alt="image-20230614101019978"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141010258.png" srcset="/img/loading.gif" lazyload alt="image-20230614101042144"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141015215.png" srcset="/img/loading.gif" lazyload alt="image-20230614101527075"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141016344.png" srcset="/img/loading.gif" lazyload alt="image-20230614101612277"></p>
+<h3 id="6-3-数据依赖的公理系统"><a href="#6-3-数据依赖的公理系统" class="headerlink" title="6.3 数据依赖的公理系统"></a>6.3 数据依赖的公理系统</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141018248.png" srcset="/img/loading.gif" lazyload alt="image-20230614101849139"></p>
+<h4 id="Armstrong公理系统"><a href="#Armstrong公理系统" class="headerlink" title="Armstrong公理系统"></a>Armstrong公理系统</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141021982.png" srcset="/img/loading.gif" lazyload alt="image-20230614102109872"></p>
+<p>其中XZ,YZ表示$X \cup Z$,$Y \cup Z$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141026115.png" srcset="/img/loading.gif" lazyload alt="image-20230614102608025"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141028193.png" srcset="/img/loading.gif" lazyload alt="image-20230614102846107"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141027414.png" srcset="/img/loading.gif" lazyload alt="image-20230614102745354"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141029008.png" srcset="/img/loading.gif" lazyload alt="image-20230614102901945"></p>
+<p>即将F中X根据Armstrong公理导出的所有函数依赖的集合</p>
+<p><strong>引理6.2，重要方法，Y依赖X能否由F导出，直接求X关于函数依赖集F的闭包，看Y在不在其闭包里</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141030805.png" srcset="/img/loading.gif" lazyload alt="image-20230614103024745"></p>
+<p><strong>怎么求闭包？？？</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141032141.png" srcset="/img/loading.gif" lazyload alt="image-20230614103249072"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141032940.png" srcset="/img/loading.gif" lazyload alt="image-20230614103257865"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141056778.png" srcset="/img/loading.gif" lazyload alt="image-20230614105615634"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141058589.png" srcset="/img/loading.gif" lazyload alt="image-20230614105839530"></p>
+<h2 id="第七章（主要体现在应用题）"><a href="#第七章（主要体现在应用题）" class="headerlink" title="第七章（主要体现在应用题）"></a>第七章（主要体现在应用题）</h2><ul>
+<li>选择题1个</li>
+<li>ER图</li>
+<li>带星号都不看，7.5、7.6不看</li>
+</ul>
+<h3 id="7-1-数据库设计概述"><a href="#7-1-数据库设计概述" class="headerlink" title="7.1 数据库设计概述"></a>7.1 数据库设计概述</h3><p>数据库设计的特点：</p>
+<ul>
+<li>三分技术，七分管理，十二分基础数据是数据库设计的特点之一</li>
+<li>结构（数据）设计和行为（处理）设计相结合</li>
+</ul>
+<p>数据库设计方法：</p>
+<ul>
+<li>新奥尔良方法</li>
+<li>基于E-R模型的设计方法</li>
+<li>3NF的设计方法</li>
+<li>面向对象的数据库设计方法</li>
+<li>统一建模语言方法等</li>
+</ul>
+<p>数据库设计基本步骤：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141452474.png" srcset="/img/loading.gif" lazyload alt="image-20230614145201353"></p>
+<ul>
+<li>需求分析<ul>
+<li>进行数据库设计首先必须准确了解与分析用户需求（包括数据与处理）。需求分析是整个设计过程的基础，是最困难和最耗费时间的一步</li>
+</ul>
+</li>
+<li>概念结构设计<ul>
+<li>概念结构设计是整个数据库设计的关键，它通过对用户需求进行综合、归纳与抽象，形成一个独立于具体数据库管理系统的概念模型</li>
+</ul>
+</li>
+<li>逻辑结构设计<ul>
+<li>逻辑结构设计是将概念结构转换为某个数据库管理系统所支持的数据模型，并对其进行优化</li>
+</ul>
+</li>
+<li>物理结构设计<ul>
+<li>物理结构设计是为逻辑模型选取一个最适合应用环境的物理结构（包括存储结构和存取方法）</li>
+</ul>
+</li>
+<li>数据库实施</li>
+<li>数据库运行和维护</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141500598.png" srcset="/img/loading.gif" lazyload alt="image-20230614150056495"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141501257.png" srcset="/img/loading.gif" lazyload alt="image-20230614150116152"></p>
+<h3 id="7-2-需求分析"><a href="#7-2-需求分析" class="headerlink" title="7.2 需求分析"></a>7.2 需求分析</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141504023.png" srcset="/img/loading.gif" lazyload alt="image-20230614150439935"></p>
+<h4 id="数据字典-1"><a href="#数据字典-1" class="headerlink" title="数据字典"></a>数据字典</h4><ul>
+<li>数据字典是关于数据库中数据的描述，即元数据，而不是数据本身。数据字典是在需求分析阶段建立，在数据库设计过程中不断修改、充实和完善的</li>
+<li>数据字典通常包括数据项、数据结构、数据流、数据存储和处理过程几部分。其中数据项是最小组成单位，若干个数据项可以组成一个数据结构。数据字典通过对数据项和数据结构的定义来描述数据流、数据存储的逻辑内容</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514518.png" srcset="/img/loading.gif" lazyload alt="image-20230614151415379"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514115.png" srcset="/img/loading.gif" lazyload alt="image-20230614151427020"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514587.png" srcset="/img/loading.gif" lazyload alt="image-20230614151435480"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141514433.png" srcset="/img/loading.gif" lazyload alt="image-20230614151449314"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141515831.png" srcset="/img/loading.gif" lazyload alt="image-20230614151513694"></p>
+<h2 id="第九章（概念）"><a href="#第九章（概念）" class="headerlink" title="第九章（概念）"></a>第九章（概念）</h2><ul>
+<li>填空 2分</li>
+<li>习题要看</li>
+</ul>
+<h2 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h2><ul>
+<li>选择 1题、填空1题、简答1题（数据恢复）</li>
+<li>10.6节之后不考</li>
+</ul>
+<h3 id="10-1-事务的基本概念"><a href="#10-1-事务的基本概念" class="headerlink" title="10.1 事务的基本概念"></a>10.1 事务的基本概念</h3><ul>
+<li>所谓事务，是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分割的工作单位。例如，在关系数据库中，一个事务可以是一条SQL语句、一组SQL语句或整个程序</li>
+<li>事务和程序是两个概念。一般地讲，一个程序中包含多个事务</li>
+<li>事务的开始与结束可以由用户显式控制。如果用户没有显式地定义事务，则由数据库管理系统按默认规定自动划分事务</li>
+</ul>
+<p>在SQL中，定义事务的语句一般有三条：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141539503.png" srcset="/img/loading.gif" lazyload alt="image-20230614153947439"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141540491.png" srcset="/img/loading.gif" lazyload alt="image-20230614154005374"></p>
+<ul>
+<li>事务的ACID特性<ul>
+<li>原子性、一致性、隔离性、持续性</li>
+<li>原子性：事务是数据库的逻辑工作单位，事务中包括的诸操作要么都做，要么都不做</li>
+<li>一致性：<img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141541734.png" srcset="/img/loading.gif" lazyload alt="image-20230614154133947"></li>
+<li>隔离性：一个事务的执行不能被其他事务干扰，即一个事务的内部操作及使用的数据对其他并发事务是隔离的，并发执行各个事务之间不能互相干扰</li>
+<li>持续性：也称永久性，指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的。接下来的其他操作或故障不应该对其执行结果有任何影响</li>
+</ul>
+</li>
+</ul>
+<p>事务是恢复和并发控制的基本单位</p>
+<p>保证事务ACID特性是事务管理的重要任务。事务ACID特性可能遭到破坏的因素有：</p>
+<ul>
+<li>多个事务并行运行时，不同事务的操作交叉执行</li>
+<li>事务在运行过程中被强行停止</li>
+</ul>
+<p>在第一种情况，数据库管理系统必须保证多个事务的交叉运行不影响这些事务的原子性；在第二种情况下，数据库管理系统必须保证被强行终止的事务对数据库和其他事务没有任何影响</p>
+<p>这些就是数据库管理系统重恢复机制和并发控制机制的责任</p>
+<h3 id="10-2-数据库恢复概述"><a href="#10-2-数据库恢复概述" class="headerlink" title="10.2 数据库恢复概述"></a>10.2 数据库恢复概述</h3><p>数据库管理系统必须具有吧数据库从错误状态恢复到某一已知的正确状态（亦称为一致状态或者完整状态）的功能，这就是数据库的恢复</p>
+<h3 id="10-3-故障的种类"><a href="#10-3-故障的种类" class="headerlink" title="10.3 故障的种类"></a>10.3 故障的种类</h3><h4 id="事务内部的故障"><a href="#事务内部的故障" class="headerlink" title="事务内部的故障"></a>事务内部的故障</h4><p>事务内部的故障有的是可以通过事物程序本身发现的，有的是非预期的，不能由事务程序处理。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141551859.png" srcset="/img/loading.gif" lazyload alt="image-20230614155145732"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141552017.png" srcset="/img/loading.gif" lazyload alt="image-20230614155248908"></p>
+<p><strong>事务内部更多的故障是非预期的，是不能由应用程序处理的</strong>，如运算溢出、并发事务发生死锁而被选中撤销该事物、违反了某些完整性限制而被终止等。后续的事务故障仅指这类非预期的故障</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141602180.png" srcset="/img/loading.gif" lazyload alt="image-20230614160210088"></p>
+<h4 id="系统故障"><a href="#系统故障" class="headerlink" title="系统故障"></a>系统故障</h4><p>系统故障是指造成系统停止运转的任何事件，使得系统要重新启动。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141605714.png" srcset="/img/loading.gif" lazyload alt="image-20230614160524577"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141605850.png" srcset="/img/loading.gif" lazyload alt="image-20230614160556744"></p>
+<h4 id="介质故障"><a href="#介质故障" class="headerlink" title="介质故障"></a>介质故障</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141607365.png" srcset="/img/loading.gif" lazyload alt="image-20230614160711271"></p>
+<h4 id="计算机病毒"><a href="#计算机病毒" class="headerlink" title="计算机病毒"></a>计算机病毒</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141607112.png" srcset="/img/loading.gif" lazyload alt="image-20230614160757037"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>各类故障对数据库的影响有两种可能性</p>
+<ul>
+<li>一是数据库本身被破坏</li>
+<li>二是数据库没有被破坏，但数据可能不正确，这是由于事务的运行被非正常终止造成的</li>
+</ul>
+<p><strong>恢复的基本原理</strong>十分简单，一个词概括就是，<strong>冗余</strong>。这就是说，数据库中任何一部分被破坏或不正确的数据可以根据存储在系统别处的冗余数据来重建。尽管恢复的基本原理很简单，但实现技术的细节却相当复杂</p>
+<h3 id="10-4-恢复的实现技术"><a href="#10-4-恢复的实现技术" class="headerlink" title="10.4 恢复的实现技术"></a>10.4 恢复的实现技术</h3><p>恢复机制的两个关键问题：</p>
+<ul>
+<li>如何建立冗余数据</li>
+<li>如何利用这些冗余数据实现数据库恢复</li>
+</ul>
+<p>建立冗余数据最常用的技术是<strong>数据转储</strong>和<strong>登记日志文件（logging）</strong>。通常在一个数据库系统中，这两种方法是一起使用的</p>
+<h4 id="数据转储"><a href="#数据转储" class="headerlink" title="数据转储"></a>数据转储</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141616264.png" srcset="/img/loading.gif" lazyload alt="image-20230614161617152"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141616178.png" srcset="/img/loading.gif" lazyload alt="image-20230614161657031"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141618908.png" srcset="/img/loading.gif" lazyload alt="image-20230614161834757"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141620769.png" srcset="/img/loading.gif" lazyload alt="image-20230614162025712"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141621835.png" srcset="/img/loading.gif" lazyload alt="image-20230614162116739"></p>
+<h4 id="登记日志文件"><a href="#登记日志文件" class="headerlink" title="登记日志文件"></a>登记日志文件</h4><blockquote>
+<p>日志文件格式</p>
+</blockquote>
+<p>日志文件是用来记录事务对数据库更新操作的文件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141622619.png" srcset="/img/loading.gif" lazyload alt="image-20230614162232535"></p>
+<p>对于以记录为单位的日志文件，日志文件中需要登记的内容包括：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141625193.png" srcset="/img/loading.gif" lazyload alt="image-20230614162554120"></p>
+<p>这里的每个事务的开始标记、每个事务的结束标记和每个更新操作均作为日志文件中的一个日志记录</p>
+<p>每个日志记录的内容主要包括：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141627873.png" srcset="/img/loading.gif" lazyload alt="image-20230614162712797"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141628235.png" srcset="/img/loading.gif" lazyload alt="image-20230614162812161"></p>
+<blockquote>
+<p>日志文件的作用</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141741259.png" srcset="/img/loading.gif" lazyload alt="image-20230614174151092"></p>
+<blockquote>
+<p>登记日志文件</p>
+</blockquote>
+<p>为保证数据库是可恢复的，登记日志文件时必须遵循两条原则</p>
+<ul>
+<li>登记的次序严格按并发事务执行的时间次序</li>
+<li>必须先写日志文件，后写数据库</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141934695.png" srcset="/img/loading.gif" lazyload alt="image-20230614193439478"></p>
+<h3 id="10-5-恢复策略"><a href="#10-5-恢复策略" class="headerlink" title="10.5 恢复策略"></a>10.5 恢复策略</h3><h5 id="事务故障的恢复"><a href="#事务故障的恢复" class="headerlink" title="事务故障的恢复"></a>事务故障的恢复</h5><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141938081.png" srcset="/img/loading.gif" lazyload alt="image-20230614193857924"></p>
+<h4 id="系统故障的恢复"><a href="#系统故障的恢复" class="headerlink" title="系统故障的恢复"></a>系统故障的恢复</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141940842.png" srcset="/img/loading.gif" lazyload alt="image-20230614194034733"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141940339.png" srcset="/img/loading.gif" lazyload alt="image-20230614194047215"></p>
+<h4 id="介质故障的恢复"><a href="#介质故障的恢复" class="headerlink" title="介质故障的恢复"></a>介质故障的恢复</h4><p>发送介质故障后，磁盘上的物理数据和日志文件被破坏，这是最严重的一种故障，恢复方法是重装数据库，然后重做已完成的事务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306141943410.png" srcset="/img/loading.gif" lazyload alt="image-20230614194326239"></p>
+<h2 id="第十一章"><a href="#第十一章" class="headerlink" title="第十一章"></a>第十一章</h2><ul>
+<li>选择1题、填空1题、运算6分</li>
+<li>并行的调度</li>
+<li>两段锁协议</li>
+<li>11.7,11.8不看</li>
+</ul>
+<p>看书</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E5%A4%8D%E4%B9%A0/" class="category-chain-item">大二下复习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据库期末</div>
+      <div>http://example.com/2023/06/11/数据库期末/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/06/15/%E6%B9%96%E7%A7%91%E5%A4%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/" title="湖科大计算机网络第四章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">湖科大计算机网络第四章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/10/%E8%AE%A1%E7%BD%91%E5%A4%8D%E4%B9%A0/" title="计网复习">
+                        <span class="hidden-mobile">计网复习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

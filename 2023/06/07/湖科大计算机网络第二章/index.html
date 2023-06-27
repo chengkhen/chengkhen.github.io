@@ -1,0 +1,1058 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2.1 物理层的基本概念 物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流  物理层为数据链路层屏蔽了各种传输媒体的差异, 使数据链路层只需要考虑如何完成本层的协议和服务, 而不必考虑网络具体使用的传输媒体是什么   传输媒体 导引型传输媒体 双绞线 同轴电缆 光纤   非导引型传输媒体 微波通信（2~40GHz）    物理层协议的主要任务 机械特性：指明接口所用接线器的形状和尺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="湖科大计算机网络第二章">
+<meta property="og:url" content="http://example.com/2023/06/07/%E6%B9%96%E7%A7%91%E5%A4%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="2.1 物理层的基本概念 物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流  物理层为数据链路层屏蔽了各种传输媒体的差异, 使数据链路层只需要考虑如何完成本层的协议和服务, 而不必考虑网络具体使用的传输媒体是什么   传输媒体 导引型传输媒体 双绞线 同轴电缆 光纤   非导引型传输媒体 微波通信（2~40GHz）    物理层协议的主要任务 机械特性：指明接口所用接线器的形状和尺">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071440430.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071441026.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071456745.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071458622.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071500090.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071506460.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071554946.png">
+<meta property="og:image" content="c:/Users/86152/AppData/Roaming/Typora/typora-user-images/image-20230607155919585.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071607821.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071611109.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071613808.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071625384.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071627740.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071631198.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071636294.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072038735.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072051820.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072101708.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072101802.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072109611.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072116683.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072111123.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072113205.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072146816.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072158259.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072210605.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072210089.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306092235393.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306092250511.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306100853184.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101312858.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306100907767.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101319578.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101320995.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101322714.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101322464.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101323232.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101324351.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101402490.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101408438.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101409123.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101427599.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101457698.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101455407.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101503307.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101507294.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101509505.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101510415.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101510692.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101511681.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101512051.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101514683.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101515853.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101515101.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101516473.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101516718.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101517957.png">
+<meta property="article:published_time" content="2023-06-07T06:02:16.000Z">
+<meta property="article:modified_time" content="2023-06-10T07:50:44.264Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071440430.png">
+  
+  
+  
+  <title>湖科大计算机网络第二章 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="湖科大计算机网络第二章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-07 14:02" pubdate>
+          2023年6月7日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">湖科大计算机网络第二章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2-1-物理层的基本概念"><a href="#2-1-物理层的基本概念" class="headerlink" title="2.1 物理层的基本概念"></a>2.1 物理层的基本概念</h1><ul>
+<li><p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流</p>
+</li>
+<li><p>物理层为数据链路层屏蔽了各种传输媒体的差异, 使数据链路层只需要考虑如何完成本层的协议和服务, 而不必考虑网络具体使用的传输媒体是什么</p>
+</li>
+</ul>
+<h2 id="传输媒体"><a href="#传输媒体" class="headerlink" title="传输媒体"></a>传输媒体</h2><ul>
+<li>导引型传输媒体<ul>
+<li>双绞线</li>
+<li>同轴电缆</li>
+<li>光纤</li>
+</ul>
+</li>
+<li>非导引型传输媒体<ul>
+<li>微波通信（2~40GHz）</li>
+</ul>
+</li>
+</ul>
+<h2 id="物理层协议的主要任务"><a href="#物理层协议的主要任务" class="headerlink" title="物理层协议的主要任务"></a>物理层协议的主要任务</h2><ul>
+<li>机械特性：指明接口所用接线器的形状和尺寸、引脚数目和排列、固定和锁定装置</li>
+<li>电气特性：指明在接口电缆各条线上出现的电压的范围</li>
+<li>功能特性：指出某条线上出现的某一电平的电压表示何种意义</li>
+<li>过程特性：指明对于不同功能的各种可能事件的出现顺序</li>
+</ul>
+<h1 id="2-2-物理层下面的传输媒体"><a href="#2-2-物理层下面的传输媒体" class="headerlink" title="2.2 物理层下面的传输媒体"></a>2.2 物理层下面的传输媒体</h1><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071440430.png" srcset="/img/loading.gif" lazyload alt="image-20230607144051367"></p>
+<h2 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071441026.png" srcset="/img/loading.gif" lazyload alt="image-20230607144113993"></p>
+<ul>
+<li>基带同轴电缆（50$\Omega$）<ul>
+<li>数字传输，过去用于局域网</li>
+</ul>
+</li>
+<li>宽带同轴电缆（75$\Omega$）<ul>
+<li>模拟传输，目前主要用于有线电视</li>
+</ul>
+</li>
+</ul>
+<p>同轴电缆价格较贵, 且布线不够灵活和方便, 随着集线器的出现，在局域网领域，双绞线取代了同轴电缆</p>
+<h2 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071456745.png" srcset="/img/loading.gif" lazyload alt="image-20230607145650699"></p>
+<p><strong>绞合的作用:</strong></p>
+<ul>
+<li>抵御部分来自外界的电磁波干扰</li>
+<li>减少相邻导线的电磁干扰</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071458622.png" srcset="/img/loading.gif" lazyload alt="image-20230607145808585"></p>
+<h2 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071500090.png" srcset="/img/loading.gif" lazyload alt="image-20230607150009052"></p>
+<ul>
+<li><p>纤芯直径</p>
+<ul>
+<li>多模光纤：50微米，62.5微米</li>
+<li>单模光纤：9微米</li>
+</ul>
+</li>
+<li><p>包层直径：125微米</p>
+</li>
+<li><p>工作波长</p>
+<ul>
+<li>0.85微米（衰减较大）</li>
+<li>1.30微米（衰减较小）</li>
+</ul>
+</li>
+<li><p>光纤的优点</p>
+<ul>
+<li>通信信容量非常大</li>
+<li>传输损耗小, 在远距离传输时更加经济</li>
+<li>抗雷电和电磁干扰性能好, 这在有大电流脉冲干扰的环境下尤为重要, </li>
+<li>无串音干扰, 保密性好, 不易被窃听</li>
+<li>体积小, 重量轻</li>
+</ul>
+</li>
+<li><p>光纤的缺点</p>
+<ul>
+<li>割接需要专用的设备</li>
+<li>光电接口价格较贵</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071506460.png" srcset="/img/loading.gif" lazyload alt="image-20230607150606404"></p>
+<ul>
+<li>光在纤芯中传输的方式是不断地全反射</li>
+<li>当入射角大于某一临界角度后就可以产生全反射，因此可以存在很多不同入射角度的光纤在一条光纤中进行传输，这种光纤称为多模光纤</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071554946.png" srcset="/img/loading.gif" lazyload alt="image-20230607155443862"></p>
+<ul>
+<li>由于色散，光在多模光纤中传输一定距离后必然产生信号失真</li>
+<li>因此，多模光纤只适合近距离传输（建筑物内）</li>
+<li>发送光源：发光二极管；接收检测：光电二极管</li>
+</ul>
+<p>光纤的直径减小到只有一个光的波长, 则光纤就像一根波导那样, 它可使光线一直向前传播, 而不会产生多次反射, 这样的光纤成为单模光纤</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20230607155919585.png" srcset="/img/loading.gif" lazyload alt="image-20230607155919585"></p>
+<ul>
+<li>没有模式色散，在1.31微米波长附加材料色散和波导色散大小相等，符号相反，两者正好抵消</li>
+<li>单模光纤适合长距离传输且衰减小，但其制造成本高，对光源要求高</li>
+<li>发送光源：激光发生器；接收检测：激光检波器</li>
+</ul>
+<h2 id="电力线"><a href="#电力线" class="headerlink" title="电力线"></a>电力线</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071607821.png" srcset="/img/loading.gif" lazyload alt="image-20230607160756763"></p>
+<p>如果要构建家庭高性能局域网, 采用电力线作为传输媒体是不能满足要求的, 对于装修时没有进行网络布线的家庭, 可以采用这种方式, 对于一些采用独立房间进行办公的企业来说, 每间办公室的电脑数量不多, 而又不希望跨办公室进行布线, 也可以采取这种方式, 每个办公室只需根据需求在电源插座上插入一个或多个电力猫即可</p>
+<h2 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071611109.png" srcset="/img/loading.gif" lazyload alt="image-20230607161116044"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071613808.png" srcset="/img/loading.gif" lazyload alt="image-20230607161336760"></p>
+<h2 id="红外线"><a href="#红外线" class="headerlink" title="红外线"></a>红外线</h2><ul>
+<li>点对点无线传输</li>
+<li>直线传输，中间不能有障碍物，传输距离短</li>
+<li>传输速率低</li>
+</ul>
+<h2 id="可见光"><a href="#可见光" class="headerlink" title="可见光"></a>可见光</h2><ul>
+<li>LIFI</li>
+</ul>
+<h1 id="2-3-传输方式"><a href="#2-3-传输方式" class="headerlink" title="2.3 传输方式"></a>2.3 传输方式</h1><h2 id="串行传输和并行传输"><a href="#串行传输和并行传输" class="headerlink" title="串行传输和并行传输"></a>串行传输和并行传输</h2><ul>
+<li>串行传输是指数据是一个比特一个比特依次发送的, 因此在发送端和接收端之间只需要一条数据传输线路即可</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071625384.png" srcset="/img/loading.gif" lazyload alt="image-20230607162557346"></p>
+<ul>
+<li>并行传输时是指一次发送n个比特, 而不是一个比特, 为此在发送端和接收端之间需要有n条传输线路</li>
+<li>并行传输的优点是速度为串行传输的n倍, 但也存在一个严重的缺点，即成本高</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071627740.png" srcset="/img/loading.gif" lazyload alt="image-20230607162750701"></p>
+<p><strong>计算机网络中，数据在传输线路上的传输采用的是串行传输</strong></p>
+<p><strong>计算机内部的数据传输常采用并行数据传输，例如cpu与内存之间通过总线进行数据传输, 常见的数据总线宽度有8位, 16位, 32位和64位</strong></p>
+<h2 id="同步传输和异步传输"><a href="#同步传输和异步传输" class="headerlink" title="同步传输和异步传输"></a>同步传输和异步传输</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071631198.png" srcset="/img/loading.gif" lazyload alt="image-20230607163131155"></p>
+<p>采用同步传输方式，数据块以稳定的比特流的形式传输, 字节之间没有间隔, 接收端在每个比特信号的中间时刻进行检测, 以判别接收到的是比特零还是比特一, 由于不同设备的时钟频率存在一定差异, 不可能做到完全相同, 在传输大量数据的过程中, 所产生的判别时刻的累积误差, 会导致接收端对比特信号的判别错位, 因此需要采取方法是收发双方的时钟保持同步</p>
+<ul>
+<li>实现收发双方时钟同步的方法<ul>
+<li>外同步：在收发双方之间添加一条单独的时钟信号线</li>
+<li>外同步：发送端将时钟同步信号编码到发送数据中一起传输（例如曼彻斯特编码）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306071636294.png" srcset="/img/loading.gif" lazyload alt="image-20230607163613257"></p>
+<p>采用异步传输方式时, 以字节为独立的传输单位, 字节之间的时间间隔不是固定的, 接收端仅在每个字节的起始处, 对字节内的比特实现同步, 为此通常要在每个字节前后分别加上起始位和结束位</p>
+<ul>
+<li>这里异步是指字节之间异步, 也就是字节之间的时间间隔不固定</li>
+<li>但字节中的每个比特仍然要同步, 也就是各比特的持续时间是相同的</li>
+</ul>
+<h2 id="单工、半双工以及全双工通信"><a href="#单工、半双工以及全双工通信" class="headerlink" title="单工、半双工以及全双工通信"></a>单工、半双工以及全双工通信</h2><ul>
+<li><p>单向通信（单工）：通信双方只有一个数据传输方向，例如无线电广播</p>
+</li>
+<li><p>双向交替通信（半双工）：通信双方可以相互传输数据, 但不能同时进行, 例如对讲机采用的就是这种通信方式</p>
+</li>
+<li><p>双向同时通信（全双工通信）：通信双方可以同时发送和接收信息, 例如电话采用的就是这种通信方式</p>
+</li>
+</ul>
+<p>单向通信只需要一条清道, 而双向交替通信或双向同时通信则都需要两条信道, 每个方向各一条</p>
+<h1 id="2-4-编码与调制"><a href="#2-4-编码与调制" class="headerlink" title="2.4 编码与调制"></a>2.4 编码与调制</h1><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072038735.png" srcset="/img/loading.gif" lazyload alt="image-20230607203857649"></p>
+<ul>
+<li>码元：在使用时间域的波形表示数字信号时, 代表不同离散数值的基本波形称为码元，简单来说, 码元就是构成信号的一段波形</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072051820.png" srcset="/img/loading.gif" lazyload alt="image-20230607205144776"></p>
+<p><strong>传输媒体与信道的关系</strong></p>
+<ul>
+<li>传输媒体和信道不能直接划等号</li>
+<li>对于单工传输，传输媒体中只包含一个信道，要么是发送短信，要么是接收信道</li>
+<li>对于半双工和全双工传输，传输媒体中要包含两个信道，一个是发送信道，另一个是接收信道，如果使用信道复用技术，一条传输媒体还可以包含多个信道</li>
+</ul>
+<h3 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h3><blockquote>
+<p>不归零编码</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072101708.png" srcset="/img/loading.gif" lazyload alt="image-20230607210138666"></p>
+<p>正电平表示比特一, 负电平表示比特零，所谓不归零，就是指在整个码元时间内，电平不会出现零电平</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072101802.png" srcset="/img/loading.gif" lazyload alt="image-20230607210109751"></p>
+<p><strong>如何判断出这是两个码元, 而这是三个码元</strong></p>
+<ul>
+<li>这需要发送方的发送与接收方的接收做到严格的同步, 这就需要额外一根传输线来传输时钟信号</li>
+<li>接收方按时钟信号的节拍来逐个接收码元, 然而对于计算机网络, 宁愿利用这个传输线来传输数据信号, 而不是传输时钟信号</li>
+<li>因此由于不归零编码存在同步问题, 计算机网络中的数据传输不采用这类编码</li>
+</ul>
+<blockquote>
+<p>归零编码</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072109611.png" srcset="/img/loading.gif" lazyload alt="image-20230607210943554"></p>
+<ul>
+<li><p>很明显每个码元传输结束后, 信号都要归零, 所以接收方只要在信号归零后进行采样即可, 不需要单独的时钟信号</p>
+</li>
+<li><p>实际上归零编码相当于把时钟信号用归零方式编码在了数据之内, 这称为自同步信号, 但是归零编码中大部分的数据带宽都用来传输归零而浪费掉了</p>
+</li>
+<li><p>也就是说归零编码的优点是自同步, 但缺点是编码效率低</p>
+</li>
+</ul>
+<blockquote>
+<p>曼彻斯特编码</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072116683.png" srcset="/img/loading.gif" lazyload alt="image-20230607211610610"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072111123.png" srcset="/img/loading.gif" lazyload alt="image-20230607211133074"></p>
+<ul>
+<li>在每个码元时间的中间时刻, 信号都会发生跳变</li>
+<li>例如负跳变表示比特一正跳变表示比特零</li>
+<li>码元中间时刻的跳变, 既表示时钟, 又表示数据</li>
+<li>传统以太网使用的就是曼彻斯特编码</li>
+</ul>
+<blockquote>
+<p>差分曼彻斯特编码</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072113205.png" srcset="/img/loading.gif" lazyload alt="image-20230607211338147"></p>
+<ul>
+<li>在每个码元时间的中间时刻信号都会发生跳变</li>
+<li>与曼彻斯特编码不同, 跳变仅表示时钟</li>
+<li>而用码元开始处电平是否发生变化来表示数据</li>
+</ul>
+<blockquote>
+<p>例题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072146816.png" srcset="/img/loading.gif" lazyload alt="image-20230607214658744"></p>
+<p>解析：</p>
+<ul>
+<li>10BaseT以太网使用的是曼彻斯特编码</li>
+<li>每个码元在中间时刻跳变，按此特点找出每个码元</li>
+<li>正跳变表示1还是0，负跳变表示0或1，可自行假设</li>
+</ul>
+<p>正确答案为A</p>
+<h3 id="基本调制方法"><a href="#基本调制方法" class="headerlink" title="基本调制方法"></a>基本调制方法</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072158259.png" srcset="/img/loading.gif" lazyload alt="image-20230607215843185"></p>
+<ul>
+<li><p>带传输的数字基带信号, 也就是来自信源的原始数字信号, 我们要使用模拟信号来传输, 因此需要将数字基带信号通过调制方法调制成可以在模拟信道中传输的模拟信号, </p>
+</li>
+<li><p>调幅所产生的模拟信号, 无载波输出表示比特零, 有载波输出表示比特一</p>
+</li>
+<li><p>调频所产生的模拟信号, 频率f1的波形表示比特零，频率f2 的波形表示比特,</p>
+</li>
+<li><p>调向所产生的模拟信号, 初相位0度的波形表示比特零，初相位180度的波形表示比特一</p>
+</li>
+</ul>
+<p> 很明显使用基本调制方法, 一个码元只能表示或者说包含一个比特信息, 那么<strong>如何能使一个码元包含更多的比特呢</strong>, 可以采用混合调制的方法, 因为频率和相位是相关的, 也就是说频率是相位随时间的变化率, 所以一次只能调制频率和相位两个中的一个, 通常情况下, 相位和振幅可以结合起来一起调制, 称为正交振幅调制QAM</p>
+<blockquote>
+<p>混合调制举例——正交振幅调制QAM</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072210605.png" srcset="/img/loading.gif" lazyload alt="image-20230607220649343"></p>
+<ul>
+<li>QAM-16<ul>
+<li>12种相位</li>
+<li>每种相位有1或2中振幅可选</li>
+<li>可以调制初16种码元（波形），每种码元可以对应4个比特</li>
+<li>码元与四个比特的对应关系采用格雷码<ul>
+<li>任意两个相邻码元只有一个比特不同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>为什么采用格雷码？</p>
+<p>假设a b c d e是接收端接收到的五个码元, 这五个码元原本都是表示四个比特零的, 由于传输过程中产生失真, 导致他们在星座图中并未落在理想的位置, 接收端会将码元abc解调为0000, 这是正确的, 将马原地解调为0001, 有一个错位, 将码元e且调为1111，4位全错, 这就说明每个马原与四个比特的对应关系, 不能随便定义</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306072210089.png" srcset="/img/loading.gif" lazyload alt="image-20230607221037040"></p>
+<h1 id="2-5-信道的极限容量"><a href="#2-5-信道的极限容量" class="headerlink" title="2.5 信道的极限容量"></a>2.5 信道的极限容量</h1><p> <img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306092235393.png" srcset="/img/loading.gif" lazyload alt="image-20230609223430503"></p>
+<ul>
+<li><p>一个数字信号，当它通过实际的信道后，波形会失真，失真不严重时，还能识别出它是0还是1</p>
+</li>
+<li><p>当失真严重时，在输出端就很难判断信号在什么时候是0，在什么时候是1，波形失去了码元之间清晰的界限，这种现象叫做码间串扰</p>
+</li>
+<li><p>产生失真的原因主要有</p>
+<ul>
+<li>码元传输速率</li>
+<li>信号传输距离</li>
+<li>噪声干扰传输媒体质量等</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>奈氏准则（1924年）</p>
+</blockquote>
+<ul>
+<li>奈氏准则：在假定的理想条件下，为了避免码间串扰，码元的传输速率是有上限的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306092250511.png" srcset="/img/loading.gif" lazyload alt="image-20230609225024443"></p>
+<ul>
+<li>调幅、调频、调像这三种基本调制方法，属于二元调制，只能产生两种不同的码元，也就是两种不同的基本波形，因此每个码元只能携带一比特的信息量</li>
+<li>而混合调制属于多元调制，例如QM16可以调制出16种不同的码元，因此每个码元可以携带4bit的信息量</li>
+</ul>
+<p><strong>思考：只要采用更好的调制方法, 让码元可以携带更多的比特, 岂不是可以无限制的提高信息的传输速率吗？</strong></p>
+<p>——答案是否定的。信道的极限信息传输速率还要受限于实际的信号在信道中传输时的信噪比, 因为信道中的噪声也会影响接收端对码元的识别, 并且噪声功率相对信号功率越大, 影响就越大</p>
+<blockquote>
+<p>香农公式：带宽受限且有高斯白噪声干扰的信道的极限信息传输速率</p>
+</blockquote>
+<p>$$C&#x3D;W * {log}_2 (1+ \frac {S}{N})$$ </p>
+<ul>
+<li>C：信道的极限信息传输速率（单位：bit&#x2F;s）</li>
+<li>W：信道带宽（单位：Hz）</li>
+<li>S：信道内所传信号的平均功率</li>
+<li>N：信道内高斯噪声功率</li>
+<li>S&#x2F;N：信噪比，使用分贝（dB）作为度量单位</li>
+<li>信噪比（dB） &#x3D; $10 * log_{10}(\frac {S}{N})$  (dB)</li>
+</ul>
+<p><strong>从香农公式可以看出</strong></p>
+<ul>
+<li>信道带宽或信道中信噪比越大, 信息的极限传输速率就越高</li>
+<li>需要说明的是, 在实际信道上能够达到的信息传输速率, 要比该公式的极限传输速率低不少, 这是因为在实际信道中, 信号还要受到其他一些损伤, 例如各种脉冲干扰, 信号在传输中的衰减和失真等, 这些因素在香农公式中并未考虑</li>
+</ul>
+<blockquote>
+<p>综合奈氏准则和香农公式来看</p>
+</blockquote>
+<ul>
+<li>信道带宽一定的情况下, 根据奈氏准则和香农公式，要想提高信息的传输速率, 就必须采用多元制,（更好的调制方法）并努力提高信道中的信噪比</li>
+<li>自从香农公式发表以后, 各种新的信号处理和调制方法就不断出现, 其目的都是为了尽可能的接近香农公式所给出的传输速率极限</li>
+</ul>
+<blockquote>
+<p>例题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306100853184.png" srcset="/img/loading.gif" lazyload alt="image-20230610085310041"></p>
+<ul>
+<li>从香农公式可知, 信噪比和频率带宽都会影响信道数据传输速率</li>
+<li>从奈氏准则可知, 调制速度也就是码元传输速度和码元所携带的比特数量, 都会影响信道数据传输速率, 而信号的传播速度不影响数据传输速率</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101312858.png" srcset="/img/loading.gif" lazyload alt="image-20230610131258776"></p>
+<ul>
+<li>根据奈氏准则可知，该通信链路的最高码元传输速率 &#x3D; 2 * 3k &#x3D; 6k （Baud）&#x3D;6k （码元&#x2F;秒）<ul>
+<li>为什么用的是理想低通信道的最大传输速率公式，而不是理想带桶信道的最大传输速率公式？</li>
+<li>因为题目问的是该通信链路在理想情况下，最大的数据传输速率</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306100907767.png" srcset="/img/loading.gif" lazyload alt="image-20230610090739716"></li>
+</ul>
+</li>
+<li>采用4个相位，每个相位4种振幅的QAM调制技术，可以调制出4 * 4 &#x3D; 16 个不同的基本波形（码元）；采用二进制对这十六个不同的码元进行编码，需要进行4个bit（$log_216 &#x3D; 4$）。换句话说，每个码元可以携带的信息量。为4比特</li>
+<li>综合上面两点，可知，该通信链路的最大传输速率 &#x3D; 6k（码元&#x2F;秒）* 4（比特&#x2F;码元）&#x3D;24k（比特&#x2F;秒）&#x3D;24kbs</li>
+<li>不管题目给出的调制技术多么“牛”或对于我们而言有多陌生，这都不会影响我们解题，我们只需关心这种调制技术可以调制出多少个不同的基本波形（码元）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101319578.png" srcset="/img/loading.gif" lazyload alt="image-20230610131917520"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101320995.png" srcset="/img/loading.gif" lazyload alt="image-20230610132056937"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101322714.png" srcset="/img/loading.gif" lazyload alt="image-20230610132237659"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101322464.png" srcset="/img/loading.gif" lazyload alt="image-20230610132248411"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101323232.png" srcset="/img/loading.gif" lazyload alt="image-20230610132337189"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101324351.png" srcset="/img/loading.gif" lazyload alt="image-20230610132445296"></p>
+<h1 id="2-6-信道复用技术"><a href="#2-6-信道复用技术" class="headerlink" title="2.6 信道复用技术"></a>2.6 信道复用技术</h1><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101402490.png" srcset="/img/loading.gif" lazyload alt="image-20230610140250417"></p>
+<ul>
+<li>复用就是在一条传输媒体上同时传输多路用户的信号</li>
+<li>当一条传输媒体的传输容量大于多条信道传输的总容量时，就可以通过复用技术，在这条传输媒体上建立多条通信信道，以便充分利用传输媒体的带宽</li>
+<li>尽管实现信道复用会增加通信成本（需要复用器、分用器以及费用较高的大容量共享信道），但如果复用的信道数量较大，还是比较划算的</li>
+</ul>
+<blockquote>
+<p> 常用的信道复用技术</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101408438.png" srcset="/img/loading.gif" lazyload alt="image-20230610140827376"></p>
+<h3 id="频分复用FDM"><a href="#频分复用FDM" class="headerlink" title="频分复用FDM"></a>频分复用FDM</h3><p>频分复用的所有<strong>用户</strong>同时占用<strong>不同的频带</strong>资源发送数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101409123.png" srcset="/img/loading.gif" lazyload alt="image-20230610140947063"></p>
+<ul>
+<li>将传输媒体的总频带划分成多个子频带, 每个子频带作为一个通信子信道, 每对用户使用其中的一个子信道进行通信, 各子信道之间需要留出隔离频带, 以免造成子信道间的干扰</li>
+</ul>
+<h3 id="时分复用TDM"><a href="#时分复用TDM" class="headerlink" title="时分复用TDM"></a>时分复用TDM</h3><p>时分复用的所有用户<strong>在不同的时间占用同样的频带</strong>进行通信</p>
+<p>将时间划分为一段段等长的时隙, 每一个时分复用的用户在其<strong>相应时隙内独占</strong>传输媒体的资源进行通信, 如图所示, 时分复用的各用户所对应的时隙就构成了时分复用帧即TDM帧。在使用时分复用技术进行通信的过程中, 每个时分复用的用户所占用的时隙是周期性出现的, 其周期就是TDM帧的长度<img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101427599.png" srcset="/img/loading.gif" lazyload alt="image-20230610142717529"></p>
+<p><strong>注意：TDM帧实际上是一段固定长度的时间，它与数据链路层对等实体间逻辑通信的“帧”，是完全不同的概念</strong></p>
+<h3 id="波分复用WDM"><a href="#波分复用WDM" class="headerlink" title="波分复用WDM"></a>波分复用WDM</h3><ul>
+<li>波分复用就是光的频分复用FDM</li>
+<li>根据频分复用的设计思想，可在一根光纤上<strong>同时传输多个频率, 或者说波长相近的光载波信号</strong>, 实现基于光纤的频分复用技术</li>
+<li>目前可以在一根光纤上复用80路或更多路的光载波信号, 因此这种复用技术也称为<strong>密集波分复用DWDM</strong></li>
+<li>铺设光缆的工程耗资巨大, 应尽量在一根光缆中放入尽可能多的光纤, 然后对每一根光纤使用密集波分复用技术<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101457698.png" srcset="/img/loading.gif" lazyload alt="image-20230610145715652"></li>
+</ul>
+</li>
+</ul>
+<p>波分复用的具体实现技术非常复杂，但基本物理原理简单，如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101455407.png" srcset="/img/loading.gif" lazyload alt="image-20230610145517345"></p>
+<h3 id="码分复用CDM"><a href="#码分复用CDM" class="headerlink" title="码分复用CDM"></a>码分复用CDM</h3><ul>
+<li><p>码分复用，常称为码分多址(CDMA)，它是扩频通信技术的基础上发展起来的一种无线通信技术</p>
+</li>
+<li><p>与FDM和TDM不同，CDMA的每个用户可以在相同的时间使用相同的频带进行通信</p>
+</li>
+<li><p>CDMA最初用于军事通信, 这种系统发送的信号有很强的抗干扰能力, 其频谱类似于白噪声, 不易被敌人发现</p>
+</li>
+<li><p>随着技术的进步, CDMA设备的价格和体积都大幅度下降, 因而现在已广泛用于民用的移动通信中</p>
+</li>
+<li><p>CDMA将每个比特时间划分为m个更短的时间片, 称为码片, m的取值通常为64或128, 为了简单起见, 在后续的举例中, 我们假设m的取值为8</p>
+</li>
+<li><p>CDMA中的每个站点都被指派一个唯一的m比特码片序列</p>
+<ul>
+<li>某个站要发送比特1，则发送它自己的m比特码片序列</li>
+<li>某个站要发送比特0，则发送它自己的m比特码片序列的反码</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101503307.png" srcset="/img/loading.gif" lazyload alt="image-20230610150349242"></li>
+</ul>
+</li>
+<li><p>如果有两个或多个站同时发送数据, 则信道中的信号就是这些站各自所发送一系列码片序列或码片序列反码的叠加, 为了从信道中分离出每个站的信号, 给每个站指派码片序列时, 必须遵循以下规则：</p>
+<ul>
+<li>分配给每个站的码片序列必须各不相同, 实际常采用伪随机码序列</li>
+<li>分配给每个站的码片序列必须相互正交, 即各码片序列相应的码片向量之间的规格化内积为0</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101507294.png" srcset="/img/loading.gif" lazyload alt="image-20230610150753246"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101509505.png" srcset="/img/loading.gif" lazyload alt="image-20230610150901449"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101510415.png" srcset="/img/loading.gif" lazyload alt="image-20230610151001377"></p>
+<p>该式的含义是：任何站的码片向量与其他各站码片反码的向量的规格化内积为0</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101510692.png" srcset="/img/loading.gif" lazyload alt="image-20230610151051652"></p>
+<p>该式的含义是：任何站的码片向量与该站自身码片向量的规格化内积为1</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101511681.png" srcset="/img/loading.gif" lazyload alt="image-20230610151129642"></p>
+<p>该式的含义是：任何站的码片向量与该站自身码片反码的向量的规格化内积为-1</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101512051.png" srcset="/img/loading.gif" lazyload alt="image-20230610151253994"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101514683.png" srcset="/img/loading.gif" lazyload alt="image-20230610151435624"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101515853.png" srcset="/img/loading.gif" lazyload alt="image-20230610151521796"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101515101.png" srcset="/img/loading.gif" lazyload alt="image-20230610151543052"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101516473.png" srcset="/img/loading.gif" lazyload alt="image-20230610151601417"></p>
+<blockquote>
+<p>例题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101516718.png" srcset="/img/loading.gif" lazyload alt="image-20230610151648674"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306101517957.png" srcset="/img/loading.gif" lazyload alt="image-20230610151736907"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%BD%91%E6%B9%96%E7%A7%91%E5%A4%A7/" class="category-chain-item">计网湖科大</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>湖科大计算机网络第二章</div>
+      <div>http://example.com/2023/06/07/湖科大计算机网络第二章/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月7日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/06/07/%E6%B9%96%E7%A7%91%E5%A4%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="湖科大计算机网络第三章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">湖科大计算机网络第三章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/29/%E6%B9%96%E7%A7%91%E5%A4%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="湖科大计算机网络第一章">
+                        <span class="hidden-mobile">湖科大计算机网络第一章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

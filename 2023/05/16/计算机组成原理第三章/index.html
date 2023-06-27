@@ -16,12 +16,12 @@
   <meta name="author" content="ChengKhen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第三章、存储系统存储系统基本概念 存储器的层次结构主存及以上  在辅存里的数据，只有调入到主存之后才可以被cpu访问  主存和cpu所连接的这两个箭头就是指cpu可以直接从主存读数据也可以直接向主存写数据  Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外cash里被更改的数据也会被写回主存   增加这样的一层高速缓冲存储器有什么作用">
+    <meta name="description" content="第三章、存储系统3.1 存储系统基本概念 存储器的层次结构主存及以上  在辅存里的数据，只有调入到主存之后才可以被cpu访问  主存和cpu所连接的这两个箭头就是指cpu可以直接从主存读数据也可以直接向主存写数据  Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外Cache里被更改的数据也会被写回主存   增加这样的一层高速缓冲存储器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理第三章">
 <meta property="og:url" content="http://example.com/2023/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
-<meta property="og:description" content="第三章、存储系统存储系统基本概念 存储器的层次结构主存及以上  在辅存里的数据，只有调入到主存之后才可以被cpu访问  主存和cpu所连接的这两个箭头就是指cpu可以直接从主存读数据也可以直接向主存写数据  Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外cash里被更改的数据也会被写回主存   增加这样的一层高速缓冲存储器有什么作用">
+<meta property="og:description" content="第三章、存储系统3.1 存储系统基本概念 存储器的层次结构主存及以上  在辅存里的数据，只有调入到主存之后才可以被cpu访问  主存和cpu所连接的这两个箭头就是指cpu可以直接从主存读数据也可以直接向主存写数据  Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外Cache里被更改的数据也会被写回主存   增加这样的一层高速缓冲存储器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171101543.png">
 <meta property="og:image" content="c:/Users/86152/AppData/Roaming/Typora/typora-user-images/image-20230517092019116.png">
@@ -29,8 +29,24 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171013880.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171034434.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171058581.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261734853.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306151404182.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306151417318.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261645004.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261649688.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261704708.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261707634.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261715079.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261718029.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261730914.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261732535.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261923316.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270822703.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270941116.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270959857.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306271016613.png">
 <meta property="article:published_time" content="2023-05-16T14:15:44.000Z">
-<meta property="article:modified_time" content="2023-05-17T05:36:23.450Z">
+<meta property="article:modified_time" content="2023-06-27T07:07:07.668Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="王道计组">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          5.1k 字
         
       </span>
     
@@ -237,7 +253,7 @@
         
         
         
-          18 分钟
+          43 分钟
         
       </span>
     
@@ -280,20 +296,20 @@
             
               <div class="markdown-body">
                 
-                <h1 id="第三章、存储系统"><a href="#第三章、存储系统" class="headerlink" title="第三章、存储系统"></a>第三章、存储系统</h1><h2 id="存储系统基本概念"><a href="#存储系统基本概念" class="headerlink" title="存储系统基本概念"></a>存储系统基本概念</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171101543.png" srcset="/img/loading.gif" lazyload alt="image-20230517110154486"></p>
+                <h1 id="第三章、存储系统"><a href="#第三章、存储系统" class="headerlink" title="第三章、存储系统"></a>第三章、存储系统</h1><h2 id="3-1-存储系统基本概念"><a href="#3-1-存储系统基本概念" class="headerlink" title="3.1 存储系统基本概念"></a>3.1 存储系统基本概念</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305171101543.png" srcset="/img/loading.gif" lazyload alt="image-20230517110154486"></p>
 <h3 id="存储器的层次结构"><a href="#存储器的层次结构" class="headerlink" title="存储器的层次结构"></a>存储器的层次结构</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20230517092019116.png" srcset="/img/loading.gif" lazyload alt="image-20230517092019116"></h3><h4 id="主存及以上"><a href="#主存及以上" class="headerlink" title="主存及以上"></a>主存及以上</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202305170921241.png" srcset="/img/loading.gif" lazyload alt="image-20230517092153197"></p>
 <ul>
 <li><p>在辅存里的数据，只有调入到主存之后才可以被cpu访问</p>
 </li>
 <li><p>主存和cpu所连接的这两个箭头就是指cpu可以直接从主存读数据也可以直接向主存写数据</p>
 </li>
-<li><p>Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外cash里被更改的数据也会被写回主存</p>
+<li><p>Cache（高速缓冲存储器），主存的数据会被放到Cache当中然后cpu可以直接往Cache写数据和读数据，另外Cache里被更改的数据也会被写回主存</p>
 </li>
 </ul>
 <p><strong>增加这样的一层高速缓冲存储器有什么作用？</strong></p>
-<p>主存的读写速度已经很快了<br>但是主存的读写速度<br>远远跟不上cpu的运算速度<br>为了缓解这种速度矛盾<br>通常计算机硬件会把当前有可能被频繁访问的代码数据从主存复制一份到Cache当中<br>然后cpu可以直接读取Cache当中的这个副本数据</p>
+<p>主存的读写速度已经很快了<br>但是主存的读写速度<br>远远跟不上CPU的运算速度<br>为了缓解这种速度矛盾<br>通常计算机硬件会把当前有可能被频繁访问的代码数据从主存复制一份到Cache当中<br>然后CPU可以直接读取Cache当中的这个副本数据</p>
 <ul>
-<li><p>寄存器，寄存器的读写速度又要比Cache快得多，所以cpu在进行加减乘除之类的运算的时候，会把操作数先放到寄存器里面，cpu内部包含的寄存器数量是很有限的</p>
+<li><p>寄存器，寄存器的读写速度又要比Cache快得多，所以CPU在进行加减乘除之类的运算的时候，会把操作数先放到寄存器里面，CPU内部包含的寄存器数量是很有限的</p>
 </li>
 <li><p>总之越靠近上层存储器，速度越快，容量越小<br>造价也越高</p>
 </li>
@@ -308,7 +324,7 @@
 <li><p>主存——辅存：实现了虚拟存储系统，解决了主存容量不够的问题</p>
 </li>
 </ul>
-<p><em>应用程序员所看到的这个储存的容量可以比它实际的容量要大得多,这就是虚拟的意思</em></p>
+<p><strong>应用程序员所看到的这个储存的容量可以比它实际的容量要大得多,这就是虚拟的意思</strong></p>
 <ul>
 <li>Cache——主存：解决了主存与CPU速度不匹配的问题</li>
 </ul>
@@ -364,7 +380,7 @@
 <li>快表就是一种相联存储器</li>
 </ul>
 </li>
-<li><p>下面三种是按照地址来访问<br>上面这种是按照内容来访问好</p>
+<li><p>下面三种是按照地址来访问<br>上面这种是按照内容来访问</p>
 </li>
 </ul>
 <blockquote>
@@ -403,7 +419,158 @@
 <li><p>主存带宽（Bm）:又称数据传输率，表示每秒从主存进出信息的最大数量</p>
 </li>
 </ul>
-<h2 id="主存储器的基本组成"><a href="#主存储器的基本组成" class="headerlink" title="主存储器的基本组成"></a>主存储器的基本组成</h2><h3 id="基本的半导体元件及原理"><a href="#基本的半导体元件及原理" class="headerlink" title="基本的半导体元件及原理"></a>基本的半导体元件及原理</h3><h3 id="存储芯片的基本原理"><a href="#存储芯片的基本原理" class="headerlink" title="存储芯片的基本原理"></a>存储芯片的基本原理</h3><h3 id="如何实现不同的寻址方式"><a href="#如何实现不同的寻址方式" class="headerlink" title="如何实现不同的寻址方式"></a>如何实现不同的寻址方式</h3><h2 id="SRAM和DRAM"><a href="#SRAM和DRAM" class="headerlink" title="SRAM和DRAM"></a>SRAM和DRAM</h2><h2 id="只读存储器ROM"><a href="#只读存储器ROM" class="headerlink" title="只读存储器ROM"></a>只读存储器ROM</h2><h2 id="主存储器与CPU的连接"><a href="#主存储器与CPU的连接" class="headerlink" title="主存储器与CPU的连接"></a>主存储器与CPU的连接</h2><h2 id="双端口RAM和多模块存储器"><a href="#双端口RAM和多模块存储器" class="headerlink" title="双端口RAM和多模块存储器"></a>双端口RAM和多模块存储器</h2><h2 id="磁盘存储器"><a href="#磁盘存储器" class="headerlink" title="磁盘存储器"></a>磁盘存储器</h2><h2 id="固态硬盘SSD"><a href="#固态硬盘SSD" class="headerlink" title="固态硬盘SSD"></a>固态硬盘SSD</h2><h2 id="Cache的基本概念和原理"><a href="#Cache的基本概念和原理" class="headerlink" title="Cache的基本概念和原理"></a>Cache的基本概念和原理</h2><h2 id="Cache和主存的映射方式"><a href="#Cache和主存的映射方式" class="headerlink" title="Cache和主存的映射方式"></a>Cache和主存的映射方式</h2><h2 id="Cache替换算法"><a href="#Cache替换算法" class="headerlink" title="Cache替换算法"></a>Cache替换算法</h2><h2 id="Cache写策略"><a href="#Cache写策略" class="headerlink" title="Cache写策略"></a>Cache写策略</h2><h2 id="页式存储器"><a href="#页式存储器" class="headerlink" title="页式存储器"></a>页式存储器</h2><h2 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h2>
+<h2 id="3-2-1-主存储器的基本组成"><a href="#3-2-1-主存储器的基本组成" class="headerlink" title="3.2.1 主存储器的基本组成"></a>3.2.1 主存储器的基本组成</h2><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261734853.png" srcset="/img/loading.gif" lazyload alt="image-20230626173429798"></p>
+<h3 id="基本的半导体元件及原理"><a href="#基本的半导体元件及原理" class="headerlink" title="基本的半导体元件及原理"></a>基本的半导体元件及原理</h3><h4 id="存储元"><a href="#存储元" class="headerlink" title="存储元"></a>存储元</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306151404182.png" srcset="/img/loading.gif" lazyload alt="image-20230615140442146"></p>
+<p><strong>读出二进制原理</strong>：</p>
+<ul>
+<li>MOS管可以理解为一种电控开关，输入电压达到某个阈值时，MOS管就可以接通，否则绝缘</li>
+<li>给电容上面的金属板加一个高电压，那么由于这两块金属板产生了电压差, 电容里面的电荷就会开始移动, 也就是所谓给电容充电的过程, 这个电容里边就可以保存一定的电荷, 而如果我们在上边输入的是一个低电平信号, 比如说0伏或者1伏, 那么上面这块金属板, 和下面这块金属板的电压差非常小, 所以这种情况下电容不会充点，也就不保存电荷</li>
+<li>两种状态的信息对应二进制的0和1</li>
+<li>假设现在这个电容上是保存了一些电荷的, 我们规定当它保存了一些电荷的时候, 它表示的是二进制的1</li>
+<li>如何读取这个二进制的比特位呢, 很简单, 只需要给mos管的这一端, 加一个高电平信号，也可以理解为是输入一个二进制的1, mos管就接通, 相当于这个开关可以开始导电, 此时电容里面保存的这些电荷, 就可以顺着这个导线往外流, 当我们在另一端, 检测到有一个输出电流的时候, 就意味着它输出了一个二进制的1</li>
+<li>如果本来这个电容它里边没有保存电荷, 也就是说这种状态表示二进制的0, 那么当mos管接通的时候, 我们在这一端并不能检测到有电荷的流出在这种情况下, 我们就可以判断, 这个电容里边保存的是二进制的0</li>
+</ul>
+<p><strong>写入二进制原理</strong>：</p>
+<ul>
+<li>假设现在我们想要让这个电容保存一个二进制的1</li>
+<li>那么我们可以在导线的这一端, 加一个5伏的高电平, 同时给这个mos管也加一个5伏的高电平, 这样的话mos管可以接通, 接通之后意味着电容上边这一块金属板, 它的电压应该是5伏, 而下边这个金属板由于是接了地, 所以它是0伏, 那只要电容的两块金属板之间有这种电压差, 就会导致这个电容里面的电荷开始移动, 于是这个电容就会存储一些电荷, 也就是存储了二进制的1</li>
+<li>接下来再让这个mos管断开, 这样的话电容里的电荷就跑不出去了</li>
+</ul>
+<h4 id="多个存储元构成存储单元"><a href="#多个存储元构成存储单元" class="headerlink" title="多个存储元构成存储单元"></a>多个存储元构成存储单元</h4><p><strong>如果我们把多个存储元进行科学合理的连接</strong>, <strong>那么我们就可以一次性读出或者写入多个二进制数据</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306151417318.png" srcset="/img/loading.gif" lazyload alt="image-20230615141755272"></p>
+<ul>
+<li><p>图里有一条红色的线, 这条线连接了每一个存储源的mos管, 如果给这条红色的线加一个5伏的高电平, 就意味着所有这些存储源的mos管都可以被导通, 当mos管导通之后, 电容里存储的电荷就可以顺着这条线, 往绿色这条线往外导出</p>
+</li>
+<li><p>也就是说, 只需要监测每一条绿色的线, 有没有产生电流, 就可以判断每一条线所对应的是二进制的零还是一, 如果有电流, 那么意味着产生的是一个二进制的1, 如果没有电流, 那么就意味着产生的是一个二进制的0</p>
+</li>
+<li><p>用这样的方式, 就可以读出这一整行的存储元所存储的这些二进制比特的信息, 这样的一整行, 就是我们之前提到过的存储单元, 也就是一个存储字</p>
+</li>
+</ul>
+<h4 id="多个存储单元也就构成了一个存储体"><a href="#多个存储单元也就构成了一个存储体" class="headerlink" title="多个存储单元也就构成了一个存储体"></a>多个存储单元也就构成了一个存储体</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261645004.png" srcset="/img/loading.gif" lazyload alt="image-20230626164501934"></p>
+<h3 id="存储芯片的基本原理"><a href="#存储芯片的基本原理" class="headerlink" title="存储芯片的基本原理"></a>存储芯片的基本原理</h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261649688.png" srcset="/img/loading.gif" lazyload alt="image-20230626164910624"></p>
+<ul>
+<li>给出了n位二进制地址之后, n 位2 进制地址应该会对应$2^n$个存储单元, 译码器会根据这个地址, 寄存器MAR里边给出的这几位地址, 把它转变成某一条选通线的高电平信号</li>
+<li>比如此时cpu给这个MAR送过来的地址是三个零, 三个零翻译成十进制, 就应该是对应十进制的零</li>
+<li>所以译码器会把第0根字选择线, 给它一个高电平的输出, 这样的话, 第一个存储字所对应的这些存储元件, 都会被选通, 就可以读出每一位二进制数据</li>
+<li>总之，每一个地址会对应译码器的一条输出线, 0号1号2号, 以此类推, 总共有二的三次方个地址, 也就是八个地址, 因此译码器的输出端总共会有八条线好, 所以经过译码器的处理, 一个地址信号会被转换成译码器的某一条输出线的高电平信号</li>
+<li>当这一条红色的自选择线被接通之后, 就可以通过这个数据线, 也就是这绿色的这条线, 把每一位的二进制信息传送到MDR当中, 然后接下来cpu会通过数据总线, 从MDR当中取走这一整个字的数据</li>
+<li>那这数据总线的宽度, 应该是和存储字长是相同的，这就是给出地址之后, 通过译码器的处理, 选中其中的某一个字的原理</li>
+</ul>
+<p><strong>总容量&#x3D;存储单元个数 * 存储字长</strong></p>
+<h4 id="控制电路"><a href="#控制电路" class="headerlink" title="控制电路"></a>控制电路</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261704708.png" srcset="/img/loading.gif" lazyload alt="image-20230626170417627"></p>
+<ul>
+<li>控制电路, 用于控制译码器mar和mdr, 比如cpu通过地址总线把地址送到mar当中, 但是由于我们使用的是电信号, 来传送这些二进制数据, 而电信号难免会有不稳定的情况, 当mar里面的这个电信号稳定之前, 这个地址信息是不能送到译码器当中的</li>
+<li>所以这就是控制电路的一个作用, 只有mar稳定之后, 它才会打开这个译码器的开关, 让译码器来翻译这个地址, 然后给出相应的输出信号, 那那同样的当数据输出的时候, 只有这个输出的电信号稳定之后, 控制电路才会认为此时的输出是正确无误的, 所以他也需要控制mdr, 在什么时候给数据总线送出数据</li>
+</ul>
+<h4 id="片选线"><a href="#片选线" class="headerlink" title="片选线"></a>片选线</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261707634.png" srcset="/img/loading.gif" lazyload alt="image-20230626170750593"></p>
+<ul>
+<li>通常我们会用CS上面加一个杠, 或者CE上面加一个杠来表示片选线的电信号, 像这种头上画了一横的意思, 就是当电信号是低电平时有效, CS和CE是因为缩写, C表示芯片的英文Chip, 然后CS表示的是芯片选择, chip select芯片选择信号, 如果我们给出的芯片选择信号, 是一个低电平的时候, 就说明这个芯片的总开关是被我们接通的</li>
+<li>有的地方也会把片选线的信号, 把它命名为CE，CE是chip enable, 也就是芯片使能的一个信号, 和芯片选择信号的含义一样, 也就是说, 当我们给这个片选线加一个低电平的时候, 就意味着这块芯片是可以工作的</li>
+</ul>
+<h4 id="读写控制线"><a href="#读写控制线" class="headerlink" title="读写控制线"></a>读写控制线</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261715079.png" srcset="/img/loading.gif" lazyload alt="image-20230626171539034"></p>
+<ul>
+<li>可以读写控制线分开，各一根</li>
+<li>也可以不分开，一根线判断读还是写</li>
+</ul>
+<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261718029.png" srcset="/img/loading.gif" lazyload alt="image-20230626171818962"></p>
+<ul>
+<li><p>存储矩阵也就是一个个存储元</p>
+</li>
+<li><p>驱动是指一般在译码器旁再接一个驱动器，使得输出的信号稳定有效</p>
+</li>
+<li><p>片选线究竟有什么用？</p>
+<ul>
+<li>一个内存条可能包含多块存储芯片</li>
+<li>要查找的数据在内存条的某一块存储芯片当中</li>
+<li>用片选线，即可选中那块存储芯片</li>
+</ul>
+</li>
+<li><p>上图的每根线都至少会对应一个金属引脚</p>
+<ul>
+<li>”至少“只针对读写控制线</li>
+<li>另外还有供电引脚和接地引脚</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261730914.png" srcset="/img/loading.gif" lazyload alt="image-20230626173003848"></p>
+<h3 id="如何实现不同的寻址方式"><a href="#如何实现不同的寻址方式" class="headerlink" title="如何实现不同的寻址方式"></a>如何实现不同的寻址方式</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261732535.png" srcset="/img/loading.gif" lazyload alt="image-20230626173235470"></p>
+<h2 id="3-2-2-SRAM和DRAM"><a href="#3-2-2-SRAM和DRAM" class="headerlink" title="3.2.2 SRAM和DRAM"></a>3.2.2 SRAM和DRAM</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306261923316.png" srcset="/img/loading.gif" lazyload alt="image-20230626192345230"></p>
+<ul>
+<li><p>Dynamic Random Access Memory ，即动态RAM</p>
+</li>
+<li><p>Static Random Access Memory， 静态RAM</p>
+</li>
+<li><p>DRAM用于主存，SRAM用于Cache</p>
+</li>
+<li><p>DRAM芯片：使用栅极电容存储信息</p>
+</li>
+<li><p>SRAM芯片：使用双稳态触发器存储信息</p>
+</li>
+</ul>
+<blockquote>
+<p>栅极电容 VS 双稳态触发器</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270822703.png" srcset="/img/loading.gif" lazyload alt="image-20230627082221627"></p>
+<p>栅极电容：</p>
+<ul>
+<li>读出1：MOS管接通，<strong>电容放电</strong>，数据线上产生电流</li>
+<li>读出0：MOS管接头后，数据线上无电流<ul>
+<li><strong>电容放电时</strong>信息被破坏，是<strong>破坏性读出</strong>。读出后应有<strong>重写</strong>操作，也称为再生</li>
+</ul>
+</li>
+<li>每个存储元制造成本更低，集成度高，功耗低</li>
+<li>电容内的电荷只能维持2ms，即便不断电，2ms后信息也会消失<ul>
+<li>这也是DRAM需要刷新的原因（刷新也就是给电容充电）</li>
+</ul>
+</li>
+</ul>
+<p>双稳态：</p>
+<ul>
+<li>A高B低为1</li>
+<li>A低B高为0</li>
+<li>读出0时，BL为低电平<ul>
+<li>读出数据，触发器状态保持稳定，是<strong>非破坏性读出</strong>，<strong>无需重写</strong></li>
+</ul>
+</li>
+<li>读出1时，BLX为低电平</li>
+<li>每个存储元制造成本更高，集成度低，功耗大</li>
+<li>只要不断电，触发器的状态就不会改变</li>
+</ul>
+<blockquote>
+<p>DRAM VS SRAM</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270941116.png" srcset="/img/loading.gif" lazyload alt="image-20230627094126990"></p>
+<p><strong>现在来看，DRAM已经过时了，目前主存通常采用SDRAM芯片</strong></p>
+<blockquote>
+<p>DRAM的刷新</p>
+</blockquote>
+<ul>
+<li><p>多久需要刷新？——刷新周期：一般为2ms</p>
+</li>
+<li><p>每次刷新多少存储单元？——以行为单位，每次刷新一行</p>
+</li>
+<li><p>为什么要用行列地址——减少选通线的数量</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306270959857.png" srcset="/img/loading.gif" lazyload alt="image-20230627095933757"></p>
+<p>用二维的矩阵，采用行列地址，大大减少每个译码器选通线的数量</p>
+<ul>
+<li>如何刷新？——有硬件支持，读出一行的信息后重新写入，占用一个读&#x2F;写周期</li>
+<li>在什么时刻刷新？</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202306271016613.png" srcset="/img/loading.gif" lazyload alt="image-20230627101623506"></p>
+<p><strong>异步刷新最科学，每15.6微妙内有0.5微妙的死时间用来刷新，可以利用CPU不访问存储器的时间来刷新，比如可在译码阶段刷新</strong></p>
+<blockquote>
+<p>DRAM的地址线复用技术</p>
+</blockquote>
+<p><strong>行、列地址分两次送，可使地址线更少，芯片引脚更少</strong></p>
+<h2 id="3-2-3-只读存储器ROM"><a href="#3-2-3-只读存储器ROM" class="headerlink" title="3.2.3 只读存储器ROM"></a>3.2.3 只读存储器ROM</h2><ul>
+<li><p>RAM芯片——易失性，断电后数据消失</p>
+</li>
+<li><p>ROM芯片——非易失性，断电后数据不会丢失</p>
+</li>
+</ul>
+<h2 id="3-3-1-主存储器与CPU的连接"><a href="#3-3-1-主存储器与CPU的连接" class="headerlink" title="3.3.1 主存储器与CPU的连接"></a>3.3.1 主存储器与CPU的连接</h2><h2 id="3-3-2-双端口RAM和多模块存储器"><a href="#3-3-2-双端口RAM和多模块存储器" class="headerlink" title="3.3.2 双端口RAM和多模块存储器"></a>3.3.2 双端口RAM和多模块存储器</h2><h2 id="3-4-1-磁盘存储器"><a href="#3-4-1-磁盘存储器" class="headerlink" title="3.4.1 磁盘存储器"></a>3.4.1 磁盘存储器</h2><h2 id="3-4-2固态硬盘SSD"><a href="#3-4-2固态硬盘SSD" class="headerlink" title="3.4.2固态硬盘SSD"></a>3.4.2固态硬盘SSD</h2><h2 id="3-5-1-Cache的基本概念和原理"><a href="#3-5-1-Cache的基本概念和原理" class="headerlink" title="3.5.1 Cache的基本概念和原理"></a>3.5.1 Cache的基本概念和原理</h2><h2 id="3-5-2-Cache和主存的映射方式"><a href="#3-5-2-Cache和主存的映射方式" class="headerlink" title="3.5.2 Cache和主存的映射方式"></a>3.5.2 Cache和主存的映射方式</h2><h2 id="3-5-3-Cache替换算法"><a href="#3-5-3-Cache替换算法" class="headerlink" title="3.5.3 Cache替换算法"></a>3.5.3 Cache替换算法</h2><h2 id="3-5-4-Cache写策略"><a href="#3-5-4-Cache写策略" class="headerlink" title="3.5.4 Cache写策略"></a>3.5.4 Cache写策略</h2><h2 id="3-6-1-页式存储器"><a href="#3-6-1-页式存储器" class="headerlink" title="3.6.1 页式存储器"></a>3.6.1 页式存储器</h2><h2 id="3-6-2-虚拟存储器"><a href="#3-6-2-虚拟存储器" class="headerlink" title="3.6.2 虚拟存储器"></a>3.6.2 虚拟存储器</h2>
                 
               </div>
             
