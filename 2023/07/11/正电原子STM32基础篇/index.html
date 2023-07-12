@@ -16,21 +16,34 @@
   <meta name="author" content="ChengKhen">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/2023/page/2/index.html">
+    <meta name="description" content="第一讲 单片机简介单片机是什么 单片机：Single-Chip Microcomputer，单片微型计算机，是一种集成电路芯片   第二讲 Cortex-M系列介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正电原子STM32基础篇">
+<meta property="og:url" content="http://example.com/2023/07/11/%E6%AD%A3%E7%94%B5%E5%8E%9F%E5%AD%90STM32%E5%9F%BA%E7%A1%80%E7%AF%87/index.html">
 <meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="第一讲 单片机简介单片机是什么 单片机：Single-Chip Microcomputer，单片微型计算机，是一种集成电路芯片   第二讲 Cortex-M系列介绍">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307111036071.png">
+<meta property="article:published_time" content="2023-07-11T02:25:46.000Z">
+<meta property="article:modified_time" content="2023-07-11T02:44:38.129Z">
 <meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="STM32">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307111036071.png">
   
   
   
-  <title>归档 - Blog of ChengKhen</title>
+  <title>正电原子STM32基础篇 - Blog of ChengKhen</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -80,7 +93,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -185,9 +198,49 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle" data-typed-text="正电原子STM32基础篇"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-11 10:25" pubdate>
+          2023年7月11日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          75 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -203,100 +256,183 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 64 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2023</p>
-    
-    <a href="/2023/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>05-23</time>
-      <div class="list-group-item-title">计算机网络自顶向下第一章</div>
-    </a>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">正电原子STM32基础篇</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第一讲-单片机简介"><a href="#第一讲-单片机简介" class="headerlink" title="第一讲 单片机简介"></a>第一讲 单片机简介</h1><h2 id="单片机是什么"><a href="#单片机是什么" class="headerlink" title="单片机是什么"></a>单片机是什么</h2><ul>
+<li>单片机：Single-Chip Microcomputer，单片微型计算机，是一种集成电路芯片</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307111036071.png" srcset="/img/loading.gif" lazyload alt="image-20230711103624987"></p>
+<h1 id="第二讲-Cortex-M系列介绍"><a href="#第二讲-Cortex-M系列介绍" class="headerlink" title="第二讲 Cortex-M系列介绍"></a>第二讲 Cortex-M系列介绍</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
   
     
-    <a href="/2023/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>05-23</time>
-      <div class="list-group-item-title">计算机网络自顶向下第三章</div>
-    </a>
+      <span class="category-chain">
+        
+  <a href="/categories/STM32%E5%AD%A6%E4%B9%A0/" class="category-chain-item">STM32学习</a>
   
-    
-    <a href="/2023/05/21/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%87%AA%E5%AD%A6/" class="list-group-item list-group-item-action">
-      <time>05-21</time>
-      <div class="list-group-item-title">数据库设计自学</div>
-    </a>
   
+
+      </span>
     
-    <a href="/2023/05/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%8D%E4%B9%A0/" class="list-group-item list-group-item-action">
-      <time>05-18</time>
-      <div class="list-group-item-title">人工智能复习</div>
-    </a>
   
-    
-    <a href="/2023/05/17/C51%E4%B9%8B%E5%AE%9E%E7%8E%B0LED%E7%81%AF%E6%98%8E%E4%BA%AE/" class="list-group-item list-group-item-action">
-      <time>05-17</time>
-      <div class="list-group-item-title">C51之点亮LED灯</div>
-    </a>
+</span>
+
+    </div>
   
-    
-    <a href="/2023/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>05-16</time>
-      <div class="list-group-item-title">计算机组成原理第三章</div>
-    </a>
   
-    
-    <a href="/2023/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>05-16</time>
-      <div class="list-group-item-title">计算机组成原理第二章</div>
-    </a>
-  
-    
-    <a href="/2023/05/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="list-group-item list-group-item-action">
-      <time>05-04</time>
-      <div class="list-group-item-title">计算机组成原理第一章</div>
-    </a>
-  
-    
-    <a href="/2023/03/14/Linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="list-group-item list-group-item-action">
-      <time>03-14</time>
-      <div class="list-group-item-title">Linux命令大全</div>
-    </a>
-  
-    
-    <a href="/2023/03/14/Linux%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
-      <time>03-14</time>
-      <div class="list-group-item-title">Linux学习</div>
-    </a>
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/STM32/">#STM32</a>
+      
+    </div>
   
 </div>
 
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2023/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2023/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2023/page/3/#board">3</a><a class="extend next" rel="next" href="/archives/2023/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
+              
+  
 
-
-
-
-              </div>
-            </div>
-          </div>
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>正电原子STM32基础篇</div>
+      <div>http://example.com/2023/07/11/正电原子STM32基础篇/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
         </div>
       </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/28/%E7%A0%B4%E9%98%B2%E6%9D%BF%E4%B9%8B%E7%9F%A9%E9%98%B5%E9%94%AE%E7%9B%98/" title="破防板之矩阵键盘">
+                        <span class="hidden-mobile">破防板之矩阵键盘</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -390,6 +526,72 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
