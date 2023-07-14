@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="6.2 指定初始化6.2.1指定初始化数组元素 在GNU C中，通过数组元素索引，我们就可以直接给指定的几个元素赋值。  1int b[100] &#x3D; &amp;#123; [10] &#x3D; 1, [30]&#x3D;2 &amp;#125;;  在大括号{}中，我们通过[10]数组元素索引，就可以直接给a[10]赋值了。这里有一个细节需要注意，各个赋值之间用逗号“，”隔开，而不是使用分号“；”  给数组中某一个索引范围的数组元">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第6章 GNU C编译器扩展语法">
+<meta property="og:url" content="http://example.com/2023/07/14/%E7%AC%AC6%E7%AB%A0-GNU-C%E7%BC%96%E8%AF%91%E5%99%A8%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="6.2 指定初始化6.2.1指定初始化数组元素 在GNU C中，通过数组元素索引，我们就可以直接给指定的几个元素赋值。  1int b[100] &#x3D; &amp;#123; [10] &#x3D; 1, [30]&#x3D;2 &amp;#125;;  在大括号{}中，我们通过[10]数组元素索引，就可以直接给a[10]赋值了。这里有一个细节需要注意，各个赋值之间用逗号“，”隔开，而不是使用分号“；”  给数组中某一个索引范围的数组元">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-14T01:40:47.000Z">
+<meta property="article:modified_time" content="2023-07-14T03:25:52.373Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>第6章 GNU C编译器扩展语法 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第6章 GNU C编译器扩展语法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-14 09:40" pubdate>
+          2023年7月14日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          68 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第6章 GNU C编译器扩展语法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="6-2-指定初始化"><a href="#6-2-指定初始化" class="headerlink" title="6.2 指定初始化"></a>6.2 指定初始化</h1><h2 id="6-2-1指定初始化数组元素"><a href="#6-2-1指定初始化数组元素" class="headerlink" title="6.2.1指定初始化数组元素"></a>6.2.1指定初始化数组元素</h2><ul>
+<li>在GNU C中，通过数组元素索引，我们就可以直接给指定的几个元素赋值。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> b[<span class="hljs-number">100</span>] = &#123; [<span class="hljs-number">10</span>] = <span class="hljs-number">1</span>, [<span class="hljs-number">30</span>]=<span class="hljs-number">2</span> &#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在大括号{}中，我们通过[10]数组元素索引，就可以直接给a[10]赋值了。这里有一个细节需要注意，<strong>各个赋值之间用逗号“，”隔开，而不是使用分号“；”</strong></p>
+<ul>
+<li>给数组中某一个索引范围的数组元素初始化</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> b[<span class="hljs-number">100</span>] = &#123;[<span class="hljs-number">10</span> ... <span class="hljs-number">30</span>] = <span class="hljs-number">1</span>, [<span class="hljs-number">50</span> ... <span class="hljs-number">60</span>]=<span class="hljs-number">2</span> &#125;;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, a[i]);<br>        <span class="hljs-keyword">if</span>( i % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>)<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面的main函数，使用[10…30]表示一个索引范围，相当于给a[10]到a[30]之间的20个数组元素赋值为1。  </p>
+<ul>
+<li>GNU C支持使用…表示范围扩展，这个特性不仅可以使用在数组初始化中，也可以使用在switch-case语句中  ，如下</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">4</span>;<br>    <span class="hljs-keyword">switch</span>(i)<br>    &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;1\n&quot;</span>);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> ... <span class="hljs-number">8</span>:<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,i);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;9\n&quot;</span>);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span>:<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;default!\n&quot;</span>);<br>            <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个程序中，如果当case值为2～8时，都执行相同的case分支，我们就可以通过case 2…8：的形式来简化代码。这里同样有一个细节需要注意，就是…和其两端的数据范围2和8之间也要有空格，<strong>不能写成2…8的形式，否则会报编译错误</strong>  </p>
+<h2 id="6-2-2-指定初始化结构体成员"><a href="#6-2-2-指定初始化结构体成员" class="headerlink" title="6.2.2 指定初始化结构体成员"></a>6.2.2 指定初始化结构体成员</h2><p>在GNU C中我们可以通过结构域来指定初始化某个成员  ，如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">student</span>&#123;</span><br>    <span class="hljs-type">char</span> name[<span class="hljs-number">20</span>];<br>    <span class="hljs-type">int</span> age;<br>&#125;;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">student</span> <span class="hljs-title">stu1</span>=</span>&#123;<span class="hljs-string">&quot;wit&quot;</span>,<span class="hljs-number">20</span>&#125;;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s:%d\n&quot;</span>,stu1.name,stu1.age);<br>    <br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">student</span> <span class="hljs-title">stu2</span>=</span><br>    &#123;<br>        .name = <span class="hljs-string">&quot;wantao&quot;</span>,<br>        .age = <span class="hljs-number">28</span><br>    &#125;;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s:%d\n&quot;</span>,stu2.name,stu2.age);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的程序中，我们定义一个结构体类型student，然后分别定义两个结构体变量stu1和stu2。</p>
+<ul>
+<li>初始化stu1时，我们采用C语言标准的初始化方式，即按照固定顺序直接初始化。</li>
+<li>初始化stu2时，我们采用GNU C的初始化方式，通过结构域名.name和.age，就可以给结构体变量的某一个指定成员直接赋值。</li>
+<li>当结构体的成员很多时，使用第二种初始化方式会更加方便</li>
+</ul>
+<h2 id="6-2-3-Linux内核驱动注册"><a href="#6-2-3-Linux内核驱动注册" class="headerlink" title="6.2.3 Linux内核驱动注册"></a>6.2.3 Linux内核驱动注册</h2><p>在Linux内核驱动中，大量使用GNU C的这种指定初始化方式，通过结构体成员来初始化结构体变量。如在字符驱动程序中，我们经常见到下面这样的初始化  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span></span><br><span class="hljs-class"><span class="hljs-title">ab3100_otp_operations</span> =</span> <br>&#123;<br>.open        = ab3100_otp_open,<br>.read        = seq_read,<br>.llseek      = seq_lseek,<br>.release     = single_release,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>在驱动程序中，我们经常使用file_operations这个结构体来注册我们开发的驱动，然后系统会以回调的方式来执行驱动实现的具体功能，结构体file_operations在Linux内核中的定义如下  ：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span> &#123;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">module</span> *<span class="hljs-title">owner</span>;</span><br>    <span class="hljs-type">loff_t</span> (*llseek) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">loff_t</span>, <span class="hljs-type">int</span>);<br>    <span class="hljs-type">ssize_t</span> (*read) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">char</span> __user *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *);<br>    <span class="hljs-type">ssize_t</span> (*write) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">const</span> <span class="hljs-type">char</span> __user *, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *);<br>    <span class="hljs-type">ssize_t</span> (*read_iter) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-keyword">struct</span> iov_iter *);<br>    <span class="hljs-type">ssize_t</span> (*write_iter) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-keyword">struct</span> iov_iter *);<br>    <span class="hljs-type">int</span> (*iterate) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> dir_context *);<br>    <span class="hljs-type">unsigned</span> <span class="hljs-title function_">int</span> <span class="hljs-params">(*poll)</span> <span class="hljs-params">(<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> poll_table_struct *)</span>;<br>    <span class="hljs-type">long</span> (*unlocked_ioctl) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>);<br>    <span class="hljs-type">long</span> (*compat_ioctl) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>);<br>    <span class="hljs-type">int</span> (*mmap) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> vm_area_struct *);<br>    <span class="hljs-type">int</span> (*mremap)(<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> vm_area_struct *);<br>    <span class="hljs-type">int</span> (*open) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> file *);<br>    <span class="hljs-type">int</span> (*flush) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">fl_owner_t</span> id);<br>    <span class="hljs-type">int</span> (*release) (<span class="hljs-keyword">struct</span> inode *, <span class="hljs-keyword">struct</span> file *);<br>    <span class="hljs-type">int</span> (*fsync) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">loff_t</span>, <span class="hljs-type">loff_t</span>, <span class="hljs-type">int</span> datasync);<br>    <span class="hljs-type">int</span> (*aio_fsync) (<span class="hljs-keyword">struct</span> kiocb *, <span class="hljs-type">int</span> datasync);<br>    <span class="hljs-type">int</span> (*fasync) (<span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>);<br>    <span class="hljs-type">int</span> (*lock) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file_lock *);<br>    <span class="hljs-type">ssize_t</span> (*sendpage) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-keyword">struct</span> page *, <span class="hljs-type">int</span>, <span class="hljs-type">size_t</span>, <span class="hljs-type">loff_t</span> *, <span class="hljs-type">int</span>);<br>    <span class="hljs-type">unsigned</span> <span class="hljs-title function_">long</span> <span class="hljs-params">(*get_unmapped_area)</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span>)</span>;<br>    <span class="hljs-type">int</span> (*check_flags)(<span class="hljs-type">int</span>);<br>    <span class="hljs-type">int</span> (*flock) (<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">int</span>, <span class="hljs-keyword">struct</span> file_lock *);<br>    <span class="hljs-type">ssize_t</span> (*splice_write)(<span class="hljs-keyword">struct</span> pipe_inode_info *, <span class="hljs-keyword">struct</span> file *, <span class="hljs-type">loff_t</span> *, <span class="hljs-type">size_t</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>);<br>    <span class="hljs-type">ssize_t</span> (*splice_read)(<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">loff_t</span> *, <span class="hljs-keyword">struct</span> pipe_inode_info *, <span class="hljs-type">size_t</span>, <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span>);<br>    <span class="hljs-type">int</span> (*setlease)(<span class="hljs-keyword">struct</span> file *, <span class="hljs-type">long</span>, <span class="hljs-keyword">struct</span> file_lock **, <span class="hljs-type">void</span> **);<br>    <span class="hljs-type">long</span> (*fallocate)(<span class="hljs-keyword">struct</span> file *file, <span class="hljs-type">int</span> mode, <span class="hljs-type">loff_t</span> offset, <span class="hljs-type">loff_t</span> len);<br>    <span class="hljs-type">void</span> (*show_fdinfo)(<span class="hljs-keyword">struct</span> seq_file *m, <span class="hljs-keyword">struct</span> file *f);<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> CONFIG_MMU</span><br>    <span class="hljs-type">unsigned</span> (*mmap_capabilities)(<span class="hljs-keyword">struct</span> file *);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>&#125;;<br><br><br></code></pre></td></tr></table></figure>
+
+<p>结构体file_operations里定义了很多结构体成员，而在这个驱动中，我们只初始化了部分成员变量。通过访问结构体的各个成员域来指定初始化，当结构体成员很多时优势就体现出来了，初始化会更加方便。  </p>
+<h2 id="6-2-4-指定初始化的好处"><a href="#6-2-4-指定初始化的好处" class="headerlink" title="6.2.4 指定初始化的好处"></a>6.2.4 指定初始化的好处</h2><ul>
+<li><p>指定初始化不仅使用灵活，而且还有一个好处，就是代码易于维护。</p>
+</li>
+<li><p>尤其是在Linux内核这种大型项目中，有几万个文件、几千万行的代码，当成百上千个文件都使用file_operations这个结构体类型来定义变量并初始化时，那么一个很大的问题就来了：如果采用C标准按照固定顺序赋值，当file_operations结构体类型发生变化时，如添加了一个成员、删除了一个成员、调整了成员顺序，那么使用该结构体类型定义变量的大量C文件都需要重新调整初始化顺序，牵一发而动全身，想想这有多可怕！</p>
+</li>
+<li><p>我 们 通 过 指 定 初 始 化 方 式 ， 就 可 以 避 免 这 个 问 题 。 无 论file_operations结构体类型如何变化，添加成员也好、删除成员也好、调整成员顺序也好，都不会影响其他文件的使用。</p>
+</li>
+</ul>
+<h1 id="6-3-宏构造“利器”：语句表达式"><a href="#6-3-宏构造“利器”：语句表达式" class="headerlink" title="6.3  宏构造“利器”：语句表达式"></a>6.3  宏构造“利器”：语句表达式</h1><h2 id="6-3-1-表达式、语句和代码块"><a href="#6-3-1-表达式、语句和代码块" class="headerlink" title="6.3.1 表达式、语句和代码块"></a>6.3.1 表达式、语句和代码块</h2><p>表达式就是由一系列<strong>操作符和操作数构成的式子</strong>。操作符可以是C语言标准规定的各种算术运算符、逻辑运算符、赋值运算符、比较运算符。操作数可以是一个常量，也可以是一个变量。表达式也可以没有操作符，单独的一个常量甚至一个字符串，都是一个表达式。下面的字符序列都是表达式  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">2</span>+<span class="hljs-number">3</span><br><span class="hljs-number">2</span><br>i = <span class="hljs-number">2</span> + <span class="hljs-number">3</span><br>i = i++ + <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>表达式一般用来计算数据或实现某种功能的算法。表达式有两个基本属性：值和类型。如上面的表达式2+3，它的值为5。根据操作符的不同，表达式可以分为多种类型，具体如下  ：</p>
+<ul>
+<li>关系表达式</li>
+<li>逻辑表达式</li>
+<li>条件表达式</li>
+<li>赋值表达式</li>
+<li>算术表达式</li>
+</ul>
+<p>语句是构成程序的基本单元，一般形式如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">表达式;<br>i = <span class="hljs-number">2</span> + <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>表达式后面加;就构成了一个基本的语句。编译器在编译程序、解析程序时，不是根据物理行，而是根据分号; 来判断一条语句的结束标记的。如i&#x3D;2+3；这条语句，你写成下面的形式也是可以编译通过的  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">i =<br><span class="hljs-number">2</span> +<br><span class="hljs-number">3</span><br>;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>不同的语句，使用大括号{}括起来，就构成了一个代码块。C语言允许在代码块内定义一个变量，这个变量的作用域也仅限于这个代码块内，因为编译器就是根据{}来管理变量的作用域的，如下面的程序  :</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">3</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;i = %d\n&quot;</span>,i);<br>    &#123;<br>        <span class="hljs-type">int</span> i = <span class="hljs-number">4</span>;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;i = %d\n&quot;</span>,i);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;i = %d\n&quot;</span>,i);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>程序运行结果如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">i = <span class="hljs-number">3</span><br>i = <span class="hljs-number">4</span><br>i = <span class="hljs-number">3</span>    <br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-3-2-语句表达式"><a href="#6-3-2-语句表达式" class="headerlink" title="6.3.2 语句表达式"></a>6.3.2 语句表达式</h2><p>GNU C对C语言标准作了扩展，允许<strong>在一个表达式里内嵌语句</strong>，<strong>允许在表达式内部使用局部变量、for循环和goto跳转语句</strong>。这种类型的表达式，我们称为语句表达式。语句表达式的格式如下  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">(&#123;表达式<span class="hljs-number">1</span>; 表达式<span class="hljs-number">2</span>; 表达式<span class="hljs-number">3</span>;&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>语句表达式最外面使用小括号()括起来，里面一对大括号{}包起来的是代码块，代码块里允许内嵌各种语句。语句的格式可以是一般表达式，也可以是循环、跳转语句。</p>
+</li>
+<li><p>和一般表达式一样，语句表达式也有自己的值。语句表达式的值为内嵌语句中最后一个表达式的值  </p>
+</li>
+<li><p>下面举个例子，使用语句表达式求值</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br>    sum =<br>        (&#123;<br>            <span class="hljs-type">int</span> s = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">10</span>;i++)<br>                s = s+i;<br>            s;<br>        &#125;);<br>        <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum = %d\n&quot;</span>,sum);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在上面的程序中，通过语句表达式实现了从1到10的累加求和，因为<strong>语句表达式的值等于最后一个表达式的值</strong>，所以在for循环的后面，要添加一个s；语句表示整个语句表达式的值。</li>
+<li>如果不加这一句，你会发现sum&#x3D;0。或者你将这一行语句改为100；，你会发现最后sum的<br>值就变成了100，这是因为语句表达式的值总等于最后一个表达式的值</li>
+</ul>
+<p>在上面的程序中，我们在语句表达式内定义了局部变量，使用了for循环语句。在语句表达式内，我们同样可以使用goto进行跳转  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br>    sum =<br>        (&#123;<br>            <span class="hljs-type">int</span> s = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">10</span>;i++)<br>                s = s+i;<br>            <span class="hljs-keyword">goto</span> here;<br>            s;<br>        &#125;);<br>        <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum = %d\n&quot;</span>,sum);<br><br>here:<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;here:\n&quot;</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sum = %d\n&quot;</span>,sum);<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-3-3-在宏定义中使用语句表达式"><a href="#6-3-3-在宏定义中使用语句表达式" class="headerlink" title="6.3.3 在宏定义中使用语句表达式"></a>6.3.3 在宏定义中使用语句表达式</h2><p>语句表达式的主要用途在于定义功能复杂的宏。使用语句表达式来定义宏，不仅可以实现复杂的功能，还能避免宏定义带来的歧义和漏洞。</p>
+<p>假如你此刻正在面试，面试职位是Linux C语言开发工程师。面试官给你出了一道题：请定义一个宏，求两个数的最大值。别看这么简单的一个考题，面试官就能根据你写的宏，来判断你的C语言功底，决定给不给你offer。  </p>
+<h3 id="合格"><a href="#合格" class="headerlink" title="合格"></a>合格</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) x &gt; y ? x : y</span><br></code></pre></td></tr></table></figure>
+
+<p>我们写一个程序，验证一下上面定义的宏是否正确  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) x &gt; y ? x : y</span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,MAX(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,MAX(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,MAX(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,MAX(<span class="hljs-number">1</span>!=<span class="hljs-number">1</span>,<span class="hljs-number">1</span>!=<span class="hljs-number">2</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>既然是测试程序，我们肯定要把各种可能出现的情况都测试一遍。例如，测试第4行语句，当宏的参数是一个表达式，发现实际运行结果为max&#x3D;0，和我们预期结果max&#x3D;1不一样。这是因为，宏展开后，变成如下样子  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,<span class="hljs-number">1</span>!=<span class="hljs-number">1</span>&gt;<span class="hljs-number">1</span>!=<span class="hljs-number">2</span>?<span class="hljs-number">1</span>!=<span class="hljs-number">1</span>:<span class="hljs-number">1</span>!=<span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+
+<p>因为比较运算符&gt;的优先级为6，大于！&#x3D;（优先级为7），所以在展开的表达式中，运算顺序发生了改变，结果就和预期不一样了。为了避免这种展开错误，我们可以给宏的参数加一个小括号()，防止展开后表达式的运算顺序发生变化  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) (x) &gt; (y) ? (x) : (y)</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="中等"><a href="#中等" class="headerlink" title="中等"></a>中等</h3><p>我们再测试一下这个上面修改的宏</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) (x) &gt; (y) ? (x) : (y)</span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d&quot;</span>,<span class="hljs-number">3</span>+MAX(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在程序中，我们打印表达式3+MAX（1，2）的值，预期结果应该是5，但实际运行结果却是1。宏展开后，我们发现同样有问题  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">3</span> + (<span class="hljs-number">1</span>) &gt; (<span class="hljs-number">2</span>) ? (<span class="hljs-number">1</span>) : (<span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+
+<p>因为运算符+的优先级大于比较运算符&gt;，所以这个表达式就变为4&gt;2？1：2，最后结果为1也就不奇怪了。此时我们应该继续修改宏  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) ((x) &gt; (y) ? (x) : (y))</span><br></code></pre></td></tr></table></figure>
+
+<p>使用小括号将宏定义包起来，这样就避免了当一个表达式同时含有宏定义和其他高优先级运算符时，破坏整个表达式的运算顺序  </p>
+<h3 id="良好"><a href="#良好" class="headerlink" title="良好"></a>良好</h3><p>我们再用下面的代码测试一下上面的宏</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y) ((x) &gt; (y) ? (x) : (y))</span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> j = <span class="hljs-number">6</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max = %d&quot;</span>,MAX(i++,j++));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在程序中，我们定义两个变量i和j，然后比较两个变量的大小，并作自增运算。实际运行结果发现max&#x3D;7，而不是预期结果max&#x3D;6。这是因为变量i和j在宏展开后，做了两次自增运算，导致打印出的i值为7  </p>
+<p>当然，在C语言编程规范里，使用宏时一般是不允许参数变化的。但是万一碰到这种情况，该怎么办呢？这时候，语句表达式就该上场了。我们可以使用语句表达式来定义这个宏，在语句表达式中定义两个临时变量，分别来暂时存储i和j的值，然后使用临时变量进行比较，这样就避免了两次自增、自减问题  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(x,y)(&#123;   \</span><br><span class="hljs-meta"></span><br><span class="hljs-type">int</span> _x =  x;                   \<br><br><span class="hljs-type">int</span> _y = y;                    \<br><br>_x &gt; _y ? _x : _y;         \<br><br>&#125;)<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> i =<span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> j =<span class="hljs-number">6</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d&quot;</span>,MAX(i++,j++));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>在语句表达式中，我们定义了2个局部变量_x、_y来存储宏参数x和y的值，然后使用_x和_y来比较大小，这样就避免了i和j带来的2次自增运算问题  </p>
+<h3 id="优秀"><a href="#优秀" class="headerlink" title="优秀"></a>优秀</h3><p>在上面这个宏中，我们定义的两个临时变量数据类型是int型，只能比较两个整型数据。那么对于其他类型的数据，就需要重新定义一个宏了，这样太麻烦了！我们可以基于上面的宏继续修改，让它可以支持任意类型的数据比较大小  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(type,x,y)(&#123; \</span><br><span class="hljs-meta">type _x = x;            \</span><br><span class="hljs-meta">type _y = y;            \</span><br><span class="hljs-meta">_x &gt; _y ? _x : _y;      \</span><br><span class="hljs-meta">&#125;)</span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> j = <span class="hljs-number">6</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d\n&quot;</span>,MAX(<span class="hljs-type">int</span>, i++, j++));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;max=%d\n&quot;</span>,MAX(<span class="hljs-type">float</span>,<span class="hljs-number">3.14</span>,<span class="hljs-number">3.15</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个宏中，我们添加一个参数type，用来指定临时变量 _x 和 _y 的类型。这样，我们在比较两个数的大小时，只要将2个数据的类型作为参数传给宏，就可以比较任意类型的数据了  </p>
+<h3 id="更加优秀"><a href="#更加优秀" class="headerlink" title="更加优秀"></a>更加优秀</h3><p>在上面的宏定义中，我们增加了一个type类型参数，来适配不同的数据类型我们应该尝试进一步优化，把这个参数也省去。该如何做到呢？使用typeof就可以了，typeof是GNU C新增的一个关键字，用来获取数据类型，我们不用传参进去，让typeof直接获取！    </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX(type,x,y)(&#123; \</span><br><span class="hljs-meta">typeof(x) _x = (x);     \</span><br><span class="hljs-meta">typeof(y) _y = (y);     \</span><br><span class="hljs-meta">(void) (&amp;_x == &amp;_y);</span><br>_x &gt; _y ? _x : _y;      \<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在这个宏定义中，我们使用了typeof关键字来自动获取宏的两个参数类型。</p>
+</li>
+<li><p>比较难理解的是（void（&amp;x&#x3D;&#x3D;&amp;y）；这句话，看起来很多余，仔细分析一下，你会发现这条语句很有意思。</p>
+</li>
+<li><p>它的作用有两个：</p>
+<ul>
+<li><p>一是用来给用户提示一个警告，对于不同类型的指针比较，编译器会发出一个警告，提示两种数据的类型不同 </p>
+</li>
+<li><pre><code class="c">warning: comparison of distinct pointer types lacks a cast
+</code></pre>
+</li>
+<li><p>二是两个数进行比较运算，运算的结果却没有用到，有些编译器可能会给出一个warning，加一个（void）后，就可以消除这个警告</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-3-4-内核中的语句表达式"><a href="#6-3-4-内核中的语句表达式" class="headerlink" title="6.3.4 内核中的语句表达式"></a>6.3.4 内核中的语句表达式</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8FC%E8%AF%AD%E8%A8%80%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/" class="category-chain-item">嵌入式C语言自我修养</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">#嵌入式</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第6章 GNU C编译器扩展语法</div>
+      <div>http://example.com/2023/07/14/第6章-GNU-C编译器扩展语法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/11/%E6%AD%A3%E7%94%B5%E5%8E%9F%E5%AD%90STM32%E5%9F%BA%E7%A1%80%E7%AF%87/" title="正电原子STM32基础篇">
+                        <span class="hidden-mobile">正电原子STM32基础篇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
