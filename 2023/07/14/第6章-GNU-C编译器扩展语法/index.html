@@ -25,8 +25,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307171456458.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307171501138.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307181003608.png">
 <meta property="article:published_time" content="2023-07-14T01:40:47.000Z">
-<meta property="article:modified_time" content="2023-07-17T07:02:41.068Z">
+<meta property="article:modified_time" content="2023-07-18T07:14:20.988Z">
 <meta property="article:author" content="ChengKhen">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16k 字
+          21k 字
         
       </span>
     
@@ -233,7 +234,7 @@
         
         
         
-          133 分钟
+          173 分钟
         
       </span>
     
@@ -538,7 +539,112 @@
 <p><img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307171501138.png" srcset="/img/loading.gif" lazyload alt="image-20230717150105023"></p>
 <p>从符号表可以看到，array2的地址为0x21054，在BSS段的后面。array2符号表示的默认地址是一片未使用的内存空间，仅此而已，编译器绝不会单独再给其分配一个存储空间来存储数组名  </p>
 <p>理解了上面，为什么不用指针的原因就很简单了。如果使用指针，指针本身占用存储空间不说，根据上面的USB驱动的案例分析，你会发现，它远远没有零长度数组用得巧妙：零长度数组不会对结构体定义造成冗余，而且使用起来很方便  </p>
-<h1 id="6-6-属性声明：section"><a href="#6-6-属性声明：section" class="headerlink" title="6.6 属性声明：section"></a>6.6 属性声明：section</h1>
+<h1 id="6-6-属性声明：section"><a href="#6-6-属性声明：section" class="headerlink" title="6.6 属性声明：section"></a>6.6 属性声明：section</h1><h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="什么是数据对齐"><a href="#什么是数据对齐" class="headerlink" title="什么是数据对齐"></a>什么是数据对齐</h3><p>一般情况下，当我们定义一个变量，编译器会按照默认的地址对齐方式，来给该变量分配一个存储空间地址。如果该变量是一个 int 型数据，那么编译器就会按4字节或4字节的整数倍对齐；如果该变量是一个 short 型数据，那么编译器就会按2字节或2字节的整数倍边界对齐；如果是一个 char 类型的变量，那么编译器就会按照1字节对齐。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a = <span class="hljs-number">1</span>; <br><span class="hljs-type">int</span> b = <span class="hljs-number">2</span>; <br><span class="hljs-type">char</span> c1 = <span class="hljs-number">3</span>; <br><span class="hljs-type">char</span> c2 = <span class="hljs-number">4</span>; <br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a: %p\n&quot;</span>, &amp;a);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;b: %p\n&quot;</span>, &amp;b);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c1:%p\n&quot;</span>, &amp;c1);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c2:%p\n&quot;</span>, &amp;c2);     <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的程序中，我们分别定义2个 int 型变量，2个 char 型变量，然后分别打印它们的地址，运行结果如下。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span>:  <span class="hljs-number">00402000</span><br><span class="hljs-attribute">b</span>:  <span class="hljs-number">00402004</span><br><span class="hljs-attribute">c1</span>: <span class="hljs-number">00402008</span><br><span class="hljs-attribute">c2</span>: <span class="hljs-number">00402009</span><br></code></pre></td></tr></table></figure>
+
+<p>通过运行结果我们可以看到，对于 int 型数据，其在内存中的地址都是以4字节或4字节整数倍对齐的。而 char 类型的数据，其在内存中是以1字节对齐的。变量 c2 就直接分配到了 c1 变量的下一个存储单元，不用像 int 数据那样考虑4字节对齐。接下来，我们修改一下程序，指定变量 c2 按4字节对齐。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a = <span class="hljs-number">1</span>; <br><span class="hljs-type">int</span> b = <span class="hljs-number">2</span>;<br><span class="hljs-type">char</span> c1 = <span class="hljs-number">3</span>; <br><span class="hljs-type">char</span> c2 __attribute__((aligned(<span class="hljs-number">4</span>))) = <span class="hljs-number">4</span>; <br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> &#123;     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a: %p\n&quot;</span>, &amp;a);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;b: %p\n&quot;</span>, &amp;b);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c1:%p\n&quot;</span>, &amp;c1);     <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c2:%p\n&quot;</span>, &amp;c2);     <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>程序的运行结果如下。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span>:  <span class="hljs-number">00402000</span><br><span class="hljs-attribute">b</span>:  <span class="hljs-number">00402004</span><br><span class="hljs-attribute">c1</span>: <span class="hljs-number">00402008</span><br><span class="hljs-attribute">c2</span>: <span class="hljs-number">0040200</span>C<br></code></pre></td></tr></table></figure>
+
+<p>通过运行结果可以看到，字符变量 c2 由于使用 aligned 属性声明按照4字节边界对齐，所以编译器不可能再给其分配 0x00402009 这个地址，因为这个地址不是4字节对齐的。编译器空出3个字节单元，直接从 0x0040200C 这个地址上给变量 c2 分配存储空间。</p>
+<h3 id="什么是BSS段"><a href="#什么是BSS段" class="headerlink" title="什么是BSS段"></a>什么是BSS段</h3><p>BSS（Block Started by Symbol）段是程序在内存中的一个段（区域），用于存储未初始化的全局变量和静态变量。BSS段通常位于可执行程序的数据段（Data Segment）之后或者堆（Heap）的底部。</p>
+<p>在程序运行之前，操作系统会为BSS段分配足够的内存空间，这些内存空间会被初始化为零或者其他默认值。因此，BSS段中的变量在程序加载时会被自动初始化为默认值，而不需要程序员显式地为它们赋初值。</p>
+<p>与BSS段相关的变量必须是全局变量或静态变量，而且未显式初始化。例如，在C语言中，以下声明的变量会被放置在BSS段：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> global_var;<br><span class="hljs-type">static</span> <span class="hljs-type">int</span> static_var;<br></code></pre></td></tr></table></figure>
+
+<p>需要注意的是，BSS段只存储未初始化的变量，而已经显式初始化的全局变量和静态变量会存储在数据段中。</p>
+<p>BSS段的使用可以帮助节省可执行程序的磁盘空间，因为不需要将未初始化的变量的默认值存储在可执行文件中。此外，由于BSS段中的变量在加载时会被自动初始化，程序员无需手动为它们赋初值，减少了初始化的工作量。</p>
+<p>总结而言，BSS段是用于存储未初始化的全局变量和静态变量的内存段，它在程序加载时会被自动初始化为默认值。</p>
+<h3 id="什么是U-boot"><a href="#什么是U-boot" class="headerlink" title="什么是U-boot"></a>什么是U-boot</h3><p>U-Boot（Universal Bootloader）是一个开源的引导加载程序（bootloader），用于嵌入式系统的引导过程。它是一个可移植且广泛使用的引导加载程序，支持多种处理器架构和嵌入式平台。</p>
+<p>U-Boot的主要功能是在嵌入式系统启动时初始化硬件设备、加载操作系统内核和文件系统，并提供命令行界面（CLI）以供用户进行配置和控制。它通常被用作第一阶段引导加载程序，负责执行初始化和启动的基本任务，然后将控制权交给操作系统。</p>
+<p>U-Boot具有以下特点和功能：</p>
+<ol>
+<li>可移植性：U-Boot可以在多种处理器架构（如ARM、PowerPC、x86等）和嵌入式平台上运行，适应不同的硬件环境。</li>
+<li>配置灵活：U-Boot提供了丰富的配置选项和编译参数，可以根据具体需求进行定制和配置。</li>
+<li>设备初始化：U-Boot负责初始化处理器、内存、外设等硬件设备，为后续的操作系统加载和运行做好准备。</li>
+<li>引导加载：U-Boot能够从各种存储介质（如闪存、SD卡、网络等）加载和启动操作系统内核和文件系统。</li>
+<li>命令行界面：U-Boot提供了交互式的命令行界面，允许用户进行配置、调试和控制。</li>
+<li>可扩展性：U-Boot支持插件机制，可以添加额外的功能模块和驱动程序。</li>
+</ol>
+<p>由于U-Boot具有开源的特性，它被广泛应用于嵌入式系统和嵌入式开发板中，包括路由器、无线电设备、网络存储设备、汽车电子、物联网设备等。它提供了一个可靠和灵活的引导加载解决方案，简化了嵌入式系统的开发和维护。</p>
+<h2 id="6-6-1-GNU-C编译器扩展关键字：-attribute"><a href="#6-6-1-GNU-C编译器扩展关键字：-attribute" class="headerlink" title="6.6.1 GNU C编译器扩展关键字：__attribute__"></a>6.6.1 GNU C编译器扩展关键字：<code>__attribute__</code></h2><p>GNU C增加了一个<code>__attribute__</code>关键字用来声明一个函数、变量或类型的特殊属性。主要用途就是指导编译器在编译程序时进行特定方面的优化或代码检查。例如，我们可以通过属性声明来指定某个变量的数据对齐方式  </p>
+<p><code>__attribute__</code>的使用非常简单，当我们定义一个函数、变量或类型时，直接在它们名字旁边添加下面的属性声明即可  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">__attribute__((ATTRIBUTE))<br></code></pre></td></tr></table></figure>
+
+<p>需要注意的是，<code>__attribute__</code>后面是<strong>两对小括号</strong>，不能图方便只写一对，否则编译就会报错。括号里面的<strong>ATTRIBUTE表示要声明的属性</strong>。目前<code>__attribute__</code>支持十几种属性声明 ：</p>
+<ul>
+<li>section</li>
+<li>aligned</li>
+<li>packed</li>
+<li>format</li>
+<li>weak</li>
+<li>alias</li>
+<li>noinline</li>
+<li>always_inline</li>
+<li>···</li>
+</ul>
+<p>在这些属性中，aligned和packed用来显式指定一个变量的存储对齐方式。在正常情况下，当我们定义一个变量时，编译器会根据变量类型给这个变量分配合适大小的存储空间，按照默认的边界对齐方式分配一个地址。而使用<code>__atttribute__</code>这个属性声明，就相当于告诉编译器：按照我们指定的边界对齐方式去给这个变量分配存储空间  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> c2 __attribute__((aligned(<span class="hljs-number">8</span>))) = <span class="hljs-number">4</span>;<br><span class="hljs-type">int</span> global_val __attribute__((section(<span class="hljs-string">&quot;.data&quot;</span>)));<br></code></pre></td></tr></table></figure>
+
+<p>有些属性可能还有自己的参数。如aligned(8)表示这个变量按8字节地址对齐，属性的参数也要使用小括号括起来，如果属性的参数是一个字符串，则小括号里的参数还要用双引号引起来  </p>
+<p>当然，我们也可以对一个变量同时添加多个属性说明。在定义变量时，各个属性之间用逗号隔开  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> c2 __attribute__((packed,aligned(<span class="hljs-number">4</span>)));<br><span class="hljs-type">char</span> c2 __attribute__((packed,aligned(<span class="hljs-number">4</span>))) = <span class="hljs-number">4</span>;<br>__attribute__((packed,aligned(<span class="hljs-number">4</span>))) <span class="hljs-type">char</span> c2 = <span class="hljs-number">4</span>;<br></code></pre></td></tr></table></figure>
+
+<p>属性声明要紧挨着变量，上面的三种声明方式都是没有问题的，但下面的声明方式在编译的时候可能就通不过  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> c2 = <span class="hljs-number">4</span> __attribute__((packed,aligned(<span class="hljs-number">4</span>)));<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-6-2-属性声明：section"><a href="#6-6-2-属性声明：section" class="headerlink" title="6.6.2 属性声明：section"></a>6.6.2 属性声明：section</h2><p>我们可以使用<code>__attribute__</code>来声明一个section属性，section属性的主要作用是：在程序编译时，将一个函数或变量放到指定的段，即放到指定的section中  </p>
+<p>一个可执行文件主要由代码段、数据段、BSS段构成。代码段主要存放编译生成的可执行指令代码，数据段和BSS段用来存放全局变量、未初始化的全局变量。代码段、数据段和BSS段构成了一个可执行文件的主要部分  </p>
+<p>除了这三个段，可执行文件中还包含其他一些段。用编译器的专业术语讲，还包含其他一些section，如只读数据段、符号表等。我们可以使用下面的readelf命令，去查看一个可执行文件中各个section的信息  </p>
+<table>
+<thead>
+<tr>
+<th align="center">section</th>
+<th align="center">组成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">代码段(.text)</td>
+<td align="center">函数定义、程序语句</td>
+</tr>
+<tr>
+<td align="center">数据段(.data)</td>
+<td align="center">初始化的（全局变量、静态局部变量）</td>
+</tr>
+<tr>
+<td align="center">BSS段(.bss)</td>
+<td align="center">未初始化的（全局变量、静态局部变量）</td>
+</tr>
+</tbody></table>
+<img src="https://cdn.jsdelivr.net/gh/chengkhen/picture_via_picco/202307181003608.png" srcset="/img/loading.gif" lazyload alt="image-20230718100311484" style="zoom:150%;" />
+
+<ul>
+<li>.text section就是代码段</li>
+<li>.data section是数据段</li>
+<li>.bss section是BSS段</li>
+</ul>
+<p>编译器在编译程序时，以源文件为单位，将一个个源文件编译生成一个个目标文件。在编译过程中，编译器都会按照这个默认规则，将函数、变量分别放在不同的section中，最后将各个section组成一 个目标文件。编译过程结束后，链接器会将各个目标文件组装合并、重定位，生成一个可执行文件  </p>
+<p>在GNU C中，我们可以通过__attribute__的section属性，显式指定一个函数或变量，在编译时放到指定的section里面  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> global_val = <span class="hljs-number">8</span>;<br><span class="hljs-type">int</span> uninit_val __attribute__((section(<span class="hljs-string">&quot;.data&quot;</span>)));<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面的代码，我们将本该放在BSS段的未初始化的全局变量<code>uninit_val</code>放到了数据段中</p>
+<h2 id="6-6-3-U-boot镜像自复制分析"><a href="#6-6-3-U-boot镜像自复制分析" class="headerlink" title="6.6.3 U-boot镜像自复制分析"></a>6.6.3 U-boot镜像自复制分析</h2><p>有了section这个属性声明，我们就可以试着分析：U-boot在启动过程中，是如何将自身代码加载的RAM中的  </p>
+<p>U-boot的用途主要是加载Linux内核镜像到内存，给内核传递启动参数，然后引导Linux操作系统启动  </p>
+<p>U-boot一般存储在NOR Flash或NAND Flash上。无论从NOR Flash还是从NAND Flash启动，U-boot其本身在启动过程中，都会从Flash存储介质上加载自身代码到内存，然后进行重定位，跳到内存RAM中去执行。U-boot是怎么完成代码自复制的呢？（或者说它是怎样将自身代码从Flash复制到内存的呢？）</p>
+<p>在复制自身代码的过程中，一个主要的疑问就是：U-boot是如何识别自身代码的？是如何知道从哪里开始复制代码的？是如何知道复制到哪里停止的？这个时候我们不得不说起U-boot源码中的零长度数组  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> __image_copy_start[<span class="hljs-number">0</span>] __attribute__((section(<span class="hljs-string">&quot;.__image__start&quot;</span>)));<br><span class="hljs-type">char</span> __image_copy_end[<span class="hljs-number">0</span>] __attribute__((section(<span class="hljs-string">&quot;.__image_copy_end&quot;</span>)));<br></code></pre></td></tr></table></figure>
+
+<p>这两行代码的作用是分别定义一个零长度数组，并指示编译器要分 别 放 在<code>.__image_copy_start</code>和 <code>.__image_copy_end </code>这 两 个 section中  </p>
+<p>链接器在链接各个目标文件时，会按照链接脚本里各个section的排列顺序，将各个section组装成一个可执行文件  </p>
+<p><code>__image_copy_start </code>和<code>__image_copy_end</code> 这 两 个 section ， 在 链 接 的 时 候 分 别 放 在 了 代 码<br>段.text的前面、数据段.data的后面，作为U-boot复制自身代码的起始地址和结束地址。而在这两个section中，我们除了放两个零长度数组，并没有放其他变量，其实就分别代表了U-boot镜像要复制自身镜像的起始地址和结束地址  </p>
+<h1 id="6-7-属性声明：aligned"><a href="#6-7-属性声明：aligned" class="headerlink" title="6.7 属性声明：aligned"></a>6.7 属性声明：aligned</h1>
                 
               </div>
             
@@ -625,6 +731,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/07/17/C-Primer-%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%A7%8B/" title="C++ Primer 第1章 开始">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C++ Primer 第1章 开始</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChengKhen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本章将编写一个程序来解决简单的书店问题 我们的书店保存所有销售记录的档案，每条记录保存了某本书的一次销售的信息（一册或多册），每条记录包含三个数据项：    ISBN号 售出册数 书的单价    0-201-70353-X 4 24.99   有时，老板需要查询此档案，计算每本书的销售量、销售额及平均售价 这个程序必须  定义变量 进行输入和输出 使用数据结构保存数据 检测两条记录是否有相同的IS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer 第1章 开始">
+<meta property="og:url" content="http://example.com/2023/07/17/C-Primer-%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%A7%8B/index.html">
+<meta property="og:site_name" content="Blog of ChengKhen">
+<meta property="og:description" content="本章将编写一个程序来解决简单的书店问题 我们的书店保存所有销售记录的档案，每条记录保存了某本书的一次销售的信息（一册或多册），每条记录包含三个数据项：    ISBN号 售出册数 书的单价    0-201-70353-X 4 24.99   有时，老板需要查询此档案，计算每本书的销售量、销售额及平均售价 这个程序必须  定义变量 进行输入和输出 使用数据结构保存数据 检测两条记录是否有相同的IS">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-17T07:40:20.000Z">
+<meta property="article:modified_time" content="2023-07-18T07:14:16.049Z">
+<meta property="article:author" content="ChengKhen">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C++ Primer 第1章 开始 - Blog of ChengKhen</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ChengKhen</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C++ Primer 第1章 开始"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-17 15:40" pubdate>
+          2023年7月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++ Primer 第1章 开始</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本章将编写一个程序来解决简单的书店问题</p>
+<p>我们的书店保存所有销售记录的档案，每条记录保存了某本书的一次销售的信息（一册或多册），每条记录包含三个数据项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">ISBN号</th>
+<th align="center">售出册数</th>
+<th align="center">书的单价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0-201-70353-X</td>
+<td align="center">4</td>
+<td align="center">24.99</td>
+</tr>
+</tbody></table>
+<p>有时，老板需要查询此档案，计算每本书的销售量、销售额及平均售价</p>
+<p>这个程序必须</p>
+<ul>
+<li>定义变量</li>
+<li>进行输入和输出</li>
+<li>使用数据结构保存数据</li>
+<li>检测两条记录是否有相同的ISBN</li>
+<li>包含一个循坏来处理销售档案中的每条记录</li>
+</ul>
+<p>本章将首先介绍如何用C++来解决这些子问题，然后编写书店程序</p>
+<h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><h2 id="什么是UNIX系统"><a href="#什么是UNIX系统" class="headerlink" title="什么是UNIX系统"></a>什么是UNIX系统</h2><p>UNIX（通常以大写字母表示）是一种操作系统，它起源于20世纪70年代初在贝尔实验室开发的一套操作系统。UNIX操作系统的设计理念是以简洁、灵活和可移植为基础，它在计算机科学和工程领域产生了深远的影响，成为现代计算机系统的基石之一。</p>
+<p>UNIX系统具有以下特点：</p>
+<ol>
+<li><p>多用户和多任务：UNIX系统是多用户和多任务操作系统，允许多个用户同时访问系统并执行多个任务。</p>
+</li>
+<li><p>分时操作：UNIX系统采用了分时操作的方式，即系统将处理时间分配给多个用户，使每个用户都感觉到他们在独占地使用计算机。</p>
+</li>
+<li><p>简洁和模块化设计：UNIX系统采用了简洁和模块化的设计原则，将系统功能划分为一系列小型工具，每个工具都专注于完成一个特定的任务。这种设计风格使得UNIX系统易于开发、调试和维护，并且具有较高的可靠性。</p>
+</li>
+<li><p>文件系统：UNIX系统将文件视为操作系统的核心组成部分，提供了一个层次化的文件系统，用户和应用程序可以通过文件进行数据的读取、写入和管理。</p>
+</li>
+<li><p>命令行界面：UNIX系统最初采用了命令行界面（CLI）作为用户与系统进行交互的主要方式。用户可以通过键入命令来执行各种任务。</p>
+</li>
+<li><p>网络功能：UNIX系统早期就具备了强大的网络功能，支持远程登录、文件传输和网络通信等。</p>
+</li>
+<li><p>可移植性：UNIX系统设计时考虑了可移植性，这使得它可以轻松地在不同的硬件平台上运行，并且成为了跨平台开发的重要基础。</p>
+</li>
+</ol>
+<p>UNIX系统的开源版本包括Linux和FreeBSD等，它们在开源社区中得到广泛使用。UNIX的哲学对于现代操作系统和软件工程的发展产生了深远的影响，许多操作系统和工具都受到UNIX系统的启发。</p>
+<h1 id="1-1-编写一个简单的C-程序"><a href="#1-1-编写一个简单的C-程序" class="headerlink" title="1.1 编写一个简单的C++程序"></a>1.1 编写一个简单的C++程序</h1><ul>
+<li>每个C++程序都包含若干个函数，其中一个必须命名为main</li>
+<li>操作系统通过调用main来运行C++程序</li>
+<li>一个函数的定义包含四部分：<ul>
+<li><strong>返回类型</strong></li>
+<li><strong>函数名</strong></li>
+<li>一个括号包围的<strong>形参列表</strong></li>
+<li><strong>函数体</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-1-编译、运行程序"><a href="#1-1-1-编译、运行程序" class="headerlink" title="1.1.1 编译、运行程序"></a>1.1.1 编译、运行程序</h2><h3 id="程序源文件命名约定"><a href="#程序源文件命名约定" class="headerlink" title="程序源文件命名约定"></a>程序源文件命名约定</h3><ul>
+<li><p>程序文件通常被称为源文件</p>
+</li>
+<li><p>在大多数系统中，源文件的名字以一个后缀结尾</p>
+</li>
+<li><p>后缀告诉系统这个文件是一个C++程序</p>
+</li>
+<li><p>不同编译器使用不同的后缀命名约定，最常见的包括.cc、.cxx、.cpp、.cp及.c</p>
+</li>
+</ul>
+<h3 id="从命令行运行编译器"><a href="#从命令行运行编译器" class="headerlink" title="从命令行运行编译器"></a>从命令行运行编译器</h3><p>假定main程序保存在<code>prog.cc</code>中，我们可以用如下命令来编译它</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">CC prog1.cc</span><br></code></pre></td></tr></table></figure>
+
+<p>其中，CC是编译器程序的名字，$是系统提示符。编译器生成一个可执行文件</p>
+<p>Windows系统会将这个可执行文件命名为prog1.exe</p>
+<p>UNIX系统中的编译器通常将可执行文件命名为a.out</p>
+<p>为了在Windows系统中运行一个可执行文件，我们需要提供可执行文件的文件名，可以忽略其扩展名.exe</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">prog1</span><br></code></pre></td></tr></table></figure>
+
+<p>在一些系统中，即使文件就在当前目录或文件夹中，你也必须显式指出文件的位置。在此情况下，我们可以键入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">.\prog1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>“.”后跟一个反斜线</strong>指出该文件在当前目录中</p>
+<p>为了在UNIX系统中运行一个可执行文件，我们需要使用全文件名，包括文件扩展名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">a.out</span><br></code></pre></td></tr></table></figure>
+
+<p>如果需要指定文件位置，需要用一个<strong>“.”后跟一个斜线</strong>来指出可执行文件位于当前目录中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">./a.out</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>访问main的返回值的方法依赖于系统。在UNIX和Windows系统中，执行完一个程序后，都可以通过echo命令获得其返回值</p>
+<p>在UNIX系统中，通过如下命令获得状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> $?</span><br></code></pre></td></tr></table></figure>
+
+<p>在Windows系统中查看状态可键入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> %ERRORLEVEL%</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="GNU和微软编译器"><a href="#GNU和微软编译器" class="headerlink" title="GNU和微软编译器"></a>GNU和微软编译器</h3><p>在不同操作和编译器系统中，运行C++编译器的命令也各不相同。最常用的编译器是GNU编译器和微软Visual Studio编译器。</p>
+<p>默认情况下：</p>
+<p>运行GNU编译器的命令是g++：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">g++ -o prog1 prog1.cc</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>$是系统提示符</li>
+<li>-o prog1 是编译器参数，制定了可执行文件的文件名</li>
+<li>在不同的操作系统中，此命令生成一个名为prog1或prog1.exe的可执行文件</li>
+</ul>
+<p>运行微软 Visual Studio 2010编译器的命令为c1：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\me\Programs&gt; c1 /EHsc prog1.cpp<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>C:\Users\me\Programs&gt;是系统提示符</li>
+<li>\Users\me\Programs是当前目录名</li>
+<li>命令c1调用编译器，&#x2F;EHsc是编译器选项，用来打开标准异常处理</li>
+</ul>
+<p>编译器通常都包含一些选项，能对有问题的程序结构发出警告。打开这些选项通产是一个好习惯。我们习惯在GNU编译器中使用-Wall选项，在微软编译器中则使用&#x2F;W4</p>
+<h1 id="1-2-初识输入输出"><a href="#1-2-初识输入输出" class="headerlink" title="1.2 初识输入输出"></a>1.2 初识输入输出</h1><p>C++语言并未定义任何输入输出语句，取而代之，包含了一个全面的标准库来提供IO机制（以及很多其他设施）</p>
+<p><strong>iostream库</strong></p>
+<ul>
+<li>iostream库包含两个基础类型istream和ostream</li>
+<li>分别表示输入流和输出流</li>
+<li>一个流就是一个字符序列，是从IO设备读出或写入IO设备的</li>
+<li>术语“流”想要表达的是，随着时间的推移，字符是顺序生成或消耗的。</li>
+</ul>
+<h2 id="标准输入输出对象"><a href="#标准输入输出对象" class="headerlink" title="标准输入输出对象"></a>标准输入输出对象</h2><p>标准库定义了4个IO对象。</p>
+<ul>
+<li>为了处理输入，我们使用一个名为<code>cin</code>的<code>istream</code>类型的对象，这个对象也被称为标准输入</li>
+<li>对于输出，我们使用一个名为<code>cout</code>的<code>ostream</code>类型的对象，此对象也被称为标准输出</li>
+<li>标准库还定义了其他两个<code>ostream</code>对象，名为<code>cerr</code>和<code>clog</code></li>
+<li>通常用<code>cerr</code>来输出警告和错误信息，因此它也被称为标准错误</li>
+<li><code>clog</code>用来输出程序运行时的一般性信息</li>
+</ul>
+<h2 id="一个使用IO库的程序"><a href="#一个使用IO库的程序" class="headerlink" title="一个使用IO库的程序"></a>一个使用IO库的程序</h2><p>在书店程序中，我们需要将多条记录合并成单一的汇总记录。作为一个相关的，但更为简单的问题，如何将两个数相加，通过IO库，我们可以扩展main程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enter two numbers:&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-type">int</span> v1 = <span class="hljs-number">0</span>, v2 = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;The sum of &quot;</span> &lt;&lt; v1 &lt;&lt; <span class="hljs-string">&quot; and &quot;</span> &lt;&lt; v2 &lt;&lt; <span class="hljs-string">&quot;is&quot;</span> &lt;&lt; v1+v2 &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="向流写入数据"><a href="#向流写入数据" class="headerlink" title="向流写入数据"></a>向流写入数据</h2><ul>
+<li>main函数的第一条语句执行了一个表达式，使用输出运算符（&lt;&lt;）在标准输出上打印消息</li>
+<li>&lt;&lt;运算符接受两个运算对象：左侧的运算对象必须是一个ostream对象，右侧的运算对象是要打印的值</li>
+<li>此运算符将给定的值写到给定的ostream对象中</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enter two numbers:&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
+
+<p>等效于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enter two numbers:&quot;</span>;<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个输出运算符给用户打印一个消息，这个消息是一个字符串字面值常量，是用一对双引号包围的字符序列，在双引号之间的文本被打印到标准输出</li>
+<li>第二个运算符打印<code>endl</code>，这是一个被称为<strong>操纵符</strong>的特殊值，写入<code>endl</code>的效果是结束当前行，并将与设备关联的缓冲区中的内容刷到设备中，缓冲刷新操作可以保证到目前为止程序所产生的所有输出都真正写入输出流中，而不是仅停留在内存中等待写入流</li>
+</ul>
+<h2 id="使用标准库中的名字"><a href="#使用标准库中的名字" class="headerlink" title="使用标准库中的名字"></a>使用标准库中的名字</h2><ul>
+<li><p>上面的程序使用了<code>std::out</code>和<code>std::endl</code>，而不是直接用<code>cout</code>和<code>endl</code>，前缀<code>std::</code>指出名字<code>cout</code>和<code>endl</code>是定义在名为<code>std</code>的命名空间中</p>
+</li>
+<li><p>命名空间帮助我们避免不经意的名字定义冲突，以及使用库中相同名字导致的冲突。</p>
+</li>
+<li><p>标准库定义的所有名字都在命名空间std中</p>
+</li>
+<li><p>通过命名空间使用标准库有一个副作用：当使用标准库中的一个名字时，必须显式说明我们想使用来自命名空间std中的名字</p>
+</li>
+</ul>
+<h2 id="从流读取数据"><a href="#从流读取数据" class="headerlink" title="从流读取数据"></a>从流读取数据</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>输入运算符（&gt;&gt;）与输出运算符类似，它接受一个<code>istream</code>作为其左侧运算对象，接收一个对象作为其右侧运算对象</li>
+<li>它从给定的istream读入数据，并存入给定对象中，与输出运算符类似，输入运算符返回其左侧运算对象作为其计算结果。</li>
+</ul>
+<p>因此，此表达式等价于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; v1) &gt;&gt; v2;<br></code></pre></td></tr></table></figure>
+
+<p>还等效于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; v1;<br><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; v2;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="完成程序"><a href="#完成程序" class="headerlink" title="完成程序"></a>完成程序</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;The sum of &quot;</span> &lt;&lt; v1 &lt;&lt; <span class="hljs-string">&quot; and &quot;</span> &lt;&lt; v2 &lt;&lt; <span class="hljs-string">&quot;is&quot;</span> &lt;&lt; v1+v2 &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>运算对象并不都是相同类型的值，某些运算符对象是字符串字面值常量，例如“The sum of”。其他运算对象则是int值，如v1、v2以及算术表达式v1+v2的计算结果。</li>
+<li>标准库定义了不同版本的输入输出运算符，来处理这些不同类型的运算对象</li>
+</ul>
+<h1 id="1-3-注释简介"><a href="#1-3-注释简介" class="headerlink" title="1.3 注释简介"></a>1.3 注释简介</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C-Premier%E5%AD%A6%E4%B9%A0/" class="category-chain-item">C++Premier学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++ Primer 第1章 开始</div>
+      <div>http://example.com/2023/07/17/C-Primer-第1章-开始/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChengKhen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月17日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/17/C-Primer-%E7%AC%AC2%E7%AB%A0-C-%E5%9F%BA%E7%A1%80/" title="C++ Primer 第2章 C++基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C++ Primer 第2章 C++基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/14/%E7%AC%AC6%E7%AB%A0-GNU-C%E7%BC%96%E8%AF%91%E5%99%A8%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/" title="第6章 GNU C编译器扩展语法">
+                        <span class="hidden-mobile">第6章 GNU C编译器扩展语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
